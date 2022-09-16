@@ -91,7 +91,7 @@ const getGalleryImages = (path, list, fileName) => {
                             siteTitle : metadata.siteTitle,
                             homeTitle : metadata.homeTitle,
                             sousHomeTitle : metadata.sousHomeTitle,
-                            logoPic : metadata.logoPic,
+                            picLogo : metadata.picLogo,
                             fb : metadata.fb, 
                             insta : metadata.insta,
                             picHome : metadata.picHome,
