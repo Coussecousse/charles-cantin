@@ -11,8 +11,6 @@ let galleryList       = [];
 let servicesList      = [];
 let globalList        = [];
 
-let metadata = {};
-
 let allFiles          = [
     {
         path : dirPathGallery,
@@ -40,7 +38,6 @@ const getGalleryImages = (path, list, fileName) => {
         let ilist = [];
         files.forEach((file, i) => {
             let obj = {};
-            console.log()
             fs.readFile(`${path}/${file}`, "utf8", (err, contents) => {
                 const getMetadataIndices = (acc, element, i) => {
                     if (/^---/.test(element)) {
@@ -61,7 +58,6 @@ const getGalleryImages = (path, list, fileName) => {
                 const lines = contents.split('\n');
                 const metadataIndices = lines.reduce(getMetadataIndices, []);
                 metadata = parseMetadata({lines, metadataIndices});
-                console.log(metadata);
                 switch(fileName) {
                     case 'gallery': 
                         object  = {
@@ -95,6 +91,7 @@ const getGalleryImages = (path, list, fileName) => {
                             siteTitle : metadata.siteTitle,
                             homeTitle : metadata.homeTitle,
                             sousHomeTitle : metadata.sousHomeTitle,
+                            logoPic : metadata.logoPic,
                             fb : metadata.fb, 
                             insta : metadata.insta,
                             picHome : metadata.picHome,
