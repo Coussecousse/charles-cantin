@@ -2,7 +2,7 @@ const paths = {
     HOME : '/',
     GALLERY : '/galerie',
     SERVICES : '/prestations',
-    CONTACT : 'contact',
+    CONTACT : '/contact',
 }
 
 export default paths;
