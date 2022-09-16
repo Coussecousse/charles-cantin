@@ -18,7 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "node public/magic.js"
+    "server": "node public/makeJSONFile.js"
   },
   "eslintConfig": {
     "extends": [
