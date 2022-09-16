@@ -8,7 +8,7 @@ export default function Header() {
     return (
         <header>
             <div>
-                <Logo></Logo>
+                <h1>Logo</h1>
             </div>
             <nav>
                 <Navigation></Navigation>
