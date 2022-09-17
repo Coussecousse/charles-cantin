@@ -91,3 +91,35 @@ h2 {
 	font-weight: var(--fw-secondary);
 	font-size: 2rem;
 }
+
+/* HEADER */
+
+.link {
+    color:var(--color-secondary);
+    text-decoration: none;
+}
+.link, .active {
+    transition: .2s linear;
+}
+.link:hover, .active:hover{
+    display: inline-block;
+    transform: scale(1.2);
+}
+.active:hover:after {
+    bottom: -7px;
+    height: 1.5px;
+}
+.active {
+    position: relative;
+}
+
+.active:after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35px;
+    height: 1px;
+    background-color: var(--color-secondary);
+}
