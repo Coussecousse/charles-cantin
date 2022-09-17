@@ -4,12 +4,20 @@ import classes from './Layout.module.css'
 
 import data from "../../global.json";
 import Header from '../../components/Header/Header';
+import Footer from "../../components/Footer/Footer";
 
 
 export default function Layout(props){
     let background;
     let location = useLocation();
 
+    const isItHome = () => {
+        if (location.pathname){
+            return true;
+        } else {
+            return false;
+        }
+    }
     const getBackground = () => {
         switch(location.pathname){
             case '/' : 
@@ -39,13 +47,17 @@ export default function Layout(props){
     }
     getBackground();
     return (
+        // <div style={(isItHome()) ? {height : '100vh'} : undefined }>
         <>
-            <div className={classes.Background} style={background}></div>
-            <div className={classes.Main}>
-                <Header></Header>
-                {props.children}
+            <div className={classes.Container} style={(isItHome()) ? {} : undefined}>
+                <div className={classes.Background} style={background}></div>
+                <div style = {{border : 'solid'}}>
+                    <Header></Header>
+                    {props.children}
+                </div>
             </div>
-            {/* {Footer} */}
+            <Footer></Footer>
         </>
+        // {/* </div> */}
     )
 }
