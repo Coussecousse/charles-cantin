@@ -10,9 +10,9 @@
 	--ff-primary : Playfaire Display, serif;
 	--ff-secondary : Source Serif Pro, serif;
 
-	--fw-primary-500 : 500;
-	--fw-primary-600 : 600;
-	--fw-secondary : 400;
+	--fw-400 : 400;
+	--fw-500 : 500;
+	--fw-600 : 600;
 
 	--fs-500 : 1rem;
 	--fs-600 : 2rem;
@@ -53,10 +53,11 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	font-family: Playfair Display, serif;
-	font-weight: 400;
+	font-weight: var(--fw-400);
 	line-height: 1;
 	width : 100vw;
 	overflow-x: hidden;
+	box-sizing: border-box;
 }
 ol, ul {
 	list-style: none;
@@ -74,6 +75,10 @@ table {
 	border-spacing: 0;
 }
 /* GENERAL */
+.App {
+	height: 100vh;
+	width: 100vw;
+}
 header > div > nav {
 	display: flex;
 	align-items: center;
@@ -135,11 +140,30 @@ header .active:after {
 /* FOOTER */
 footer {
 	background-color: var(--color-600);
-	height: 10%;
-	max-height : 130px;
+	height: 12vh;
 	position: absolute;
 	bottom: 0; 
 }
-footer img {
+/* footer img {
 	height: 90%;
+	max-height: 80px;
+} */
+footer ul {
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	row-gap: .3rem;
+	column-gap: 5rem;
+}
+footer li {
+	list-style: inside;
+	color: var(--color-secondary);
+}
+footer a {
+	color: var(--color-secondary);
+	text-decoration: none;
+}
+footer a:hover, footer .active:hover {
+	transform: scale(1);
+	text-decoration: underline;
 }

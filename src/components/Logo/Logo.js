@@ -10,7 +10,7 @@ export default function Logo() {
     return (
         <>
             <NavLink to={paths.HOME} className={({isActive}) => (isActive ? '' : '' )}>
-                <img src={data[0].picLogo} alt="Logo Charles Cantin"></img>
+                <img src={data[0].logoHeader} alt="Logo Charles Cantin"></img>
             </NavLink>
         </>
     )
