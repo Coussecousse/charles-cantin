@@ -6,8 +6,10 @@ export default function Home(){
 
     return(
         <main className={classes.Home}>
-            <h1>{data[0].homeTitle}</h1>
-            <h2>{data[0].sousHomeTitle}</h2>
+            <div className={classes.TitleContainer}>
+                <h1 className={classes.Title}>{data[0].homeTitle}</h1>
+                <h2>{data[0].sousHomeTitle}</h2>
+            </div>
         </main>
     )
 }
