@@ -24,6 +24,7 @@ export default function Layout(props){
                 background  = {
                     backgroundImage :  'url(' + data[0].picHome +')',
                     backgroundSize : 'cover',
+                    backgroundPosition: 'center',
                     filter : 'blur(2px)',
                 }
                 break;
@@ -49,9 +50,9 @@ export default function Layout(props){
     return (
         // <div style={(isItHome()) ? {height : '100vh'} : undefined }>
         <>
-            <div className={classes.Container} style={(isItHome()) ? {} : undefined}>
+            <div className={classes.Container} style={(isItHome()) ? {height : '90vh'} : undefined}>
                 <div className={classes.Background} style={background}></div>
-                <div style = {{border : 'solid'}}>
+                <div style = {{border : 'solid', height : '100%'}}>
                     <Header></Header>
                     {props.children}
                 </div>

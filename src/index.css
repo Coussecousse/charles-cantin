@@ -83,37 +83,45 @@ header > div > nav {
 
 h1 {
 	font-weight: var(--fw-primary-500);
-	font-size: 4rem;
+	font-size: clamp(2rem, 0.545rem + 7.27vw, 6rem);
 	text-transform: uppercase;
 	color: var(--color-secondary);
 }
 h2 {
 	font-weight: var(--fw-secondary);
-	font-size: 2rem;
+	font-size: clamp(1.5rem, 0.955rem + 2.73vw, 3rem);
 }
 
 /* HEADER */
-
-.link {
+header img {
+	height : 20vw;
+	max-height: 90px;
+}
+header ul {
+	display: inline-flex;
+	gap: 3rem;
+	font-size:clamp(1rem, 0.818rem + 0.91vw, 1.2rem);
+}
+header ul .link {
     color:var(--color-secondary);
     text-decoration: none;
 }
-.link, .active {
+header .link, .active {
     transition: .2s linear;
 }
-.link:hover, .active:hover{
+header .link:hover, .active:hover{
     display: inline-block;
     transform: scale(1.2);
 }
-.active:hover:after {
+header .active:hover:after {
     bottom: -7px;
     height: 1.5px;
 }
-.active {
+header .active {
     position: relative;
 }
 
-.active:after {
+header .active:after {
     content: '';
     position: absolute;
     bottom: -4px;
@@ -122,4 +130,16 @@ h2 {
     width: 35px;
     height: 1px;
     background-color: var(--color-secondary);
+}
+
+/* FOOTER */
+footer {
+	background-color: var(--color-600);
+	height: 10%;
+	max-height : 130px;
+	position: absolute;
+	bottom: 0; 
+}
+footer img {
+	height: 90%;
 }
