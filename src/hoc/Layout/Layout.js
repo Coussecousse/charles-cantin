@@ -8,37 +8,47 @@ import Footer from "../../components/Footer/Footer";
 
 
 export default function Layout(props){
-    const isItHome = () => {
-        if (location.pathname){
-            return true;
-        } else {
-            return false;
-        }
-    }
-    let [mobile, setMobile] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [mobile, setMobile] = useState(false);
+    let resize;
 
-    const WindowSize = () => {
-
-        let windowWidth = window.innerWidth;
-        if (windowWidth < 768) {
+    useEffect(() => {
+        if (window.innerWidth < 768) {
             setMobile(true);
         } else {
             setMobile(false);
         }
-        background = getBackground();
+    }, [windowWidth]);
+
+    window.addEventListener('resize', () => {
+        function resizeFunction() {
+            console.log(windowWidth);
+            console.log(window.innerWidth);
+            console.log('resize');
+            let widthState = window.innerWidth;
+            setWindowWidth(widthState);
+        }
+        clearTimeout(resize);
+        resize = setTimeout(resizeFunction, 100)
+    })
+
+    let location  = useLocation();
+
+    const isItHome = () => {
+
+        if (location.pathname){
+            return true;
+        } else{
+            return false;
+        }
     }
-    let location = useLocation();
-    
     const getBackground = () => {
-        console.log(data[0].posXYMobileHome)
-        
         switch(location.pathname){
-            case '/' : 
+            case '/': 
                 if (mobile){
                     return {
-                        backgroundImage :  'url(' + data[0].picHome +')',
-                        backgroundSize : 'cover',
-                        backgroundPosition: data[0].posXYMobileContact,
+                        backgroundImage : 'url(images/home.jpg)',
+                        backgroundPosition: "75% 50%",
                         filter : 'blur(2px)',
                         height : '100%',
                     }
@@ -46,13 +56,12 @@ export default function Layout(props){
                     return {
                         backgroundImage :  'url(' + data[0].picHome +')',
                         backgroundSize : 'cover',
-                        backgroundPosition: 'center',
+                        backgroundPosition: "center",
                         filter : 'blur(2px)',
-                        height: '90%'
-                    }
+                        height : '90%',
+                    };
                 }
-                
-            case '/galerie' : 
+            case '/galerie' :
             case '/prestations' :
                 if (mobile){
                     return {
@@ -65,46 +74,39 @@ export default function Layout(props){
                         height: '90%'
                     }
                 }
-            case '/contact' :
-                if (mobile){
+            case '/contact': 
+            console.log('contact')
+                if (mobile) {
                     return {
                         backgroundImage : 'url(' + data[0].picContact +')',
-                        backdropFilter : 'blur(7px)',
-                        heigth : '100%'
+                        backgroundPosition : 'center',
+                        filter : 'blur(2px)',
+                        heigth : '100%',
                     }
                 } else {
                     return {
                         backgroundImage : 'url(' + data[0].picContact +')',
-                        backdropFilter : 'blur(7px)',
-                        height : '90%' 
+                        backgroundPosition : 'center',
+                        filter : 'blur(2px)',
+                        height : '90%',
                     }
                 }
             default : 
                 return {
-                    background : '#fff'
+                    backgroundColor : '#fff',
                 }
         }
     }
-    let background = getBackground();
-    console.log(background)
-
-    // useEffect(() => {
-    //     WindowSize();
-    //     console.log('coucou');
-    // }, [])
-    window.addEventListener('resize', WindowSize);
     return (
-        // <div style={(isItHome()) ? {height : '100vh'} : undefined }>
         <>
-            <div className={classes.Container} style={(isItHome()) ? {height : '88vh'} : undefined}>
-                <div className={classes.Background} style={background}></div>
+            <div className={classes.Container} style={{height: '90vh'}}>
+                <div className={classes.Background} style={getBackground()}></div>
                 <div style = {{height : '100%'}}>
                     <Header mobile={mobile}></Header>
                     {props.children}
                 </div>
             </div>
-            {mobile ? null :<Footer></Footer>}
+            {mobile ? null : <Footer></Footer>}
         </>
-        // {/* </div> */}
     )
 }

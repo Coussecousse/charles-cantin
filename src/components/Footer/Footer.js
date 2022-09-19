@@ -9,7 +9,6 @@ import data from '../../global.json'
 import paths from "../../config/paths";
 
 export default function Footer(){
-    console.log(data[0].logo)
     return(
         <footer style={{width : '100vw'}}>
             <div className={classes.FooterContainer}>

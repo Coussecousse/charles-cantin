@@ -7,8 +7,8 @@ logoFooter : /images/logo-footer.png
 fb : https://www.facebook.com/
 insta : autreurl.com
 picHome : /images/home.jpg
-posXMobileHome : 50%
-posYMobileHome : 75%
+posXMobileHome : 75%
+posYMobileHome : 50%
 picContact : images/contact.jpg
 posXMobileContact : 50%
 posYMobileContact : 50%
