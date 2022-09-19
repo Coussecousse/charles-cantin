@@ -87,19 +87,20 @@ const getGalleryImages = (path, list, fileName) => {
                         }
                         break;
                     case 'global' : 
+                        let pos = [metadata.posXMobileHome, metadata.posYMobileHome].join(' ')
                         object = {
                             siteTitle : metadata.siteTitle,
                             homeTitle : metadata.homeTitle,
                             sousHomeTitle : metadata.sousHomeTitle,
-                            picLogo : metadata.picLogo,
+                            logoHeader : metadata.logoHeader,
+                            logoFooter : metadata.logoFooter,
                             fb : metadata.fb, 
                             insta : metadata.insta,
                             picHome : metadata.picHome,
-                            posXMobileHome : metadata.posXMobileHome,
-                            posYMobileHome : metadata.posYMobileHome,
+                            posXYMobileHome : pos,
                             picContact : metadata.picContact,
                             posXMobileContact : metadata.posXMobileContact,
-                            posYMobileContact : metadata.posYMobileContact
+                            posYMobileContact : metadata.posYMobileContact,
                         }
                         break;
                     default : 

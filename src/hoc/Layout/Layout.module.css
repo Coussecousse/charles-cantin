@@ -1,7 +1,6 @@
 .Background {
-    height : 90vh;
     width: 100vw;
     position: absolute;
+    background-size : 'cover';
     z-index: -1;
-
 }
