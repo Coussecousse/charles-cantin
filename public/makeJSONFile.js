@@ -64,7 +64,7 @@ const getGalleryImages = (path, list, fileName) => {
                             id : uuidv4(),
                             pic : metadata.pic,
                             alt : metadata.alt,
-                            categorie : metadata.categorie,
+                            categories : metadata.categorie,
                             size : metadata.size,
                             posX : metadata.posX,
                             posY : metadata.posY,

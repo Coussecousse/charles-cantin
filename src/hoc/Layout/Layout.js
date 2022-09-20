@@ -81,7 +81,7 @@ export default function Layout(props){
                         backgroundImage : 'url(' + data[0].picContact +')',
                         backgroundPosition : 'center',
                         filter : 'blur(2px)',
-                        heigth : '100%',
+                        height : '100%',
                     }
                 } else {
                     return {

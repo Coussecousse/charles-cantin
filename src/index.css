@@ -96,6 +96,10 @@ h2 {
 	font-weight: var(--fw-secondary);
 	font-size: clamp(1.5rem, 0.955rem + 2.73vw, 3rem);
 }
+.titleSection {
+	margin: 1rem 0;
+	text-align: center;
+}
 
 /* HEADER */
 header img {
@@ -136,6 +140,8 @@ header .active:after {
     height: 1px;
     background-color: var(--color-secondary);
 }
+
+/* GALLERY */
 
 /* FOOTER */
 footer {
