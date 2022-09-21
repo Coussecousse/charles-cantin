@@ -1,33 +1,19 @@
 import React, { useState, useEffect } from "react";
+import classes from './Filter.module.css';
 
-import galleryData from '../../../gallery.json'
+import Categories from './Categories/Categories';
 
-export default function Filter() {
-    const [categories, setCategories] = useState([]);
+export default function Filter(props) {
 
-    useEffect(() => {
-        let categoriesTab = [];
-
-        galleryData.map((photo) => {
-            let multipleCategories = photo.categories;
-
-            multipleCategories = multipleCategories.split(" ");
-            for (let categorie of multipleCategories){
-                categorie = categorie.split('');
-                categorie = categorie.filter(item => item !== '\r');
-                categorie = categorie.join('');
-
-                categoriesTab.push(categorie);
-            }            
-            categoriesTab = [...new Set(categoriesTab)];
-
-            setCategories(categoriesTab);
-        })
-    }, [])
+    useEffect(() => {        
+        console.log(props.searching)
+    },[])
     return(
-        <div>
-            <input id="filter" type="text" name="filter" placeholder="Filter"/>
-        
+        <div className={classes.Filter}>
+            <input id="filter" type="text" name="filter" placeholder="Filter" onChange={props.change} autoComplete="off" className={props.searching ? classes.ActiveInput : null}/>
+            {props.searching ? <Categories categories={props.categories} 
+                                           value={props.value} 
+                                           filterClick={props.filterClick}></Categories> : null}
         </div>
     )
 }

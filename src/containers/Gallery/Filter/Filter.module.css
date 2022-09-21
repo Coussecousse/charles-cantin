@@ -1,0 +1,65 @@
+.Filter {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Filter input, .Filter ul {
+    width:100%;
+    max-width: 150px;
+    background-color: var(--color-primary);
+    border: solid var(--color-secondary) 1px;
+    border-radius: 29px;
+    padding : .2rem .8rem;
+    font-size: 1.1rem;
+    font-family: var(--ff-primary);
+    color: var(--color-secondary);
+}
+.Filter ul {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    max-height: 150px;
+    overflow: hidden;
+    overflow-y: scroll;
+    text-align: center;
+}
+.Filter input::placeholder {
+    color: var(--color-secondary);
+}
+.Filter input, .Filter input::placeholder {
+    opacity: .8;
+}
+
+.Filter input:focus, .Filter .ActiveInput {
+    opacity: 1;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px; 
+}
+
+.Filter input:focus, .Filter ul, .Filter .ActiveInput {
+    background: var(--color-secondary);
+    color: var(--color-700);
+}
+.Filter button {
+    border:none;
+    background-color: var(--color-secondary);
+    font-family: var(--ff-primary);
+    font-size: 1.1rem;
+}
+.Filter li {
+    padding: .250rem 0;
+    transition: .1s linear;
+}
+.Filter li:hover {
+    transform: scale(1.2);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-600);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-button {
+    height: 25px;
+}
