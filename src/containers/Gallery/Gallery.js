@@ -141,6 +141,7 @@ export default function Gallery() {
                 <Filter searching={searching} 
                         change={handleChange} 
                         value={InputValue} 
+                        filtredCategories = {filtredCategories}
                         filterClick={handleAddFilter}
                         categories={categories}></Filter>
             </div>

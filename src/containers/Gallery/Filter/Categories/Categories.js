@@ -16,7 +16,7 @@ export default function Categories(props) {
     
     return(
         <>
-            <ul className={classes.LiCategories} id="li-Filter">
+            <ul className={classes.UlCategories} id="ul-categories">
                 {Allcategorie}
             </ul>
         </>

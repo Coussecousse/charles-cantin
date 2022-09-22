@@ -1,0 +1,14 @@
+.FiltredCategoriesStyle li {
+    display: flex;
+    align-items: center;
+    border: solid white;
+    background: var(--color-secondary);
+    border-radius: 29px;
+    text-align: center;
+}
+.FiltredCategoriesStyle li .LiFiltred button{
+    display: flex;
+}
+.FiltredCategoriesStyle li .LiFiltred i {
+    align-items: center;
+}
