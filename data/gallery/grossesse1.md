@@ -1,6 +1,6 @@
 ---
-pic : images/grossesse1.jpg,
-alt : Grossesse    
+pic : /images/grossesse1.jpg
+alt : Grossesse
 categorie : Grossesse
 size : 3/3
 posX : 50%

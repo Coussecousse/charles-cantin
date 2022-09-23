@@ -33,13 +33,15 @@ export default function Layout(props){
     })
 
     let location  = useLocation();
-
-    const isItHome = () => {
-
-        if (location.pathname){
-            return true;
-        } else{
-            return false;
+    const styleContainer = () => {
+        if (mobile){
+            return {
+                minHeight : '100vh'
+            }
+        } else {
+            return {
+                minHeight : '90vh'
+            }
         }
     }
     const getBackground = () => {
@@ -48,9 +50,8 @@ export default function Layout(props){
                 if (mobile){
                     return {
                         backgroundImage : 'url(images/home.jpg)',
-                        backgroundPosition: "75% 50%",
+                        backgroundPosition: "68% 30%",
                         filter : 'blur(2px)',
-                        height : '100%',
                     }
                 } else {
                     return {
@@ -58,21 +59,12 @@ export default function Layout(props){
                         backgroundSize : 'cover',
                         backgroundPosition: "center",
                         filter : 'blur(2px)',
-                        height : '90%',
                     };
                 }
             case '/galerie' :
             case '/prestations' :
-                if (mobile){
-                    return {
-                        backgroundColor : 'var(--color-primary)',
-                        height: '100%'
-                    }
-                } else {
-                    return {
-                        backgroundColor : 'var(--color-primary)',
-                        height: '90%'
-                    }
+                return {
+                    backgroundColor : 'var(--color-primary)',
                 }
             case '/contact': 
             console.log('contact')
@@ -81,14 +73,12 @@ export default function Layout(props){
                         backgroundImage : 'url(' + data[0].picContact +')',
                         backgroundPosition : 'center',
                         filter : 'blur(2px)',
-                        height : '100%',
                     }
                 } else {
                     return {
                         backgroundImage : 'url(' + data[0].picContact +')',
                         backgroundPosition : 'center',
                         filter : 'blur(2px)',
-                        height : '90%',
                     }
                 }
             default : 
@@ -99,9 +89,9 @@ export default function Layout(props){
     }
     return (
         <>
-            <div className={classes.Container} style={{height: '90vh'}}>
+            <div className={classes.Container} style={styleContainer()}>
                 <div className={classes.Background} style={getBackground()}></div>
-                <div style = {{height : '100%'}}>
+                <div className={classes.ChildContainer}>
                     <Header mobile={mobile}></Header>
                     {props.children}
                 </div>

@@ -1,5 +1,5 @@
 ---
-pic : images/evenement-concert1.jpg,
+pic : /images/evenement-concert1.jpg
 alt : Concert
 categorie : Évènement Baptême
 size : 3/3

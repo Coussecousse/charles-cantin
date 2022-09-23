@@ -1,5 +1,5 @@
 ---
-pic : images/evenement-bapteme1.jpg,
+pic : /images/evenement-bapteme1.jpg
 alt : Baptême
 categorie : Baptême Évènement
 size : 3/3

@@ -1,5 +1,5 @@
 ---
-pic : images/couple1.jpg,
+pic : /images/couple1.jpg
 alt : Couple    
 categorie : Couple
 size : 3/3

@@ -1,5 +1,5 @@
 ---
-pic : images/famille2.jpg,
+pic : /images/famille2.jpg
 alt : Famille    
 categorie : Famille
 size : 3/3

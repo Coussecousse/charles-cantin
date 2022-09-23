@@ -1,6 +1,6 @@
 ---
-pic : images/famille3.jpg,
-alt : Famille    
+pic : /images/famille3.jpg
+alt : Famille
 categorie : Famille
 size : 3/3
 posX : 50%

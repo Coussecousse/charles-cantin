@@ -1,6 +1,6 @@
 ---
-pic : images/evenement-mariage1.jpg,
-alt : Mariage    
+pic : /images/evenement-mariage1.jpg
+alt : Mariage
 categorie : Famille Évènement Mariage
 size : 3/3
 posX : 50%

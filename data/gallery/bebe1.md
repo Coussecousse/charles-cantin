@@ -1,5 +1,5 @@
 ---
-pic : images/bebe1.jpg,
+pic : /images/bebe1.jpg
 alt : Bébé
 categorie : Bébé
 size : 3/3

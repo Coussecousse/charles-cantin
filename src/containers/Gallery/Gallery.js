@@ -164,9 +164,9 @@ export default function Gallery() {
                         filterClick={handleAddFilter}
                         removeCategorie={handleRemoveCategorie}
                         categories={categories}></Filter>
-            </div>
-            <div>
-                <Photos></Photos>
+                <div>
+                    <Photos></Photos>
+                </div>
             </div>
         </main>
     );
