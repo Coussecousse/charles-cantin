@@ -4,7 +4,7 @@ export default function FiltredCategorie(props) {
     return(
         <li>
             <p>{props.children}</p>
-            <button><i className="fa-solid fa-xmark"></i></button>
+            <button onClick={props.removeCategorie}><i className="fa-solid fa-xmark"></i></button>
         </li>
     )
 }

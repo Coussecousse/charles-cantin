@@ -2,10 +2,14 @@
     display: flex;
     justify-content: flex-end;
 }
-
-.Filter input {
-    width:100%;
+.Filter .InputDiv {
+    position: relative;
+    width: 100%;
     max-width: 150px;
+}
+.Filter input {
+    max-width: 150px;
+    max-height: 30px;
     background-color: var(--color-primary);
     border: solid var(--color-secondary) 1px;
     border-radius: 29px;
@@ -23,8 +27,7 @@
 
 .Filter input:focus, .Filter .ActiveInput {
     opacity: 1;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px; 
+    border-radius: 20px 20px 0 0;
 }
 
 .Filter input:focus ,.Filter .ActiveInput {

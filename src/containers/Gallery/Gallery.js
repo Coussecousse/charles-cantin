@@ -3,88 +3,91 @@ import { useSearchParams } from "react-router-dom";
 import classes from './Gallery.module.css'
 
 import Filter from './Filter/Filter';
+import Photos from './Photos/Photos';
 import galleryData from '../../gallery.json';
-import { isLabelWithInternallyDisabledControl } from "@testing-library/user-event/dist/utils";
-import { Button } from "bootstrap";
 
+
+function removeFromIndex(elementToScan, elementToRemove){
+    const index = elementToScan.indexOf(elementToRemove);
+    elementToScan.splice(index, 1);
+}
 
 export default function Gallery() {
-    let input;
-    let currentCategories;
-    const [searching, setSearching] = useState(false);
-    const [InputValue, setInputValue] = useState('');
+    let currentURL, currentSort, input;
+    const [searching, setSearching]       = useState(false);
+    const [InputValue, setInputValue]     = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories]     = useState([]);
     const [filtredCategories, setFiltredCategories] = useState([]);
 
-
-    useEffect(() => {
+    function getCurrentSort(container=[]){
+        currentURL  = Object.fromEntries([...searchParams]);
+        currentSort = currentURL.sort;
         
-        // Variables
-        let filtred = [];
-        currentCategories = Object.fromEntries([...searchParams]);
-        let categoriesTab = [];
-
-        // Fonctions
-        const lookForSearchFilter = () => {
-            currentCategories = currentCategories.sort;
-            currentCategories =  currentCategories.split('+');
-    
-            for( let categorie of currentCategories){
-                categorie = categorie.split('');
-                categorie[0] = categorie[0].toUpperCase();
-                categorie = categorie.join('');
-                filtred.push(categorie);
-            }
-            setFiltredCategories(filtred);
-        }
-        const addTheCategories = () => {
-            galleryData.forEach((photo) => {
-                let multipleCategories = photo.categories;
-    
-                multipleCategories = multipleCategories.split(" ");
-                for (let categorie of multipleCategories){
-                    categorie = categorie.split('');
-                    categorie = categorie.filter(item => item !== '\r');
-                    categorie = categorie.join('');
-    
-                    categoriesTab.push(categorie);
-                }            
-                
-            })
-            categoriesTab = [...new Set(categoriesTab)];
-            setCategories(categoriesTab);
-        }
-
-        addTheCategories();
-        if (Object.keys(currentCategories).length > 0){
-            lookForSearchFilter()
-        }
-    }, [])
-
-    useEffect(() =>{
-        if (Object.keys(filtredCategories).length === 0){
+        if (currentSort == undefined){
+            setFiltredCategories([]);
+            restaureCategorie(container);
+            container = [...new Set(container)];
+            setCategories(container);
             return;
         }
-        const createCategoriesState = () => {
-            let newCategories = [...categories];
-            for (let filtredCategorie of filtredCategories) {
-                const index = newCategories.indexOf(filtredCategorie);
-                if (index != -1){
-                    newCategories.splice(index, 1);
-                }
-            }
+        currentSort = currentSort.split('+');
+    }
+    function restaureCategorie(container) {
+        galleryData.forEach((photo) => {
+            let multipleCategories = photo.categories;
 
-            setCategories(newCategories);
+            multipleCategories = multipleCategories.split(" ");
+            for (let categorie of multipleCategories){
+                categorie = categorie.split('');
+                categorie = categorie.filter(item => item !== '\r');
+                categorie = categorie.join('');
+                container.push(categorie);
+            }            
+        })
+        
+    }
+    useEffect(() => {
+        let newCategorie = [];
+
+        getCurrentSort();
+
+        if (currentSort == ''){
+            setSearchParams({});
+            return;
+        } else if (currentSort == undefined){
+            return;
         }
-        createCategoriesState();
-    }, [filtredCategories]);
+        
+        let newFiltredCategories = [];
+
+        const getFiltredCategorie = () => {
+            for (let categorie of currentSort){
+                categorie    = categorie.split('');
+                categorie[0] = categorie[0].toUpperCase();
+                categorie    = categorie.join('');
+                newFiltredCategories.push(categorie);
+            }
+        }
+        getFiltredCategorie();
+
+        restaureCategorie(newCategorie);
+        newCategorie = [...new Set(newCategorie)];
+
+        // Remove filtred catégories from all list catégories
+        for (let removeCategorie of newFiltredCategories){
+            removeFromIndex(newCategorie, removeCategorie);
+        }
+
+        setFiltredCategories(newFiltredCategories);
+        setCategories(newCategorie);
+        
+    }, [searchParams]);
 
     function closeFilter(e) {
-        input = document.querySelector('#filter');    
+        input       = document.querySelector('#filter');    
         let buttons = document.querySelectorAll('#filter-button');
-        console.log(buttons.length)
-        console.log(e.target)
+
         if (buttons.length > 0 || e.target == input){
             if (e.target == input) {
                 setSearching(true);
@@ -92,7 +95,7 @@ export default function Gallery() {
                 let result;
                 buttons.forEach(button => {
                     if (e.target == button){
-                        result = true;
+                        result   = true;
                     }
                 })
                 if (result ==  true){
@@ -104,35 +107,51 @@ export default function Gallery() {
         } else {
             setSearching(false);
         }
-    }
-    useEffect(() => {
-    }, [searching]);    
+    }    
 
     function handleChange(e) {
         setInputValue(e.target.value);
     }
 
+    function handleRemoveCategorie(e) {
+        let categorieToRemove = (e.target.previousSibling);
+
+        const getCategorieToRemove = () => {
+            if (categorieToRemove == null){
+                categorieToRemove  = (e.target.parentElement.previousSibling);
+            }
+            categorieToRemove = categorieToRemove.textContent;
+        }
+        const removeTheCategorieInURL = () => {
+            categorieToRemove = categorieToRemove.toLowerCase();
+
+            getCurrentSort();
+
+            removeFromIndex(currentSort, categorieToRemove);
+            currentSort = currentSort.join('+');
+        }
+
+        getCategorieToRemove();
+        removeTheCategorieInURL();
+        
+        setSearchParams({ sort: currentSort });
+    }
 
     function handleAddFilter(e) {
-        // Add filter
         let chosenCategorie = e.target.innerHTML;
-        let newCategorie = [...filtredCategories];
-        newCategorie.push(chosenCategorie);
 
-        setFiltredCategories(newCategorie);
-
-        //setSearchParams : 
-        currentCategories = Object.fromEntries([...searchParams]);
+        currentURL      = Object.fromEntries([...searchParams]);
 
         chosenCategorie = chosenCategorie.toLowerCase();
-        if (Object.keys(currentCategories).length === 0){
+
+        if (Object.keys(currentURL).length === 0){
             setSearchParams({ sort: chosenCategorie });
         } else {
-            const oldSort = currentCategories.sort;
-            setSearchParams({ sort: oldSort+'+'+chosenCategorie});
+            const oldSort = currentURL.sort;
+            setSearchParams({ sort: oldSort + '+' + chosenCategorie});
         }
-        setSearching(true)
-    }
+        setSearching(true);
+    };
 
     return(
         <main onClick={closeFilter}>
@@ -143,7 +162,11 @@ export default function Gallery() {
                         value={InputValue} 
                         filtredCategories = {filtredCategories}
                         filterClick={handleAddFilter}
+                        removeCategorie={handleRemoveCategorie}
                         categories={categories}></Filter>
+            </div>
+            <div>
+                <Photos></Photos>
             </div>
         </main>
     );
