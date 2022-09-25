@@ -13,15 +13,12 @@ export default function Photo(props) {
                 return {
                     gridColumn: props.posColumn + ' / span 2',
                     gridRowStart: props.posRow
-                    // gridColumn : props.posColumn
-
                 }
             case '1/3\r': 
                 return {
                     gridColumn: props.posColumn + ' / span 1',
                     gridRowStart: props.posRow
-                    // gridColumn : props.posColumn
-                }
+            }
             default:
                 return {
                     width: '100%',
@@ -29,12 +26,6 @@ export default function Photo(props) {
                 }
         }
     }
-    function setPosition() {
-        return {
-            // objectPosition : props.
-        }
-    }
-    console.log(props.posRow);
     return(
         <div style={getSize()}>
             <img src={props.src} alt={props.alt} style={{objectPosition : props.posImg}}></img>
