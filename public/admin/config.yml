@@ -6,8 +6,8 @@ media_folder: "public/images"
 public_folder: /images
 
 collections:
-  - label: "Gallerie"
-    name: "gallerie"
+  - name: "gallerie"
+    label: "Gallerie"
     folder: "data/gallery/gallery.md"
     create: false
     files:
@@ -15,7 +15,7 @@ collections:
         name: "images"
         widget: list
         fields:
-          - {label: Photo, name: photo, widget: image}
+          - {label: Photo, name: pic, widget: image}
           - {label: Alt, name: alt, widget: string}
           - {label: Size, name: size, widget: select, options: [1/2, 2/2, 3/3]}
           - {label: PosX, name: posX, widget: string}
@@ -23,7 +23,6 @@ collections:
           - {label: PosX Mobile, name: posXMobile, widget: string}
           - {label: PosY Mobile, name: posYMobile, widget: string}
           - {label: Pos Row, name: posRow, widget: number, value_type: int}
-      pic : /images/evenement-bapteme1.jpg
 # alt : Baptême
 # categorie : Baptême Évènement
 # size : 3/3
