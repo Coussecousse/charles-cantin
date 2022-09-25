@@ -36,10 +36,11 @@ collections:
               - {label: Address, name: address, widget: string}
   - label: "Gallerie"
     name: "gallerie"
-    file: "data/gallery/gallery.md"
+    folder: "data/gallery/gallery.md"
+    create: false
     files:
-      - label: Images
-        name: images
+      - label: "Images"
+        name: "images"
         widget: list
         fields:
           - {label: Photo, name: photo, widget: image}
