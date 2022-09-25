@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import classes from './Filter.module.css';
 
 import Categories from './Categories/Categories';

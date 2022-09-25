@@ -24,7 +24,7 @@ export default function Gallery() {
         currentURL  = Object.fromEntries([...searchParams]);
         currentSort = currentURL.sort;
         
-        if (currentSort == undefined){
+        if (currentSort === undefined){
             setFiltredCategories([]);
             restaureCategorie(container);
             container = [...new Set(container)];
@@ -52,10 +52,10 @@ export default function Gallery() {
 
         getCurrentSort();
 
-        if (currentSort == ''){
+        if (currentSort === ''){
             setSearchParams({});
             return;
-        } else if (currentSort == undefined){
+        } else if (currentSort === undefined){
             return;
         }
         
@@ -88,17 +88,17 @@ export default function Gallery() {
         input       = document.querySelector('#filter');    
         let buttons = document.querySelectorAll('#filter-button');
 
-        if (buttons.length > 0 || e.target == input){
-            if (e.target == input) {
+        if (buttons.length > 0 || e.target === input){
+            if (e.target === input) {
                 setSearching(true);
             } else {
                 let result;
                 buttons.forEach(button => {
-                    if (e.target == button){
+                    if (e.target === button){
                         result   = true;
                     }
                 })
-                if (result ==  true){
+                if (result ===  true){
                     setSearching(true);
                 } else {
                     setSearching(false);
