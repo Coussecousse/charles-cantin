@@ -8,7 +8,7 @@ public_folder: /images
 collections:
   - label: "Gallerie"
     name: "gallerie"
-    file: "data/gallery/gallery.md"
+    folder: "data/gallery/gallery.md"
     files:
       - label: Images
         name: images
