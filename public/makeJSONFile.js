@@ -69,7 +69,9 @@ const getGalleryImages = (path, list, fileName) => {
                             posX : metadata.posX,
                             posY : metadata.posY,
                             posXMobile : metadata.posXMobile,
-                            posYMobile : metadata.posYMobile
+                            posYMobile : metadata.posYMobile,
+                            placeRow : metadata.placeRow,
+                            placeColumn : metadata.placeColumn
                         };
                         break;
                     case 'services' : 

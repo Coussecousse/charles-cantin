@@ -156,7 +156,7 @@ export default function Gallery() {
     return(
         <main onClick={closeFilter}>
             <h1 className="titleSection">Galerie</h1>
-            <div className={classes.GalleryContainer}>
+            <div className={classes.GalleryContainer} id="container">
                 <Filter searching={searching} 
                         change={handleChange} 
                         value={InputValue} 
@@ -164,7 +164,7 @@ export default function Gallery() {
                         filterClick={handleAddFilter}
                         removeCategorie={handleRemoveCategorie}
                         categories={categories}></Filter>
-                <div>
+                <div className={classes.PicsContainer}>
                     <Photos></Photos>
                 </div>
             </div>
