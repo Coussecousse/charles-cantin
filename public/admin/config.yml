@@ -8,12 +8,13 @@ public_folder: /images
 collections:
   - name: "gallerie"
     label: "Gallerie"
-    folder: "data/gallery/gallery.md"
+    folder: "data/gallery-test/gallery.md"
     create: false
     files:
       - label: "Images"
         name: "images"
         widget: list
+        file: "data/gallery/"
         fields:
           - {label: Photo, name: pic, widget: image}
           - {label: Alt, name: alt, widget: string}
