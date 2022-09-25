@@ -64,12 +64,14 @@ const getGalleryImages = (path, list, fileName) => {
                             id : uuidv4(),
                             pic : metadata.pic,
                             alt : metadata.alt,
-                            categorie : metadata.categorie,
+                            categories : metadata.categorie,
                             size : metadata.size,
                             posX : metadata.posX,
                             posY : metadata.posY,
                             posXMobile : metadata.posXMobile,
-                            posYMobile : metadata.posYMobile
+                            posYMobile : metadata.posYMobile,
+                            placeRow : metadata.placeRow,
+                            placeColumn : metadata.placeColumn
                         };
                         break;
                     case 'services' : 

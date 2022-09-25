@@ -15,7 +15,9 @@ function App() {
       <Layout>
         <Routes>
           <Route path={paths.HOME} element={<Home/>}></Route>
-          <Route path={paths.GALLERY} element={<Gallery/>}></Route>
+          <Route path={paths.GALLERY} element={<Gallery/>}>
+            {/* <Route path="?sort=" element={<Gallery></Gallery>}></Route> */}
+          </Route>
           <Route path={paths.SERVICES} element={<Services/>}></Route>
           <Route path={paths.CONTACT} element={<Contact/>}></Route>
           <Route path="*" element={<h1 style={{color: "black"}}>404</h1>}></Route>
