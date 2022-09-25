@@ -14,6 +14,7 @@ collections:
       - label: "Images"
         name: "images"
         widget: list
+        summary: '{{fields.image}}'
         fields:
           - {label: Photo, name: pic, widget: image}
           - {label: Alt, name: alt, widget: string}
