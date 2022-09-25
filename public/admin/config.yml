@@ -13,6 +13,7 @@ collections:
       - label: "Images"
         name: "images"
         widget: object
+        folder: "data/gallery"
         summary: "{{year}}-{{month}}-{{day}}--{{second}}"
         fields: 
           - {label: Photo, name: pic, widget: image}
