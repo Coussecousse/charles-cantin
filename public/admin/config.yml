@@ -14,7 +14,6 @@ collections:
       - label: "Images"
         name: "images"
         widget: list
-        file: "data/gallery/"
         fields:
           - {label: Photo, name: pic, widget: image}
           - {label: Alt, name: alt, widget: string}
