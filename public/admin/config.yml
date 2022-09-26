@@ -9,19 +9,16 @@ collections:
   - name: "gallerie"
     label: "Gallerie"
     widget: "list"
-    types:
+    folder: "data/gallery"
+    slug: "{{year}}-{{month}}-{{day}}--{{second}}"
+    fields:
       - label: "Images"
         name: "images"
-        widget: object
-        folder: "data/gallery"
-        summary: "{{year}}-{{month}}-{{day}}--{{second}}"
+        widget: list
         fields: 
           - {label: Photo, name: pic, widget: image}
           - {label: Alt, name: alt, widget: string}
-          - label: Catégorie(s)
-            name: catégories
-            widget: list
-            field: {label: Catégorie, name: catégorie, widget: string}
+          - {label: Catégorie(s), name: catégories, widget: list}
           - {label: Size, name: size, widget: select, options: [1/2, 2/2, 3/3]}
           - {label: PosX, name: posX, widget: string}
           - {label: PosY, name: posY, widget: string}
