@@ -37,7 +37,6 @@ export default function Gallery() {
         galleryData.forEach((photo) => {
             let multipleCategories = photo.categories;
 
-            multipleCategories = multipleCategories.split(" ");
             for (let categorie of multipleCategories){
                 categorie = categorie.split('');
                 categorie = categorie.filter(item => item !== '\r');
