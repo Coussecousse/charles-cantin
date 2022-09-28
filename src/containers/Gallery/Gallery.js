@@ -50,11 +50,16 @@ export default function Gallery() {
         let newCategorie = [];
 
         getCurrentSort();
-
+        console.log(currentSort)
         if (currentSort === ''){
+            console.log('hey')
             setSearchParams({});
             return;
         } else if (currentSort === undefined){
+            console.log('hey2')
+            return;
+        } else if (currentSort[0] === ''){
+            setSearchParams({});
             return;
         }
         
