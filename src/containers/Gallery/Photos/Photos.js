@@ -8,21 +8,16 @@ export default function Photos() {
         if (typeof position == "string") {
             position = position.split('')
             for (let i = 0; i < position.length; i++){
-                console.log(position[i])
-                if (position[i] == '\"' || position[i] == '\r'){
+                if (position[i] == '\"'){
                     position.splice(i, 1);
                 }
             }
-            position = position.join('')
+            position.splice(position.length - 1, 1);
+            position = position.join('');
             return position
         }
     }
-    galleryPics.map(photo => {
-        photo.posX = transformPosition(photo.posX);
-        photo.posY = transformPosition(photo.posY);
 
-        console.log(photo.posX + ' ' +  photo.posY);
-    })
     return(     
         galleryPics.map(photo => (
             <Photo src={photo.pic} 

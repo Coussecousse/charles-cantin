@@ -1,8 +1,6 @@
 import React from "react";
 
 export default function Photo(props) {
-    
-    console.log(props.posImg);
     function getSize() {
         switch(props.size){
             case '3/3\r' : 
