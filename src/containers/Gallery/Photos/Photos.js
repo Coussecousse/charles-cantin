@@ -18,15 +18,21 @@ export default function Photos() {
         }
     }
 
+
     return(     
-        galleryPics.map(photo => (
-            <Photo src={photo.pic} 
+        galleryPics.map(photo => {
+            console.log(photo)
+            console.log(photo.categories)
+            return (
+                <Photo src={photo.pic} 
                    key={photo.id} 
                    alt={photo.alt} 
                    size={photo.size} 
                    posColumn={photo.placeColumn}
                    posImg={transformPosition(photo.posX) + '% ' + transformPosition(photo.posY) + '%'}></Photo>
-        ))
+
+            )
+        })
         
     );
 }

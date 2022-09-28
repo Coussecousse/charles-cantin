@@ -50,7 +50,7 @@ export default function Gallery() {
         let newCategorie = [];
 
         getCurrentSort();
-        
+
         if (currentSort === ''){
             setSearchParams({});
             return;
@@ -167,7 +167,7 @@ export default function Gallery() {
                         removeCategorie={handleRemoveCategorie}
                         categories={categories}></Filter>
                 <div className={classes.PicsContainer}>
-                    <Photos></Photos>
+                    <Photos categories={filtredCategories}></Photos>
                 </div>
             </div>
         </main>

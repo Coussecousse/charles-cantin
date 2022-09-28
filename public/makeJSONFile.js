@@ -58,12 +58,13 @@ const getGalleryImages = (path, list, fileName) => {
                             obj = []
                             let metadatas = [];
                             let container = {};
-                            let categoriesTab = [];
+                            
 
                             for (let i = 1; i < metadataIndices.length - 1; i++){
                                 metadatas.push(lines.slice(metadataIndices[i] + 1, metadataIndices[i + 1] + 1));
                             }
                             metadatas.forEach(metadata => {
+                                let categoriesTab = [];
                                 metadata.forEach(line => {
                                     line = line.slice(4);
                                     if (line !== 'catégories:\r'){
