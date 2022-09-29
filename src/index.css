@@ -87,7 +87,7 @@ textarea:focus, input:focus{
 	/* display: flex;
 	flex-direction: column; */
 }
-header > div > nav {
+.header-desktop > div > nav {
 	display: flex;
 	align-items: center;
 }
@@ -113,35 +113,38 @@ h2 {
 }
 
 /* HEADER */
-header img {
+.header-desktop img, .header-mobile img {
 	height : 20vh;
 	max-height: 90px;
 }
-header ul {
+.header-mobile img {
+	margin-top : 15px;
+}
+.header-desktop  ul {
 	display: inline-flex;
 	gap: 3rem;
 	font-size:clamp(1rem, 0.818rem + 0.91vw, 1.2rem);
 }
-header ul .link {
+.header-desktop  ul .link {
     color:var(--color-secondary);
     text-decoration: none;
 }
-header .link, .active {
+.header-desktop  .link, .active {
     transition: .2s linear;
 }
-header .link:hover, .active:hover{
+.header-desktop  .link:hover, .active:hover{
     display: inline-block;
     transform: scale(1.2);
 }
-header .active:hover:after {
+.header-desktop  .active:hover:after {
     bottom: -7px;
     height: 1.5px;
 }
-header .active {
+.header-desktop  .active {
     position: relative;
 }
 
-header .active:after {
+.header-desktop  .active:after {
     content: '';
     position: absolute;
     bottom: -4px;
@@ -151,6 +154,9 @@ header .active:after {
     height: 1px;
     background-color: var(--color-secondary);
 }
+.header-mobile .active {
+	color:var(--color-500);
+}
 
 /* GALLERY */
 
@@ -158,6 +164,7 @@ header .active:after {
 footer {
 	background-color: var(--color-600);
 	height: 10vh;
+	min-height: 60px;
 }
 
 footer ul {

@@ -5,7 +5,7 @@ import FiltredCategorie from './FiltredCategorie/FiltredCategorie'
 
 export default function FiltredCategories(props) {
     return (
-        <ul className={classes.FiltredCategoriesStyle}>
+        <ul className={window.innerWidth >= 768 ? classes.FiltredCategoriesStyle : classes.FiltredCategoriesStyleMobile}>
             {props.filtredCategories.map((filtredCategorie, index)=> {
                 return <FiltredCategorie key={index} removeCategorie={props.removeCategorie}>{filtredCategorie}</FiltredCategorie>
             })}
