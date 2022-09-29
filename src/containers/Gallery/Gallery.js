@@ -166,7 +166,7 @@ export default function Gallery() {
                         filterClick={handleAddFilter}
                         removeCategorie={handleRemoveCategorie}
                         categories={categories}></Filter>
-                <div className={classes.PicsContainer}>
+                <div className={window.innerWidth >= 768 ? classes.PicsContainer : classes.PicsContainerMobile}>
                     <Photos categories={filtredCategories}></Photos>
                 </div>
             </div>

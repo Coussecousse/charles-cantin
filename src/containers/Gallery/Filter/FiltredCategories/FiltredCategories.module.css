@@ -6,8 +6,17 @@
     gap: 1rem;
     font-weight: var(--fw-600);
 }
-
-.FiltredCategoriesStyle li {
+.FiltredCategoriesStyleMobile {
+    margin: 1rem .5rem 0 .5rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-weight: var(--fw-600);
+    flex: 1;
+    order: 2;
+}
+.FiltredCategoriesStyle li, .FiltredCategoriesStyleMobile  li {
     min-height: 25px;;
     padding: 0 .4rem 0 .6rem;
     display: flex;
@@ -19,13 +28,13 @@
     text-align: center;
     color: var(--color-primary);
 }
-.FiltredCategoriesStyle li .LiFiltred button{
+.FiltredCategoriesStyle li .LiFiltred button, .FiltredCategoriesStyleMobile li .LiFiltred button{
     display: flex;
 }
-.FiltredCategoriesStyle li .LiFiltred i {
+.FiltredCategoriesStyle li .LiFiltred i , .FiltredCategoriesStyleMobile li .LiFiltred i{
     align-items: center;
 }
-.FiltredCategoriesStyle button {
+.FiltredCategoriesStyle button, .FiltredCategoriesStyleMobile button {
     border: none;
     border: solid 1px var(--color-secondary);
     border-radius: 50% ;

@@ -21,9 +21,6 @@ export default function Photos(props) {
 
     return(     
         galleryPics.map(photo => {
-            console.log(photo)
-            console.log(photo.categories)
-            console.log('props',props.categories)
             function affichedPic() {
                 let result;
                 if (props.categories.length == 0) {
@@ -46,7 +43,7 @@ export default function Photos(props) {
                     <Photo src={photo.pic} 
                         key={photo.id} 
                         alt={photo.alt} 
-                        size={photo.size} 
+                        size={window.innerWidth >= 768 ? photo.size : photo.mobileSize} 
                         posColumn={photo.placeColumn}
                         posImg={transformPosition(photo.posX) + '% ' + transformPosition(photo.posY) + '%'}></Photo>
                     : null

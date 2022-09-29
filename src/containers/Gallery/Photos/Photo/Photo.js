@@ -15,6 +15,14 @@ export default function Photo(props) {
                 return {
                     gridColumn: 'span 1'
             }
+            case '2/2\r': 
+                return {
+                    gridColumn: 'span 2'
+                }
+            case '1/2\r': 
+                return {
+                    gridColumn: 'span 1'
+                }
             default:
                 return {
                     gridColumn: 'span 3' 

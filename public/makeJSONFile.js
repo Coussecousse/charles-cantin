@@ -102,6 +102,7 @@ const getGalleryImages = (path, list, fileName) => {
                             alt : data.alt,
                             categories : data.categories,
                             size : data.size,
+                            mobileSize : data.mobileSize,
                             posX : data.posX,
                             posY : data.posY,
                         }
