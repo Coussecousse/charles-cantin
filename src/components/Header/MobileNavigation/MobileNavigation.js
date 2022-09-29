@@ -1,7 +1,12 @@
 import React from "react";
+import classes from './MobileNavigation.module.css'
 
 export default function MobileNavigation() {
     return (
-        <p>Mobile</p>
+        <div>
+            <button className={classes.Menu}>
+                <span></span>
+            </button>
+        </div>
     )
 }

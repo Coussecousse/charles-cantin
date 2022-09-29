@@ -158,6 +158,7 @@ header .active:after {
 footer {
 	background-color: var(--color-600);
 	height: 10vh;
+	min-height: 60px;
 }
 
 footer ul {

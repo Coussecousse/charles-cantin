@@ -1,0 +1,76 @@
+.Menu {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: 25px 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    border: solid;
+}
+.Menu span {
+    margin: 0;
+    position: relative;
+    right :0;
+    -webkit-transition-duration: 0s; 
+    transition-duration: 0s;
+	-webkit-transition-delay: 0.2s; 
+    transition-delay: 0.2s;
+    transform: translateX(15px);
+}
+.Menu span:before, .Menu span:after {
+    position: absolute;
+    content: '';
+    transform: translateX(-15px);
+}
+.Menu span, .Menu span:before, .Menu span:after {
+    width: 35px;
+	height: 4px;
+	background-color: var(--color-secondary);
+	display: block;
+}
+.Menu span {
+    width: 20px;
+}
+.Menu span:before {
+	margin-top: -15px;
+    -webkit-transition-property: margin, -webkit-transform; 
+    transition-property: margin, transform;
+	-webkit-transition-duration: 0.2s; 
+    transition-duration: 0.2s;
+	-webkit-transition-delay: 0.2s, 0s; 
+    transition-delay: 0.2s, 0s;
+}
+
+.Menu:hover span:before {
+    margin-top: 0;
+	-webkit-transform: rotate(45deg); 
+    transform: rotate(45deg) translate(-10px, 10px); 
+	-webkit-transition-delay: 0s, 0.2s; 
+    transition-delay: 0s, 0.2s;
+}
+.Menu span:after {
+	margin-top: 15px;
+    -webkit-transition-property: margin, -webkit-transform, left; 
+    transition-property: margin, transform, left;
+	-webkit-transition-duration: 0.2s; 
+    transition-duration: 0.2s;
+	-webkit-transition-delay: 0.2s, 0s; 
+    transition-delay: 0.2s, 0s;
+}
+.Menu:hover span:after {
+    margin-top: 0;
+	-webkit-transform: rotate(-45deg); 
+    transform: rotate(-45deg) translate(-10px, -10px);
+	-webkit-transition-delay: 0s, 0.2s; 
+    transition-delay: 0s, 0.2s;
+}
+
+.Menu:hover span {
+    /* background-color: var(--color-secondary); */
+    background-color: rgba(0,0,0,0.0);
+    -webkit-transition-delay: .2s;
+    transition-delay: .2s;
+    /* transform: translate(-15px); */
+}
