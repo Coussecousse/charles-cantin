@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 
 // Création des routes vers les fichiers
-const dirPathGallery  = path.join(__dirname, "../data/gallery-test");
+const dirPathGallery  = path.join(__dirname, "../data/gallery");
 const dirPathServices = path.join(__dirname, "../data/services");
 const dirPathGlobal   = path.join(__dirname, "../data/global");
 
@@ -40,7 +40,7 @@ const getGalleryImages = (path, list, fileName) => {
             let obj;
             fs.readFile(`${path}/${file}`, "utf8", (err, contents) => {
                 const getMetadataIndices = (acc, element, i) => {
-                    if (fileName === "gallery") {
+                    if (fileName === "gallery" || fileName === "services") {
                         
                         if (/^\s*-\s*/.test(element) && !(/^\s\s\s\s*-\s*/.test(element))){
                                 acc.push(i-1)
@@ -54,16 +54,16 @@ const getGalleryImages = (path, list, fileName) => {
                 }
                 const parseMetadata = ({lines, metadataIndices}) => {
                     if (metadataIndices.length > 0) {
-                        if (fileName === "gallery") {
+                        if (fileName === "gallery" || fileName === "services") {
                             obj = []
                             let metadatas = [];
                             let container = {};
-                            let categoriesTab = [];
 
                             for (let i = 1; i < metadataIndices.length - 1; i++){
                                 metadatas.push(lines.slice(metadataIndices[i] + 1, metadataIndices[i + 1] + 1));
                             }
                             metadatas.forEach(metadata => {
+                                let categoriesTab = [];
                                 metadata.forEach(line => {
                                     line = line.slice(4);
                                     if (line !== 'catégories:\r'){
@@ -107,20 +107,21 @@ const getGalleryImages = (path, list, fileName) => {
                         list.push(object);
                     }
                         break;
-                    case 'services' : 
-                        object = {
-                            id : uuidv4(),
-                            pic : metadata.pic,
-                            size : metadata.size,
-                            posX : metadata.posX,
-                            posY : metadata.posY,
-                            posXMobile : metadata.posXMobile,
-                            posYMobile : metadata.posYMobile,
-                            title : metadata.title,
-                            price : metadata.price,
-                            content : metadata.content,
-                        }
-                        list.push(object);
+                    case 'services' :
+                        for (let data of metadata) {
+                            let object = {
+                                id : uuidv4(),
+                                pic : data.pic,
+                                size : data.size,
+                                posX : data.posX,
+                                posY : data.posY,
+                                title: data.title,
+                                price: data.price,
+                                color: data.colorTitle,
+                                content: data.content
+                            }
+                            list.push(object);
+                        } 
                         break;
                     case 'global' : 
                         let pos = [metadata.posXMobileHome, metadata.posYMobileHome].join(' ')
