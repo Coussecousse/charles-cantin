@@ -1,0 +1,133 @@
+.Menu {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin : 50px 10px 0 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+.Menu span {
+    margin: 0;
+    position: relative;
+    right: 0;
+    -webkit-transition-duration: 0s; 
+    transition-duration: 0s;
+	-webkit-transition-delay: 0.2s; 
+    transition-delay: 0.2s;
+    transform: translateX(15px);
+}
+.Menu span:before, .Menu span:after {
+    position: absolute;
+    content: '';
+    transform: translateX(-15px);
+}
+.Menu span, .Menu span:before, .Menu span:after {
+    width: 35px;
+	height: 4px;
+	background-color: var(--color-secondary);
+	display: block;
+}
+.Menu span {
+    width: 20px;
+}
+.Menu span:before {
+	margin-top: -15px;
+    -webkit-transition-property: margin, -webkit-transform; 
+    transition-property: margin, transform;
+	-webkit-transition-duration: 0.2s; 
+    transition-duration: 0.2s;
+	-webkit-transition-delay: 0.2s, 0s; 
+    transition-delay: 0.2s, 0s;
+}
+
+.ActiveCross span:before {
+    margin-top: 0;
+	-webkit-transform: rotate(45deg); 
+    transform: rotate(45deg) translate(-10px, 10px); 
+	-webkit-transition-delay: 0s, 0.2s; 
+    transition-delay: 0s, 0.2s;
+}
+.Menu span:after {
+	margin-top: 15px;
+    -webkit-transition-property: margin, -webkit-transform, left; 
+    transition-property: margin, transform, left;
+	-webkit-transition-duration: 0.2s; 
+    transition-duration: 0.2s;
+	-webkit-transition-delay: 0.2s, 0s; 
+    transition-delay: 0.2s, 0s;
+}
+.ActiveCross span:after {
+    margin-top: 0;
+	-webkit-transform: rotate(-45deg); 
+    transform: rotate(-45deg) translate(-10px, -10px);
+	-webkit-transition-delay: 0s, 0.2s; 
+    transition-delay: 0s, 0.2s;
+}
+
+.ActiveCross span {
+    background-color: rgba(0,0,0,0.0);
+    -webkit-transition-delay: .2s;
+    transition-delay: .2s;
+}
+
+.MenuOpen {
+    position: absolute;
+    background-color: transparent;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+
+    z-index: 1;
+}
+
+.MenuOpen button {
+    position: absolute;
+    right: 25px;
+    top: 10px;
+}
+.DivNav {
+    width: 100vw;
+    height: 100vh;
+    background: var(--color-primary);
+    transition: .2s ease-in;
+}
+.DivNavOpen {
+    transform: translateX(0);
+    display: block;
+}
+.DivNavClose {
+    position: absolute;
+    transform: translateX(100%);
+    animation: display .3s linear;
+}
+
+.DivNav nav {
+    position: relative;
+    top: 60%;
+    padding: 0 40px;
+    text-align: right;
+    transform: translateY(-50%);
+}
+
+.DivNav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    font-size: var(--fs-600);
+}
+.DivNav a{
+    color: var(--color-secondary);
+    text-decoration: none;
+}
+.MediaDiv {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+}
+.MediaDiv a {
+    position: relative;
+    font-size: var(--fs-700);
+    padding: 1rem;
+}

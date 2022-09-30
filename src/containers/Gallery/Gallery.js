@@ -50,13 +50,11 @@ export default function Gallery() {
         let newCategorie = [];
 
         getCurrentSort();
-        console.log(currentSort)
+
         if (currentSort === ''){
-            console.log('hey')
             setSearchParams({});
             return;
         } else if (currentSort === undefined){
-            console.log('hey2')
             return;
         } else if (currentSort[0] === ''){
             setSearchParams({});
@@ -168,8 +166,8 @@ export default function Gallery() {
                         filterClick={handleAddFilter}
                         removeCategorie={handleRemoveCategorie}
                         categories={categories}></Filter>
-                <div className={classes.PicsContainer}>
-                    <Photos></Photos>
+                <div className={window.innerWidth >= 768 ? classes.PicsContainer : classes.PicsContainerMobile}>
+                    <Photos categories={filtredCategories}></Photos>
                 </div>
             </div>
         </main>

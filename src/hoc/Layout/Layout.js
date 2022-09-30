@@ -22,9 +22,6 @@ export default function Layout(props){
 
     window.addEventListener('resize', () => {
         function resizeFunction() {
-            console.log(windowWidth);
-            console.log(window.innerWidth);
-            console.log('resize');
             let widthState = window.innerWidth;
             setWindowWidth(widthState);
         }

@@ -5,16 +5,22 @@
     margin: 0 auto;
     border: solid;
 }
-.PicsContainer {
+.PicsContainer, .PicsContainerMobile {
     margin: 2rem 0;
     display:grid;
-    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     gap: .5rem;
 }
+.PicsContainer {
+    grid-template-columns: repeat(3, 1fr);
+}
+.PicsContainerMobile {
+    grid-template-columns: repeat(2, 1fr);
+}
 
-.PicsContainer div > img {
+.PicsContainer div > img, .PicsContainerMobile div > img {
     object-fit: cover;
     max-width: 100%;
     min-height: 400px;
 }
+
