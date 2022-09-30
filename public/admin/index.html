@@ -10,7 +10,7 @@
   <!-- Include the script that builds the page and powers Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
   <script>
-    function getSize(photo){
+    function getSizePics(photo){
       switch(photo){
         case '3/3' :
             return "size-3";
@@ -24,6 +24,16 @@
             return "size-1-mobile";
         default:
             return "size-3";
+      }
+    }
+    function getSizeServices(card){
+      switch(card){
+        case '2/2' :
+            return "size-2";
+        case '1/2': 
+            return "size-1";
+        default:
+            return "size-2";
       }
     }
     function getContainerClassName(mobile) {
@@ -40,21 +50,26 @@
         return "picsContainer-3";
       }
     }
+    function getCardsContainersClassName(mobile) {
+      if(mobile) {
+        return "servicesContainer-1";
+      } else {
+        return "servicesContainer-2";
+      }
+    }
 
     const TemplateGallery = createClass({
       render: function() {
-        let entry = this.props.entry
+        let entry = this.props.entry;
         let classNameContainer = getContainerClassName(entry.getIn(['data', 'mobile']));
-        let classNamePicContainer = getPicContainerClassName(entry.getIn(['data', 'mobile']))
+        let classNamePicContainer = getPicContainerClassName(entry.getIn(['data', 'mobile']));
         return h('div', { className  : classNameContainer},
 
           h('div', { className : classNamePicContainer},
-          this.props.widgetsFor('images').map(function(photo, index) {
-            
+          this.props.widgetsFor('pics').map(function(photo, index) {
             let path = photo.getIn(['data', 'pic']);
-            let size = getSize(photo.getIn(['data', 'size']));
+            let size = getSizePics(photo.getIn(['data', 'size']));
             let position = photo.getIn(['data','posX']) + '% ' + photo.getIn(['data', 'posY']) + '%';
-
             return h('div', {key:index, className : size }, 
               h('img', {src:path, style: {objectPosition : position}}, )
               );
@@ -92,10 +107,67 @@
       },
     }
 
-    CMS.registerWidget('position', RangeControl, RangePreview);
-    CMS.registerPreviewStyle("./styles.css");
-    CMS.registerPreviewTemplate("gallerie", TemplateGallery);
+    const TemplateServices = createClass({
+      render: function() {
+        let entry = this.props.entry;
+        let classNameContainer = getContainerClassName(entry.getIn(['data', 'mobile']));
+        let classNameCardsContainer = getCardsContainersClassName(entry.getIn(['data', 'mobile']));
 
+        return h('div', {className : classNameContainer}, 
+          h('div', {style: {display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '.5rem', width: '300px', textAlign: 'center', margin: '0 auto'}}, 
+            h('div', {}, 
+              h('div', {className: 'circle', style: {backgroundColor: '#323f43'},  }),
+              h('p', {style: {color: 'white'}}, '#323f43' )
+            ),  
+            h('div', {}, 
+              h('div', {className: 'circle', style: {backgroundColor: '#f0fbff'},  }),
+              h('p', {style: {color: 'white'}}, '#f0fbff' )
+            ),
+            h('div', {}, 
+              h('div', {className: 'circle', style: {backgroundColor: '#fff'},  }),
+              h('p', {style: {color: 'white'}}, '#fff' )
+            )    
+          ),
+          h('div', {className : classNameCardsContainer}, 
+          this.props.widgetsFor('services').map(function(card, index) {
+            let path = card.getIn(['data', 'pic']);
+            let size = getSizeServices(card.getIn(['data', 'size']));
+            let position = card.getIn(['data', 'posX']) + '% ' + card.getIn(['data', 'posY']) + '%';
+            let styleDiv = {
+                backgroundImage: 'url("' + path + '")',
+                backgroundSize: 'cover',
+                backgroundPosition: position,
+                height: '465px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                color: '#fff',
+                textAlign : 'center'
+              }
+              let styleContentContainer = {
+                backgroundColor: 'hsl(195, 14%, 23%, 50%)', 
+                backdropFilter: 'blur(2px)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-evenly',
+                padding: '0 1rem'
+              }
+
+            return h('div', {key:index, className:size, style: styleDiv}, 
+                    h('h1', {style: {color: card.getIn(['data', 'colorTitle']), textTransform: 'uppercase', fontSize: '1.5rem'}}, card.getIn(['data', 'title'])),
+                    h('div', {id:"contentContainer", style: styleContentContainer}, 
+                      h('p', {style: entry.getIn(['data', 'mobile']) ? {fontSize: '1.5rem'} : {fontSize: '2rem'}}, card.getIn(['data', 'price'])),
+                      h('p', {style: entry.getIn(['data', 'mobile']) ? {fontSize: '1rem'} : {fontSize: '1.25rem'}}, card.getIn(['data', 'content']))
+                    )
+                  )
+          }))
+        )
+      }
+    })
+    CMS.registerWidget('position', RangeControl);
+    CMS.registerPreviewStyle("./styles.css");
+    CMS.registerPreviewTemplate("gallery", TemplateGallery);
+    CMS.registerPreviewTemplate("services", TemplateServices)
   </script>
 </body>
 </html>

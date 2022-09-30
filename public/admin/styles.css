@@ -3,6 +3,10 @@ html, body {
     width : 100vw;
     box-sizing: border-box;
 }
+p {
+    margin: 0;
+    padding: 0;
+}
 .container-desktop {
     width: 100%;
     max-width : 800px;
@@ -12,9 +16,8 @@ html, body {
     width: 100%;
     max-width : 320px;
     margin: 0 auto;
-    border: solid black;
 }
-.picsContainer-3, .picsContainer-2 {
+.picsContainer-3, .picsContainer-2, .servicesContainer-2 {
     margin: 2rem 0;
     display:grid;
     grid-template-rows: auto;
@@ -23,8 +26,22 @@ html, body {
 .picsContainer-3 {
     grid-template-columns: repeat(3, 1fr);
 }
-.picsContainer-2 {
+.picsContainer-2, .servicesContainer-2 {
     grid-template-columns: repeat(2, 1fr);
+}
+.servicesContainer-1 {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.servicesContainer-2 #contentContainer {
+    height: 146px;
+}
+.servicesContainer-1 #contentContainer {
+    max-height: 171px;
+    height: 25%;
+    min-height: 101px;
 }
 
 .picsContainer-2 div > img, .picsContainer-3 div > img {
@@ -41,9 +58,11 @@ html, body {
 .size-3 {
     grid-column: span 3;
 }
-.size-2-mobile {
-    grid-column: span 2;
-}
-.size-1-mobile {
-    grid-column: span 1;
+
+.circle {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: .5rem;
+    border: solid 1px white;
 }
