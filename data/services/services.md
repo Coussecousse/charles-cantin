@@ -1,5 +1,5 @@
 ---
-mobile: true
+mobile: false
 services:
   - posX: 50
     posY: 50
@@ -24,14 +24,14 @@ services:
     price: 220€
     content: Pour la famille ou les amis jusqu’à 4 personnes, en extérieur ou en
       studio 30 euros en supplément par personne au-delà de 4 (hormis enfant
-      jusqu’à 2 ans)
+      jusqu’à 2 ans)l
     pic: /images/famille3.jpg
     size: 2/2
   - posX: 50
     posY: "0"
     colorTitle: "#ffffff"
     title: bébé
-    price: 100
+    price: 100€
     content: Photo d’enfant jusqu’à 3 ans (photo à domicile)
     size: 1/2
     pic: /images/bebe1.jpg
@@ -46,7 +46,7 @@ services:
   - posX: "65"
     posY: "49"
     colorTitle: "#000000"
-    title: J’IMMORTALISE L’ÉVÉNEMENT
+    title: J'immortalise l'évènement
     price: Sur mesure
     content: Prestation de mariage ou baptême sur devis
     pic: /images/evenement-mariage1.jpg
