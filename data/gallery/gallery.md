@@ -19,6 +19,7 @@ pics:
       - Évènement
       - Concert
     size: 1/3
+    mobileSize: 2/2
   - posX: 50
     posY: 50
     pic: /images/grossesse1.jpg
@@ -28,6 +29,7 @@ pics:
       - Couple
       - Grossesse
     size: 1/3
+    mobileSize: 2/2
   - posX: "27"
     posY: 50
     pic: /images/famille1.jpg
@@ -87,6 +89,7 @@ pics:
       - Mariage
       - Famille
     size: 1/3
+    mobileSize: 2/2
   - posX: "54"
     posY: 50
     pic: /images/femme.jpg
@@ -94,6 +97,7 @@ pics:
     catégories:
       - Portrait
     size: 1/3
+    mobileSize: 2/2
   - posX: "39"
     posY: 50
     pic: /images/famille4.jpg

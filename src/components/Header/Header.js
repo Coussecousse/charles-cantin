@@ -21,7 +21,7 @@ export default function Header(props) {
             }
         }
         for (let li of lisMenu) {
-            if (e.target == li.children[0]) {
+            if (e.target === li.children[0]) {
                 setOpenMenu(!menuOpen);
                 return;
             }
