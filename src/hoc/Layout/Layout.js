@@ -43,7 +43,7 @@ export default function Layout(props){
     }
     const getBackground = () => {
         switch(location.pathname){
-            case '/': 
+            case '/':
                 if (mobile){
                     return {
                         backgroundImage : 'url(images/home.jpg)',
@@ -63,7 +63,7 @@ export default function Layout(props){
                 return {
                     backgroundColor : 'var(--color-primary)',
                 }
-            case '/contact': 
+            case '/contact':
             console.log('contact')
                 if (mobile) {
                     return {
@@ -78,7 +78,7 @@ export default function Layout(props){
                         filter : 'blur(2px)',
                     }
                 }
-            default : 
+            default :
                 return {
                     backgroundColor : '#fff',
                 }
