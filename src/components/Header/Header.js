@@ -15,7 +15,7 @@ export default function Header(props) {
 
     return (
         <header style={{height : '15%'}} className= { props.mobile ? "header-mobile" : "header-desktop"}>
-            <div className={classes.HeaderContainer} style={ menuOpen ? {margin: '0'} : null}>
+            <div className={classes.HeaderContainer}>
                 <Logo></Logo>
                 {props.mobile ? <MobileNavigation clic={handleMenu} openMenu={menuOpen}></MobileNavigation>
                 : <nav>
