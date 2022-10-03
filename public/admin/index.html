@@ -10,10 +10,14 @@
   <!-- Include the script that builds the page and powers Netlify CMS -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
   <script>
-    function getSizePics(photo){
+    function getSizePics(photo, mobile){
       switch(photo){
         case '3/3' :
+          if (mobile) {
+            return "size-2"
+          } else {
             return "size-3";
+          }
         case '2/3' : 
             return "size-2";
         case '1/3': 
@@ -64,7 +68,7 @@
           h('div', { className : classNamePicContainer},
           this.props.widgetsFor('pics').map(function(photo, index) {
             let path = photo.getIn(['data', 'pic']);
-            let size = getSizePics(photo.getIn(['data', 'size']));
+            let size = getSizePics(photo.getIn(['data', 'size']), entry.getIn(['data', 'mobile']));
             let position = photo.getIn(['data','posX']) + '% ' + photo.getIn(['data', 'posY']) + '%';
             return h('div', {key:index, className : size }, 
               h('img', {src:path, style: {objectPosition : position}}, )
