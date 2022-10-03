@@ -12,8 +12,9 @@ export default function Header(props) {
     function handleMenu() {
         setOpenMenu(!menuOpen);
     }
+    console.log(window.innerWidth)
     return (
-        <header style={{height : '15%'}} className= {window.innerWidth ? "header-mobile" : "header-desktop"}>
+        <header style={{height : '15%'}} className= {window.innerWidth <= 768 ? "header-mobile" : "header-desktop"}>
             <div className={classes.HeaderContainer} style={ menuOpen ? {margin: '0'} : null}>
                 <Logo></Logo>
                 {props.mobile ? <MobileNavigation clic={handleMenu} openMenu={menuOpen}></MobileNavigation>
