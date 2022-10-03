@@ -1,5 +1,5 @@
 ---
-mobile: true
+mobile: false
 pics:
   - posX: "0"
     posY: "50"
