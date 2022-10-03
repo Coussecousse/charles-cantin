@@ -23,8 +23,8 @@ export default function MobileNavigation(props) {
     }
     
     return (
-        <div>
-            <button className={props.openMenu ? [classes.Menu, classes.ActiveCross].join(' ') : classes.Menu} onClick={props.clic}>
+        <div onClick={props.clic}>
+            <button className={props.openMenu ? [classes.Menu, classes.ActiveCross].join(' ') : classes.Menu} id="button-menu">
                 <span></span>
             </button>
             <div className={props.openMenu ? [classes.DivNav, classes.DivNavOpen].join(' ') : [classes.DivNav, classes.DivNavClose].join(' ')} id="menu-mobile">
