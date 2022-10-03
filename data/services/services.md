@@ -30,7 +30,7 @@ services:
   - posX: 50
     posY: "0"
     colorTitle: "#ffffff"
-    title: bébé
+    title: Bébé
     price: 100€
     content: Photo d’enfant jusqu’à 3 ans (photo à domicile)
     size: 1/2
@@ -38,7 +38,7 @@ services:
   - posX: "50"
     posY: "0"
     colorTitle: "#323E42"
-    title: Il etait une fois
+    title: Il était une fois
     price: 160€
     content: Photo de grossesse (À votre domicile, en extérieur ou en studio)
     pic: /images/grossesse2.jpg
