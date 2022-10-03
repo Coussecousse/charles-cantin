@@ -9,15 +9,31 @@ import MobileNavigation from './MobileNavigation/MobileNavigation'
 
 export default function Header(props) {
     const [menuOpen, setOpenMenu] = useState(false);
-    function handleMenu() {
-        setOpenMenu(!menuOpen);
+    function handleMenu(e) {
+        const button = document.querySelector('#button-menu');
+        const ulMenu = document.querySelector('#ul-menu');
+        const lisMenu = ulMenu.children;
+
+        for (let span of button.children) {
+            if (e.target === span) {
+                setOpenMenu(!menuOpen);
+                return;
+            }
+        }
+        for (let li of lisMenu) {
+            if (e.target == li.children[0]) {
+                setOpenMenu(!menuOpen);
+                return;
+            }
+        }
+
     }
-    console.log(window.innerWidth)
+
     return (
-        <header style={{height : '15%'}} className= {window.innerWidth <= 768 ? "header-mobile" : "header-desktop"}>
-            <div className={classes.HeaderContainer} style={ menuOpen ? {margin: '0'} : null}>
+        <header style={{height : '15%'}} className= { props.mobile ? "header-mobile" : "header-desktop"}>
+            <div className={classes.HeaderContainer}>
                 <Logo></Logo>
-                {props.mobile ? <MobileNavigation clic={handleMenu} openMenu={menuOpen}></MobileNavigation>
+                {props.mobile ? <MobileNavigation clic={e => handleMenu(e)} openMenu={menuOpen}></MobileNavigation>
                 : <nav>
                     <Navigation></Navigation>
                   </nav>}

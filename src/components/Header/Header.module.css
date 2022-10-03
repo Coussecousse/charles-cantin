@@ -5,6 +5,3 @@
     justify-content: space-between;
     margin: 0 auto;
 }
-.HeaderContainer > * {
-    margin: .5rem 0;
-}

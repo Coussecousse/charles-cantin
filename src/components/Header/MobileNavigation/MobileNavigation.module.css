@@ -3,7 +3,7 @@
     display: inline-block;
     width: 40px;
     height: 40px;
-    margin : 50px 10px 0 0;
+    margin : 48px 10px 0 0;
     padding: 0;
     border: none;
     background: transparent;
@@ -67,40 +67,43 @@
 }
 
 .ActiveCross span {
+    z-index: 2;
     background-color: rgba(0,0,0,0.0);
     -webkit-transition-delay: .2s;
     transition-delay: .2s;
 }
 
-.MenuOpen {
+.DivNav {    
     position: absolute;
-    background-color: transparent;
     width: 100vw;
     height: 100vh;
-    margin: 0;
-
+    top: 0;
+    left: 100%;
+    background: var(--color-primary);
+    text-align: center;
+    transition: .2s;
     z-index: 1;
 }
+.DivNav > div {
+    position: relative;
+    top: 60%;
+    transform: translateY(-50%);
+}
 
-.MenuOpen button {
-    position: absolute;
-    right: 25px;
-    top: 10px;
+.DivNavOpen{
+    transform: translateX(-100%);
 }
-.DivNav {
-    width: 100vw;
-    height: 100vh;
-    background: var(--color-primary);
-    transition: .2s ease-in;
-}
-.DivNavOpen {
-    transform: translateX(0);
-    display: block;
+@keyframes open {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
 }
 .DivNavClose {
-    position: absolute;
-    transform: translateX(100%);
-    animation: display .3s linear;
+    transform: translateX(0);
+
 }
 
 .DivNav nav {
