@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import classes from './Layout.module.css'
 
@@ -8,30 +8,9 @@ import Footer from "../../components/Footer/Footer";
 
 
 export default function Layout(props){
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const [mobile, setMobile] = useState(false);
-    let resize;
-
-    useEffect(() => {
-        if (window.innerWidth < 768) {
-            setMobile(true);
-        } else {
-            setMobile(false);
-        }
-    }, [windowWidth]);
-
-    window.addEventListener('resize', () => {
-        function resizeFunction() {
-            let widthState = window.innerWidth;
-            setWindowWidth(widthState);
-        }
-        clearTimeout(resize);
-        resize = setTimeout(resizeFunction, 100)
-    })
-
-    let location  = useLocation();
+    let location = useLocation();
     const styleContainer = () => {
-        if (mobile){
+        if (props.mobile){
             return {
                 minHeight : '100vh'
             }
@@ -44,7 +23,7 @@ export default function Layout(props){
     const getBackground = () => {
         switch(location.pathname){
             case '/':
-                if (mobile){
+                if (props.mobile){
                     return {
                         backgroundImage : 'url(images/home.jpg)',
                         backgroundPosition: "68% 30%",
@@ -65,7 +44,7 @@ export default function Layout(props){
                 }
             case '/contact':
             console.log('contact')
-                if (mobile) {
+                if (props.mobile) {
                     return {
                         backgroundImage : 'url(' + data[0].picContact +')',
                         backgroundPosition : 'center',
@@ -89,11 +68,11 @@ export default function Layout(props){
             <div className={classes.Container} style={styleContainer()}>
                 <div className={classes.Background} style={getBackground()}></div>
                 <div className={classes.ChildContainer}>
-                    <Header mobile={mobile}></Header>
+                    <Header mobile={props.mobile}></Header>
                     {props.children}
                 </div>
             </div>
-            {mobile ? null : <Footer></Footer>}
+            {props.mobile ? null : <Footer></Footer>}
         </>
     )
 }

@@ -12,7 +12,7 @@ function removeFromIndex(elementToScan, elementToRemove){
     elementToScan.splice(index, 1);
 }
 
-export default function Gallery() {
+export default function Gallery(props) {
     let currentURL, currentSort, input;
     const [searching, setSearching]       = useState(false);
     const [InputValue, setInputValue]     = useState('');
@@ -154,7 +154,7 @@ export default function Gallery() {
         }
         setSearching(true);
     };
-
+    
     return(
         <main onClick={closeFilter}>
             <h1 className="titleSection">Galerie</h1>
@@ -166,8 +166,8 @@ export default function Gallery() {
                         filterClick={handleAddFilter}
                         removeCategorie={handleRemoveCategorie}
                         categories={categories}></Filter>
-                <div className={window.innerWidth >= 768 ? classes.PicsContainer : classes.PicsContainerMobile}>
-                    <Photos categories={filtredCategories}></Photos>
+                <div className={props.mobile ? classes.PicsContainerMobile : classes.PicsContainer}>
+                    <Photos categories={filtredCategories} mobile={props.mobile}></Photos>
                 </div>
             </div>
         </main>

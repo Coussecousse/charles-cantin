@@ -3,7 +3,6 @@
     width:90%;
     max-width: 800px;
     margin: 0 auto;
-    border: solid;
 }
 .PicsContainer, .PicsContainerMobile {
     margin: 2rem 0;
@@ -19,8 +18,15 @@
 }
 
 .PicsContainer div > img, .PicsContainerMobile div > img {
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;  
     object-fit: cover;
-    max-width: 100%;
+    width: 100%;
+}
+.PicsContainer div > img {
+    min-height: 450px;
+}
+.PicsContainerMobile div > img {
     min-height: 400px;
+    max-height: 400px;
 }
 
