@@ -48,7 +48,7 @@ pics:
     catégories:
       - Portrait
     size: 1/3
-  - posX: 50
+  - posX: "59"
     posY: 50
     pic: /images/brothers.jpg
     alt: Un bébé et son frère se faisant un câlin.
