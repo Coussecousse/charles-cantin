@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Layout from './hoc/Layout/Layout';
@@ -9,13 +9,33 @@ import Services from './containers/Services/Services';
 import Contact from './containers/Contact/Contact'
 import paths from './config/paths';
 
-function App() {
+function App() {    
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [mobile, setMobile] = useState(false);
+    let resize;
+
+    useEffect(() => {
+        if (window.innerWidth < 768) {
+            setMobile(true);
+        } else {
+            setMobile(false);
+        }
+    }, [windowWidth]);
+
+    window.addEventListener('resize', () => {
+        function resizeFunction() {
+            let widthState = window.innerWidth;
+            setWindowWidth(widthState);
+        }
+        clearTimeout(resize);
+        resize = setTimeout(resizeFunction, 100)
+    })
   return (
     <div className="App">
-      <Layout>
+      <Layout mobile={mobile}>
         <Routes>
           <Route path={paths.HOME} element={<Home/>}></Route>
-          <Route path={paths.GALLERY} element={<Gallery/>}>
+          <Route path={paths.GALLERY} element={<Gallery mobile={mobile}/>}>
             {/* <Route path="?sort=" element={<Gallery></Gallery>}></Route> */}
           </Route>
           <Route path={paths.SERVICES} element={<Services/>}></Route>

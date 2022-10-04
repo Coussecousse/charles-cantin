@@ -12,7 +12,7 @@ function removeFromIndex(elementToScan, elementToRemove){
     elementToScan.splice(index, 1);
 }
 
-export default function Gallery() {
+export default function Gallery(props) {
     let currentURL, currentSort, input;
     const [searching, setSearching]       = useState(false);
     const [InputValue, setInputValue]     = useState('');
@@ -23,17 +23,17 @@ export default function Gallery() {
     function getCurrentSort(container=[]){
         currentURL  = Object.fromEntries([...searchParams]);
         currentSort = currentURL.sort;
-        
+
         if (currentSort === undefined){
             setFiltredCategories([]);
-            restaureCategorie(container);
+            restaureCategories(container);
             container = [...new Set(container)];
             setCategories(container);
             return;
         }
         currentSort = currentSort.split('+');
     }
-    function restaureCategorie(container) {
+    function restaureCategories(container) {
         galleryData.forEach((photo) => {
             let multipleCategories = photo.categories;
 
@@ -51,6 +51,7 @@ export default function Gallery() {
 
         getCurrentSort();
 
+        // Check the url for avoid bugs
         if (currentSort === ''){
             setSearchParams({});
             return;
@@ -60,20 +61,46 @@ export default function Gallery() {
             setSearchParams({});
             return;
         }
-        
+
         let newFiltredCategories = [];
 
-        const getFiltredCategorie = () => {
+        // Add categorie filtred from the url search params
+        const getFiltredCategories = () => {
             for (let categorie of currentSort){
+                let change = false;
+
                 categorie    = categorie.split('');
                 categorie[0] = categorie[0].toUpperCase();
                 categorie    = categorie.join('');
-                newFiltredCategories.push(categorie);
+
+                const checkIfCategorieExist = () => {
+                    for (let photo of galleryData) {
+                        if (change == true){
+                            break;
+                        }
+                        for (let photoCategorie of photo.categories) {
+                            if (categorie + '\r' === photoCategorie){
+                                change = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+                checkIfCategorieExist();
+
+                if (change) {
+                    newFiltredCategories.push(categorie);
+                } else {
+                    // New url without the wrong categorie
+                    removeFromIndex(currentSort, categorie);
+                    setSearchParams({ sort: currentSort });
+                }
+
             }
         }
-        getFiltredCategorie();
+        getFiltredCategories();
 
-        restaureCategorie(newCategorie);
+        restaureCategories(newCategorie);
         newCategorie = [...new Set(newCategorie)];
 
         // Remove filtred catégories from all list catégories
@@ -154,7 +181,7 @@ export default function Gallery() {
         }
         setSearching(true);
     };
-
+    
     return(
         <main onClick={closeFilter}>
             <h1 className="titleSection">Galerie</h1>
@@ -166,8 +193,8 @@ export default function Gallery() {
                         filterClick={handleAddFilter}
                         removeCategorie={handleRemoveCategorie}
                         categories={categories}></Filter>
-                <div className={window.innerWidth >= 768 ? classes.PicsContainer : classes.PicsContainerMobile}>
-                    <Photos categories={filtredCategories}></Photos>
+                <div className={props.mobile ? classes.PicsContainerMobile : classes.PicsContainer}>
+                    <Photos categories={filtredCategories} mobile={props.mobile}></Photos>
                 </div>
             </div>
         </main>
