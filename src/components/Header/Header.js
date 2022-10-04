@@ -28,10 +28,20 @@ export default function Header(props) {
         }
 
     }
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.pageYOffset > 0) {
+            header.style.position = 'fixed';
+            header.style.background = 'var(--color-600)';
+        } else {
+            header.style.position = 'static';
+            header.style.background = 'transparent';
+        }
+    })
 
     return (
-        <header style={{height : '15%'}} className= { props.mobile ? "header-mobile" : "header-desktop"}>
-            <div className={classes.HeaderContainer}>
+        <header className= { props.mobile ? "header-mobile" : "header-desktop"}>
+            <div className={classes.HeaderContainer} >
                 <Logo></Logo>
                 {props.mobile ? <MobileNavigation clic={e => handleMenu(e)} openMenu={menuOpen}></MobileNavigation>
                 : <nav>
