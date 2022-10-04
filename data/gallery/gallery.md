@@ -83,8 +83,7 @@ pics:
   - posX: "36"
     posY: 50
     pic: /images/mariage7.jpg
-    alt: Deux mariés devant une porte tenant leur enfant qui montre du doigts la
-      caméra.
+    alt: Deux mariés devant une porte tenant leur enfant qui montre du doigts la caméra.
     catégories:
       - Mariage
       - Famille
@@ -105,8 +104,7 @@ pics:
     catégories:
       - Famille
       - Bébé
-    alt: Filtre noir et blanc avec un famille sur le sol regardant la caméra avec
-      leur bébé regardant et souriant à la caméra.
+    alt: Filtre noir et blanc avec un famille sur le sol regardant la caméra avec leur bébé regardant et souriant à la caméra.
     mobileSize: 2/2
   - posX: "90"
     posY: 50
@@ -114,8 +112,7 @@ pics:
     catégories:
       - Évènement
       - Manifestation
-    alt: Femmes noires à une manifestation portant des masques et tenant dans leurs
-      mains des tracts.
+    alt: Femmes noires à une manifestation portant des masques et tenant dans leurs mains des tracts.
     size: 2/3
     mobileSize: 2/2
   - posX: "37"
