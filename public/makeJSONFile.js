@@ -41,7 +41,6 @@ const getGalleryImages = (path, list, fileName) => {
             fs.readFile(`${path}/${file}`, "utf8", (err, contents) => {
                 const getMetadataIndices = (acc, element, i) => {
                     if (fileName === "gallery" || fileName === "services") {
-                        
                         if (/^\s*-\s*/.test(element) && !(/^\s\s\s\s*-\s*/.test(element))){
                                 acc.push(i-1)
                         }

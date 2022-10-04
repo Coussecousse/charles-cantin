@@ -1,9 +1,4 @@
-.GalleryContainer {
-    position: relative;
-    width:90%;
-    max-width: 800px;
-    margin: 0 auto;
-}
+
 .PicsContainer, .PicsContainerMobile {
     margin: 2rem 0;
     display:grid;

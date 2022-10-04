@@ -185,7 +185,7 @@ export default function Gallery(props) {
     return(
         <main onClick={closeFilter}>
             <h1 className="titleSection">Galerie</h1>
-            <div className={classes.GalleryContainer} id="container">
+            <div className="container" id="container">
                 <Filter searching={searching} 
                         change={handleChange} 
                         value={InputValue} 

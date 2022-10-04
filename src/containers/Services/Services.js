@@ -1,7 +1,16 @@
 import React from "react";
+import classes from './Services.module.css'
 
-export default function Gallery() {
+import Cards from './Cards/Cards';
+
+export default function Gallery(props) {
     return(
-        <h1>Prestations</h1>
+        <main>
+            <h1 className="titleSection">Prestations</h1>
+            <div className="container">
+                <Cards mobile={props.mobile}></Cards>
+            </div>
+        </main>
     );
+
 }

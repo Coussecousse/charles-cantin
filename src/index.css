@@ -85,8 +85,6 @@ textarea:focus, input:focus{
 	height: auto;
 	min-height: 100vh;
 	width: 100vw;
-	/* display: flex;
-	flex-direction: column; */
 }
 .header-desktop > div > nav {
 	display: flex;
@@ -112,7 +110,12 @@ h2 {
 	margin: 1rem 0;
 	text-align: center;
 }
-
+.container {
+	position: relative;
+    width:90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
 /* HEADER */
 header {
 	z-index: 1;
@@ -165,7 +168,7 @@ header {
 	color:var(--color-500);
 }
 
-/* GALLERY */
+
 
 /* FOOTER */
 footer {
