@@ -5,9 +5,9 @@ import Categorie from './Categorie/Categorie';
 
 export default function Categories(props) {
 
-    const Allcategorie = props.categories.map((categorie, index) => {
+    const Allcategories = props.categories.map((categorie, index) => {
         if (categorie.toLowerCase().includes(props.value.toLowerCase()) || props.value === ''){
-            return <Categorie key={index} styling={false} filterClick={props.filterClick}>{categorie}</Categorie>
+            return <Categorie key={index} filterClick={props.filterClick}>{categorie}</Categorie>
         } else {
             return null;
         }
@@ -17,7 +17,7 @@ export default function Categories(props) {
     return(
         <>
             <ul className={classes.UlCategories} id="ul-categories">
-                {Allcategorie}
+                {Allcategories}
             </ul>
         </>
     )

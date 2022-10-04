@@ -23,17 +23,17 @@ export default function Gallery(props) {
     function getCurrentSort(container=[]){
         currentURL  = Object.fromEntries([...searchParams]);
         currentSort = currentURL.sort;
-        
+
         if (currentSort === undefined){
             setFiltredCategories([]);
-            restaureCategorie(container);
+            restaureCategories(container);
             container = [...new Set(container)];
             setCategories(container);
             return;
         }
         currentSort = currentSort.split('+');
     }
-    function restaureCategorie(container) {
+    function restaureCategories(container) {
         galleryData.forEach((photo) => {
             let multipleCategories = photo.categories;
 
@@ -51,6 +51,7 @@ export default function Gallery(props) {
 
         getCurrentSort();
 
+        // Check the url for avoid bugs
         if (currentSort === ''){
             setSearchParams({});
             return;
@@ -60,20 +61,46 @@ export default function Gallery(props) {
             setSearchParams({});
             return;
         }
-        
+
         let newFiltredCategories = [];
 
-        const getFiltredCategorie = () => {
+        // Add categorie filtred from the url search params
+        const getFiltredCategories = () => {
             for (let categorie of currentSort){
+                let change = false;
+
                 categorie    = categorie.split('');
                 categorie[0] = categorie[0].toUpperCase();
                 categorie    = categorie.join('');
-                newFiltredCategories.push(categorie);
+
+                const checkIfCategorieExist = () => {
+                    for (let photo of galleryData) {
+                        if (change == true){
+                            break;
+                        }
+                        for (let photoCategorie of photo.categories) {
+                            if (categorie + '\r' === photoCategorie){
+                                change = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+                checkIfCategorieExist();
+
+                if (change) {
+                    newFiltredCategories.push(categorie);
+                } else {
+                    // New url without the wrong categorie
+                    removeFromIndex(currentSort, categorie);
+                    setSearchParams({ sort: currentSort });
+                }
+
             }
         }
-        getFiltredCategorie();
+        getFiltredCategories();
 
-        restaureCategorie(newCategorie);
+        restaureCategories(newCategorie);
         newCategorie = [...new Set(newCategorie)];
 
         // Remove filtred catégories from all list catégories

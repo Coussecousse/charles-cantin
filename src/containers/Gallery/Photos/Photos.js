@@ -21,13 +21,15 @@ export default function Photos(props) {
 
     return(     
         galleryPics.map(photo => {
-            console.log(photo.mobileSize)
             function affichedPic() {
                 let result;
                 if (props.categories.length === 0) {
-                    result = true;
+                    return true;
                 } 
                 for (let categoriesPhoto of photo.categories) {
+                    if (result === true) {
+                        break;
+                    }
                     for (let categoriesFiltred of props.categories) {
                         if (categoriesFiltred + '\r'=== categoriesPhoto) {
                             result = true;
