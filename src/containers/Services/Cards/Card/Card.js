@@ -21,7 +21,8 @@ export default function Card(props) {
         flexDirection: 'column',
         justifyContent: 'space-between',
         color: '#fff',
-        textAlign : 'center'
+        textAlign : 'center',
+        boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px'
     }
     const contentContainer = {
         backgroundColor: 'hsl(195, 14%, 23%, 50%)', 
@@ -30,7 +31,7 @@ export default function Card(props) {
         flexDirection: 'column',
         justifyContent: 'space-evenly',
         padding: '0 1rem',
-        height: '28%', 
+        height: '30%', 
         lineHeight: '1.3rem'
     }
     return (
