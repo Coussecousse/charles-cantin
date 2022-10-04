@@ -75,7 +75,7 @@ export default function Gallery(props) {
 
                 const checkIfCategorieExist = () => {
                     for (let photo of galleryData) {
-                        if (change == true){
+                        if (change === true){
                             break;
                         }
                         for (let photoCategorie of photo.categories) {

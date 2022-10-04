@@ -114,6 +114,12 @@ h2 {
 }
 
 /* HEADER */
+header {
+	z-index: 1;
+	width: 100%;
+	padding: .5rem 0;
+	transition: .2s ease-in;
+}
 .header-desktop img, .header-mobile img {
 	height : 20vh;
 	max-height: 90px;
