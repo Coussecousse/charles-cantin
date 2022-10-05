@@ -32,7 +32,6 @@ export default function Layout(props){
                 } else {
                     return {
                         backgroundImage :  'url(' + data[0].picHome +')',
-                        backgroundSize : 'cover',
                         backgroundPosition: "center",
                         filter : 'blur(2px)',
                     };

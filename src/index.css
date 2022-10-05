@@ -111,6 +111,7 @@ h2 {
 	text-align: center;
 }
 .container {
+	flex: 1;
 	position: relative;
     width:90%;
     max-width: 800px;
