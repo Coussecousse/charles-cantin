@@ -22,7 +22,7 @@ export default function Contact(props) {
                         </div>
                         <div className={classes.InputDiv}>
                             <label>EMAIL :
-                                <input type="email" id="email" name="email" pattern="[A-Za-z0-9._+-]+@[A-Za-z0-9 -]+\.[a-z]{2,50}" title="Veuillez rentrer une adresse mail valide." required></input>
+                                <input type="email" id="email" name="email" title="Veuillez rentrer une adresse mail valide." required></input>
                             </label>
                         </div>
                         <div className={classes.InputDiv}>
@@ -48,12 +48,12 @@ export default function Contact(props) {
                         </div>
                         <div className={classes.Textarea}>
                             <label>MESSAGE :
-                                <textarea maxLength="500" pattern="{1,500}" title="500 caractères maximum."></textarea>
+                                <textarea maxLength="500" pattern="{1,500}" title="500 caractères maximum." placeholder="500 caractères maximum."></textarea>
                             </label>
                         </div>
-                        <input type="submit" value="Envoyer"></input>
+                        <button className={classes.BtnSend} type="submit">Envoyer</button>
                     </form>
-                    <p>* Facultatif</p>
+                    <p style={{fontSize: '.8rem'}}>* Facultatif</p>
                 </div>
             </div>
         </main>
