@@ -53,7 +53,7 @@ export default function Contact(props) {
                         </div>
                         <button className={classes.BtnSend} type="submit">Envoyer</button>
                     </form>
-                    <p style={{fontSize: '.8rem'}}>* Facultatif</p>
+                    <p style={{fontSize: '.8rem', marginTop: '1rem'}}>* Facultatif</p>
                 </div>
             </div>
         </main>

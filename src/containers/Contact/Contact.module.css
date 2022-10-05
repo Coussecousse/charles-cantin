@@ -2,13 +2,14 @@
 .FormMain{
     display: flex;
     flex-direction: column;
+    margin-bottom: 2rem;
 }
 .Form {
     background: hsl(0, 0%, 100%, 60%);
     border-radius: 30px;
     margin: auto;
     padding: 2rem;
-    height: 450px;
+    height: 500px;
     width: 100%;
     max-width: 500px;
     display: flex;
@@ -87,7 +88,7 @@ form input:focus, textarea:focus {
 
 @media screen and (max-width: 540px) {
     .Form {
-        height: 70vh;
+        height: 100%;
     }
     .InputDiv {
         width: 100%;
