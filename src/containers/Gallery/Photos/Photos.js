@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Photo from './Photo/Photo';
 import galleryPics from '../../../gallery.json'
 
 export default function Photos(props) {
+    const [firstTime, setFirstTime] = useState(true);
+
     const transformPosition = (position) => {
         if (typeof position === "string") {
             position = position.split('')
@@ -18,6 +20,37 @@ export default function Photos(props) {
         }
     }
 
+    useEffect(() => {
+        const container = document.querySelector('.container');
+        const allImgs = container.querySelectorAll('img');
+
+        allImgs.forEach((img, index) => {
+            if (!firstTime) {
+                img.classList.remove('photoActiveAnimation');
+                img.style.opacity = '0';
+
+                setTimeout(() => {
+                    img.classList.add('photoActiveAnimation');
+                    img.style.animationDuration = '.5s';
+                    img.style.animationDelay = 0 + index/10 + 's';
+                }, 100);
+                setTimeout(() => {
+                    img.style.opacity = '1';
+                }, 500 + index*115);
+
+            } else {
+                img.style.animationDelay= 0.6 + index/10 +'s';
+                img.classList.add('photoActiveAnimation');
+
+                setTimeout(() => {
+                    img.style.opacity = '1';
+                }, 1000 + index*115) 
+                setTimeout(() => {
+                    setFirstTime(false);
+                }, 1000);
+            }
+        })
+    }, [props.categories])
 
     return(     
         galleryPics.map(photo => {
@@ -41,6 +74,7 @@ export default function Photos(props) {
                 }
                 return result;
             }
+            
             return (
                 (affichedPic() ? 
                     <Photo src={photo.pic} 

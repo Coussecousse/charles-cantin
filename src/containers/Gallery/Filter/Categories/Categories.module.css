@@ -1,4 +1,5 @@
 .UlCategories {
+    z-index: 1;
     width: 100%;
     max-width: 150px;
     padding : .2rem .8rem;

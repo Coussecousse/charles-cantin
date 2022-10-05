@@ -144,13 +144,15 @@ export default function Gallery(props) {
 
     function handleRemoveCategorie(e) {
         let categorieToRemove = (e.target.previousSibling);
-
         const getCategorieToRemove = () => {
             if (categorieToRemove == null){
                 categorieToRemove  = (e.target.parentElement.previousSibling);
             }
             categorieToRemove = categorieToRemove.textContent;
         }
+
+        // console.log(categorieToRemove.parentElement)
+        // categorieToRemove.parentElement.className.add('filterDesactive')
         const removeTheCategorieInURL = () => {
             categorieToRemove = categorieToRemove.toLowerCase();
 
@@ -184,7 +186,7 @@ export default function Gallery(props) {
     
     return(
         <main onClick={closeFilter}>
-            <h1 className="titleSection">Galerie</h1>
+            <h1 className="titleSection firstAnimation">Galerie</h1>
             <div className="container" id="container">
                 <Filter searching={searching} 
                         change={handleChange} 

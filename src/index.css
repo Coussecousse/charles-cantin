@@ -118,6 +118,89 @@ h2 {
     max-width: 800px;
     margin: 1rem auto;
 }
+/* ANIMATIONS */
+/* --Titres */
+.firstAnimation {
+	animation: fadeIn 1s linear;
+}
+.secondAnimation {
+    opacity: 0;
+    animation: fadeIn .8s .5s linear;
+}
+.activeSecondAnimation {
+	opacity: 1;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        text-shadow: 0px 0px 200px #fff;
+        transform: scale(1.3);        
+    }
+    50% {
+        opacity: .5;
+        text-shadow: 0px 0px 40px #fff;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/* --Photos */
+.photoAnimation {
+	opacity: 0;
+}
+.photoActiveAnimation {
+	animation: shinePhotos 1s ease;
+}
+
+@keyframes shinePhotos {
+	0% {
+		transform: scale(0.9);
+		filter: brightness(2) opacity(0) blur(10px);
+		box-shadow: 0 0 5px #e5e5e5, 0 0 10px #e5e5e5, 0 0 15px #e5e5e5, 0 0 20px #e5e5e5,
+		0 0 35px #e5e5e5, 0 0 40px #e5e5e5, 0 0 50px #e5e5e5, 0 0 75px #e5e5e5;
+	}
+	1% {
+		transform: scale(0.9);
+		filter: brightness(1) opacity(0.2) blur(10px);
+		box-shadow: 0 0 10px #e5e5e5, 0 0 20px #e5e5e5, 0 0 30px #e5e5e5, 0 0 40px #e5e5e5, 
+		0 0 70px #e5e5e5, 0 0 80px #e5e5e5, 0 0 100px #e5e5e5, 0 0 150px #e5e5e5;
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+		filter: brightness(1) opacity(1) blur(0);
+	}
+}
+/* --Filter Categorie */
+.filterActive {
+	opacity: 0;
+	animation: fadeInFilter .2s ease;
+	transition: all .2s ease;
+}
+@keyframes fadeInFilter {
+	from {
+		transform: scale(0);
+		opacity: 0;
+	} to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+.filterDesactive {
+	opacity: 0 !important;
+	transform: scale(0);
+}
+@keyframes fadeOutFilter {
+	from {
+		transform: scale(1);
+		opacity: 1;
+	} to {
+		transform: scale(0);
+		opacity: 0;
+	}
+}
 /* HEADER */
 header {
 	z-index: 1;

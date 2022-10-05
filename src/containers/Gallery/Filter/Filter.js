@@ -14,7 +14,6 @@ export default function Filter(props) {
                                            value={props.value} 
                                            filterClick={props.filterClick}></Categories> : null}
             </div>
-
-            </div>
+        </div>
     )
 }

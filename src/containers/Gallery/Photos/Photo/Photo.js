@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function Photo(props) {
     function getSize() {
@@ -29,9 +29,12 @@ export default function Photo(props) {
                 }
         }
     }
+
+
+
     return(
         <div style={getSize()}>
-            <img src={props.src} alt={props.alt} style={{objectPosition : props.posImg}}></img>
+            <img className="photoAnimation photo" src={props.src} alt={props.alt} style={{objectPosition : props.posImg}}></img>
         </div>
     )
 }
