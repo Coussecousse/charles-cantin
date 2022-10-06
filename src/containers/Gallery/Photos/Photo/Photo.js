@@ -30,7 +30,7 @@ export default function Photo(props) {
         }
     }
 
-
+    console.log('hello')
     console.log(props.size)
     return(
         <div style={getSize()}>
