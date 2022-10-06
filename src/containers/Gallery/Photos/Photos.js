@@ -74,7 +74,7 @@ export default function Photos(props) {
                 }
                 return result;
             }
-            
+            console.log(photo.posX)
             return (
                 (affichedPic() ? 
                     <Photo src={photo.pic} 
@@ -82,7 +82,7 @@ export default function Photos(props) {
                         alt={photo.alt} 
                         size={props.mobile ? photo.mobileSize : photo.size} 
                         posColumn={photo.placeColumn}
-                        posImg={transformPosition(photo.posX) + '% ' + transformPosition(photo.posY) + '%'}></Photo>
+                        posImg={photo.posX + '% ' + photo.posY + '%'}></Photo>
                     : null
                 )
             )
