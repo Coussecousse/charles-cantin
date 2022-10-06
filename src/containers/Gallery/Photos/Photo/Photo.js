@@ -31,7 +31,7 @@ export default function Photo(props) {
     }
 
 
-
+    console.log(props.size)
     return(
         <div style={getSize()}>
             <img className="photoAnimation" src={props.src} alt={props.alt} style={{objectPosition : props.posImg}}></img>
