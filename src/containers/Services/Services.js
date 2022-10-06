@@ -6,7 +6,7 @@ import Cards from './Cards/Cards';
 export default function Gallery(props) {
     return(
         <main>
-            <h1 className="titleSection">Prestations</h1>
+            <h1 className="titleSection firstAnimation">Prestations</h1>
             <div className="container">
                 <Cards mobile={props.mobile}></Cards>
             </div>

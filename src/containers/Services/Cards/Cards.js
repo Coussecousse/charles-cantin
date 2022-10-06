@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from './Cards.module.css'
 
 import CardsInformations from '../../../services.json';
@@ -34,6 +34,20 @@ export default function Cards(props) {
             </Card>
         )
     })
+
+    useEffect(() => {
+        const container = document.querySelector('.container');
+        const allCards = container.querySelectorAll('.card');
+
+        allCards.forEach((card, index) => {
+            card.style.animationDelay= 0.6 + index/10 +'s';
+            card.classList.add('photoActiveAnimation');
+            setTimeout(() => {
+                card.style.opacity = '1';
+            }, 1000 + index*115)       
+        })
+    })
+    
     return (
         <ul className={props.mobile ? classes.CardsContainerMobile : classes.CardsContainer }>
             {card}

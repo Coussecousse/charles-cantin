@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from './Contact.module.css';
 
 import servicesData from '../../services.json';
 
 export default function Contact(props) {
+    useEffect(() => {
+        const container = document.querySelector('.contactAnimation');
+        setTimeout(() => {
+            container.style.opacity = '1';
+        }, 800)
+    })
     return(
         <main className={classes.FormMain}>
-            <h1 className="titleSection">contact</h1>
+            <h1 className="titleSection firstAnimation">contact</h1>
             <div className="container">
-                <div className={classes.Form}>
+                <div className={[classes.Form, "contactAnimation"].join(' ')}>
                     <form name="contact" method="post" data-netlify="true" onSubmit="submit" data-netlify-honeypot="bot-field">
                         <input type="hidden" name="form-name" value="contact"/>
                         <div hidden>

@@ -144,15 +144,22 @@ export default function Gallery(props) {
 
     function handleRemoveCategorie(e) {
         let categorieToRemove = (e.target.previousSibling);
+
         const getCategorieToRemove = () => {
             if (categorieToRemove == null){
                 categorieToRemove  = (e.target.parentElement.previousSibling);
             }
+
+            const animeRemoveCategorie = () => {
+                const parent = categorieToRemove.parentElement;
+                parent.style.opacity = '0';
+                parent.style.transform = 'scale(0)';
+            }
+            animeRemoveCategorie();
+            
             categorieToRemove = categorieToRemove.textContent;
         }
 
-        // console.log(categorieToRemove.parentElement)
-        // categorieToRemove.parentElement.className.add('filterDesactive')
         const removeTheCategorieInURL = () => {
             categorieToRemove = categorieToRemove.toLowerCase();
 
@@ -163,9 +170,11 @@ export default function Gallery(props) {
         }
 
         getCategorieToRemove();
-        removeTheCategorieInURL();
+        setTimeout(() => {
+            removeTheCategorieInURL();
+            setSearchParams({ sort: currentSort });
+        }, 200)
         
-        setSearchParams({ sort: currentSort });
     }
 
     function handleAddFilter(e) {
