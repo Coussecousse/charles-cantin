@@ -64,7 +64,7 @@ collections:
         - {label: Mobile, name: mobile, widget: boolean, default: false, required: false}
         - {label: Titre du site, name: title, widget: string}
         - {label: Sous titre, name: subtitle, widget: string}
-        - {label: Titre dans l'entête, name: headingTtile: widget: string}
+        - {label: Titre dans l'entête, name: headingTitle, widget: string}
         - {label: Description de la page, name: description, widget: string}
         - {label: Image de fond, name: pic, widget: image}
         - {label: Position X en mobile, name: posX, widget: position, default: 50, min: 1, max: 100}
@@ -74,7 +74,7 @@ collections:
         file: "data/global/contact.md"
         fields: 
         - {label: Mobile, name: mobile, widget: boolean, default: false, required: false}
-        - {label: Titre dans l'entête, name: headingTtile: widget: string}
+        - {label: Titre dans l'entête, name: headingTitle , widget: string}
         - {label: Description de la page, name: description, widget: string}
         - {label: Image de fond, name: pic, widget: image}
         - {label: Position X en mobile, name: posX, widget: position, default: 50, min: 1, max: 100}
