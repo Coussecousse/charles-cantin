@@ -14,7 +14,9 @@ export default function Photos(props) {
                     position.splice(i, 1);
                 }
             }
-            position.splice(position.length - 1, 1);
+            if (position[position.length-1] == '\r'){
+                position.splice(position.length - 1, 1);
+            }
             position = position.join('');
             return position
         }
