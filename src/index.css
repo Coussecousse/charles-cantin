@@ -146,6 +146,25 @@ h2 {
         transform: scale(1);
     }
 }
+/* -- Footer and header when home */
+.animeHome {
+	opacity: 0;
+	transition-duration: 0s;
+	animation : fadeInHome .5s .8s linear;
+}
+.animeHomeActive {
+	opacity: 1 !important;
+}
+@keyframes fadeInHome {
+	from {
+		opacity: 0;
+	} to {
+		opacity: 1;
+	}
+}
+.notHome {
+	opacity: 1 !important;
+}
 /* --Photos */
 .photoAnimation {
 	opacity: 0;
@@ -188,6 +207,7 @@ h2 {
 		opacity: 1;
 	}
 }
+
 /* --Contact */
 .contactAnimation {
 	opacity: 0;

@@ -11,7 +11,7 @@ export default function Home(){
         }, 500);
     })
     return(
-        <main className={classes.Home}>
+        <main className={classes.Home} id="home">
             <div className={classes.TitleContainer}>
                 <h1 className="firstAnimation">{data[0].homeTitle}</h1>
                 <h2 className="secondAnimation">{data[0].sousHomeTitle}</h2>

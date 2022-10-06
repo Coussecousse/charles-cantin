@@ -144,7 +144,7 @@ export default function Gallery(props) {
 
     function handleRemoveCategorie(e) {
         let categorieToRemove = (e.target.previousSibling);
-
+        console.log(e.target)
         const getCategorieToRemove = () => {
             if (categorieToRemove == null){
                 categorieToRemove  = (e.target.parentElement.previousSibling);
@@ -153,12 +153,12 @@ export default function Gallery(props) {
             const animeRemoveCategorie = () => {
                 const parent = categorieToRemove.parentElement;
                 parent.style.opacity = '0';
-                parent.style.transform = 'scale(0)';
             }
-            animeRemoveCategorie();
             
+            animeRemoveCategorie();
             categorieToRemove = categorieToRemove.textContent;
         }
+        
 
         const removeTheCategorieInURL = () => {
             categorieToRemove = categorieToRemove.toLowerCase();
@@ -202,7 +202,7 @@ export default function Gallery(props) {
                         value={InputValue} 
                         filtredCategories = {filtredCategories}
                         filterClick={handleAddFilter}
-                        removeCategorie={handleRemoveCategorie}
+                        removeCategorie={(e) => handleRemoveCategorie(e)}
                         categories={categories}></Filter>
                 <div className={props.mobile ? classes.PicsContainerMobile : classes.PicsContainer}>
                     <Photos categories={filtredCategories} mobile={props.mobile}></Photos>
