@@ -10,7 +10,7 @@ export default function Photos(props) {
         if (typeof position === "string") {
             position = position.split('')
             for (let i = 0; i < position.length; i++){
-                if (position[i] === '\"'){
+                if (position[i] === '\"' || position[i] === '"'){
                     position.splice(i, 1);
                 }
             }
@@ -82,7 +82,7 @@ export default function Photos(props) {
                         alt={photo.alt} 
                         size={props.mobile ? photo.mobileSize : photo.size} 
                         posColumn={photo.placeColumn}
-                        posImg={photo.posX + '% ' + photo.posY + '%'}></Photo>
+                        posImg={transformPosition(photo.posX) + '% ' + transformPosition(photo.posY) + '%'}></Photo>
                     : null
                 )
             )

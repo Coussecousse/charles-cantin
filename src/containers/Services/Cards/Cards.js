@@ -9,7 +9,7 @@ export default function Cards(props) {
         if (typeof position === "string") {
             position = position.split('')
             for (let i = 0; i < position.length; i++){
-                if (position[i] === '\"'){
+                if (position[i] === '\"' || position[i] ==='"'){
                     position.splice(i, 1);
                 }
             }
