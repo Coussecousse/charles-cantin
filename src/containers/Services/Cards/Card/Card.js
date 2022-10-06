@@ -3,9 +3,9 @@ import React from "react";
 export default function Card(props) {
     function getSize() {
         switch(props.size){
-            case '2/2\r': 
+            case '2/2': 
                 return 'span 2';
-            case '1/2\r':
+            case '1/2':
                 return 'span 1';
             default: 
                 return 'span 2';
