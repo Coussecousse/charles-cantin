@@ -17,6 +17,7 @@ collections:
         file: "data/gallery/gallery.md"
         fields:
           - {label: Mobile, name: mobile, widget: boolean, default: false}
+          - {label: Description de la page, name: description, widget: string}
           - label: "Images"
             name: pics
             widget: list
@@ -38,6 +39,7 @@ collections:
         file: "data/services/services.md"
         fields:
         - {label: Mobile, name: mobile, widget: boolean, default: false, required: false}
+        - {label: Description de la page, name: description, widget: string}
         - label: Prestations
           name: services
           widget: list
@@ -50,3 +52,30 @@ collections:
             - {label: PosX, name: posX, widget: position, default: 50, min: 1, max: 100}
             - {label: PosY, name: posY, widget: position, default: 50, min: 1, max: 100}
             - {label: Couleur du Titre, name: colorTitle, widget: color, default: '#323E42'}
+  - name: "GlobalInformations"
+    label: "Informations globales"
+    create: false
+    delete: false
+    files: 
+      - label: Accueil
+        name: home
+        file: "data/global/home.md"
+        fields:
+        - {label: Mobile, name: mobile, widget: boolean, default: false, required: false}
+        - {label: Titre du site, name: title, widget: string}
+        - {label: Sous titre, name: subtitle, widget: string}
+        - {label: Titre dans l'entête, name: headingTtile: widget: string}
+        - {label: Description de la page, name: description, widget: string}
+        - {label: Image de fond, name: pic, widget: image}
+        - {label: Position X en mobile, name: posX, widget: position, default: 50, min: 1, max: 100}
+        - {label: Position Y en mobile, name: posY, widget: position, default: 50, min: 1, max: 100}
+      - label: Contact
+        name: contact
+        file: "data/global/contact.md"
+        fields: 
+        - {label: Mobile, name: mobile, widget: boolean, default: false, required: false}
+        - {label: Titre dans l'entête, name: headingTtile: widget: string}
+        - {label: Description de la page, name: description, widget: string}
+        - {label: Image de fond, name: pic, widget: image}
+        - {label: Position X en mobile, name: posX, widget: position, default: 50, min: 1, max: 100}
+        - {label: Position Y en mobile, name: posY, widget: position, default: 50, min: 1, max: 100}
