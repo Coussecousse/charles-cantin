@@ -35,7 +35,7 @@ export default function Card(props) {
         lineHeight: '1.3rem'
     }
     return (
-        <li style={cardStyle}>
+        <li style={cardStyle} className="photoAnimation card">
             <h2 style={{color: props.color, textTransform: 'uppercase', fontSize: '1.5rem', fontWeight:'var(--fw-600)', marginTop: '.5rem'}}>{props.title}</h2>
             <div style={contentContainer}>
                 <p style={{fontSize:'clamp(1.5rem, 1.4rem + .5vw, 2rem)', fontFamily:'var(--ff-secondary)'}}>{props.price}</p>

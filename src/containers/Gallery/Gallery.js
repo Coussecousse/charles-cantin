@@ -144,13 +144,22 @@ export default function Gallery(props) {
 
     function handleRemoveCategorie(e) {
         let categorieToRemove = (e.target.previousSibling);
-
+        console.log(e.target)
         const getCategorieToRemove = () => {
             if (categorieToRemove == null){
                 categorieToRemove  = (e.target.parentElement.previousSibling);
             }
+
+            const animeRemoveCategorie = () => {
+                const parent = categorieToRemove.parentElement;
+                parent.style.opacity = '0';
+            }
+            
+            animeRemoveCategorie();
             categorieToRemove = categorieToRemove.textContent;
         }
+        
+
         const removeTheCategorieInURL = () => {
             categorieToRemove = categorieToRemove.toLowerCase();
 
@@ -161,9 +170,11 @@ export default function Gallery(props) {
         }
 
         getCategorieToRemove();
-        removeTheCategorieInURL();
+        setTimeout(() => {
+            removeTheCategorieInURL();
+            setSearchParams({ sort: currentSort });
+        }, 200)
         
-        setSearchParams({ sort: currentSort });
     }
 
     function handleAddFilter(e) {
@@ -184,14 +195,14 @@ export default function Gallery(props) {
     
     return(
         <main onClick={closeFilter}>
-            <h1 className="titleSection">Galerie</h1>
+            <h1 className="titleSection firstAnimation">Galerie</h1>
             <div className="container" id="container">
                 <Filter searching={searching} 
                         change={handleChange} 
                         value={InputValue} 
                         filtredCategories = {filtredCategories}
                         filterClick={handleAddFilter}
-                        removeCategorie={handleRemoveCategorie}
+                        removeCategorie={(e) => handleRemoveCategorie(e)}
                         categories={categories}></Filter>
                 <div className={props.mobile ? classes.PicsContainerMobile : classes.PicsContainer}>
                     <Photos categories={filtredCategories} mobile={props.mobile}></Photos>

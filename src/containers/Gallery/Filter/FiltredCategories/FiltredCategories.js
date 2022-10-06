@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./FiltredCategories.module.css";
 
 import FiltredCategorie from './FiltredCategorie/FiltredCategorie'
 
 export default function FiltredCategories(props) {
+    
     return (
         <ul className={window.innerWidth >= 768 ? classes.FiltredCategoriesStyle : classes.FiltredCategoriesStyleMobile}>
             {props.filtredCategories.map((filtredCategorie, index)=> {
