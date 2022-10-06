@@ -76,7 +76,7 @@ export default function Photos(props) {
                 }
                 return result;
             }
-            console.log(photo.posX)
+            
             return (
                 (affichedPic() ? 
                     <Photo src={photo.pic} 
