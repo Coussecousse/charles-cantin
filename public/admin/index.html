@@ -171,10 +171,54 @@
         )
       }
     })
+    const TemplateHome = createClass({
+      render: function() {
+        let entry = this.props.entry;
+        let classNameContainer = getContainerClassName(entry.getIn(['data', 'mobile']));
+        
+        let position = entry.getIn(['data', 'posX']) + '% ' + entry.getIn(['data', 'posY']) + '%';
+
+        let backgroundStyle = {
+          display: 'flex',
+          justifyContent: 'center',
+          height: '100%', 
+          width: '100%',
+          backgroundImage: 'url("'+ entry.getIn(['data', 'pic']) +'"")',
+          backgroundPosition: position,
+        }
+        return h('div', {className : classNameContainer}, 
+                  h('div', {style: backgroundStyle}, 
+                    h('h1', {}, entry.getIn(['data', 'title'])),
+                    h('h2', {}, entry.getIn(['data','subtitle']))
+                  ),  
+                )
+      }
+    })
+    const TemplateContact = createClass({
+      render: function() {
+        let entry = this.props.entry;
+        let classNameContainer = getContainerClassName(entry.getIn(['data', 'mobile']));
+
+        let position = entry.getIn(['data', 'posX']) + '% ' + entry.getIn(['data', 'posY']) + '%';
+        
+        let backgroundStyle = {
+          display: 'flex',
+          justifyContent: 'center',
+          height: '100%', 
+          width: '100%',
+          backgroundImage: 'url("'+ entry.getIn(['data', 'pic']) +'"")',
+          backgroundPosition: position,
+        }
+        return h('div', {className : classNameContainer, style: backgroundStyle}, )
+      }
+    })
     CMS.registerWidget('position', RangeControl);
     CMS.registerPreviewStyle("./styles.css");
     CMS.registerPreviewTemplate("gallery", TemplateGallery);
-    CMS.registerPreviewTemplate("services", TemplateServices)
+    CMS.registerPreviewTemplate("services", TemplateServices);
+    CMS.registerPreviewTemplate("home", TemplateHome);
+    CMS.registerPreviewTemplate("contact", TemplateContact);
+
   </script>
 </body>
 </html>
