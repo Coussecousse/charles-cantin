@@ -179,26 +179,16 @@
 
         let backgroundStyle = {
           position: 'absolute', 
-          zIndex: '-1',
           height: '100%', 
           width: '100%',
           filter : 'blur(2px)',
           backgroundImage: 'url("'+ entry.getIn(['data', 'pic']) +'")',
           backgroundPosition: position,
         }
-        let containerTitle = {
-          color: 'hsl(196, 100%, 97%)',
-          display: 'flex',
-          width: '100%',
-          height: '100%',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column',
-        }
         return h('div', {className : entry.getIn(['data', 'mobile']) ? "container-mobile" : "container-home-contact"}, 
                   h('div', {style: backgroundStyle}, ),
                   h('div', {className: "container-title"}, 
-                    h('h1', {style: entry.getIn(['data', 'mobile']) ? {fontSize: '2rem'} : {fontSize: '6rem'}, textAlign:'center'}, entry.getIn(['data', 'title']).toUpperCase()),
+                    h('h1', {style: entry.getIn(['data', 'mobile']) ? {fontSize: '2rem'} : {fontSize: '6rem'}}, entry.getIn(['data', 'title']).toUpperCase()),
                     h('h2', {style: entry.getIn(['data', 'mobile']) ? {fontSize: '1.5rem'} : {fontSize: '3rem'}}, entry.getIn(['data','subtitle']))
                   ), 
                 )
