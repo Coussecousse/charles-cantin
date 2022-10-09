@@ -186,7 +186,7 @@
         }
         return  h('div', {style: {height: '100vh', width: '100vw'}}, 
                   // h('div', {style: backgroundStyle}, ),
-                  h('div', {className : homeClassName, style: {backgroundStyle}}, 
+                  h('div', {className : homeClassName, style: backgroundStyle}, 
                     h('div', {className: "container-title"}, 
                       h('h1', {style: entry.getIn(['data', 'mobile']) ? {fontSize: '2rem'} : {fontSize: '6rem'}}, entry.getIn(['data', 'title']).toUpperCase()),
                       h('h2', {style: entry.getIn(['data', 'mobile']) ? {fontSize: '1.5rem'} : {fontSize: '3rem'}}, entry.getIn(['data','subtitle']))
