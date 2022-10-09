@@ -187,7 +187,6 @@
           flexDirection: 'column'
         }
         return  h('div', {style: {height: '100vh', width: '100vw'}}, 
-                  // h('div', {style: backgroundStyle}, ),
                   h('div', {className : homeClassName, style: backgroundStyle}, 
                     h('div', {className:'menu'}, 'MENU'),
                     h('div', {className: "container-title"}, 
@@ -207,17 +206,17 @@
         let position = entry.getIn(['data', 'posX']) + '% ' + entry.getIn(['data', 'posY']) + '%';
         
         let backgroundStyle = {
-          height: '100vh', 
-          width: '100vw',
+          height: '100%', 
+          width: '100%',
           backgroundImage: 'url("'+ entry.getIn(['data', 'pic']) +'")',
           backgroundPosition: position,
-          backgroundSize:'cover',
-          filter : 'blur(2px)',
+          backgroundSize: "cover",
+          display: 'flex',
+          flexDirection: 'column'
         }
         return  h('div', {style : {height: '100vh', width: '100vw'}}, 
-                  h('div', {className : (entry.getIn(['data', 'mobile']) ? "container-mobile" : "container-home-contact"), style: {display: 'flex', overflow: 'hidden', border: 'solid 2px'}}, 
+                  h('div', {className : (entry.getIn(['data', 'mobile']) ? "container-mobile" : "container-home-contact"), style: backgroundStyle}, 
                     h('div', {className:'menu'}, 'MENU'),
-                    h('div', {style: backgroundStyle}, ),
                   )
                 )
       }
