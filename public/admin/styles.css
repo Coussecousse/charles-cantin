@@ -12,11 +12,10 @@ p {
     padding: 0;
 }
 .container-home-contact {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 .container-title {
-    font-weight: 400;
     z-index: 1;
     color: hsl(196, 100%, 97%);
     display: flex;
@@ -27,6 +26,7 @@ p {
     width: auto;
 }
 .container-title> * {
+    font-weight: 400;
     z-index: 2;
 }
 
