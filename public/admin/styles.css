@@ -11,6 +11,10 @@ p {
     margin: 0;
     padding: 0;
 }
+.container-home-contact {
+    width: 100vw;
+    height: 100vh;
+}
 .container-desktop {
     width: 100%;
     max-width : 800px;

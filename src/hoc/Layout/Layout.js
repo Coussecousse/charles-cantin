@@ -37,11 +37,6 @@ export default function Layout(props){
                         filter : 'blur(2px)',
                     };
                 }
-            case '/galerie' :
-            case '/prestations' :
-                return {
-                    backgroundColor : 'var(--color-primary)',
-                }
             case '/contact':
             console.log('contact')
                 if (props.mobile) {
@@ -57,10 +52,13 @@ export default function Layout(props){
                         filter : 'blur(2px)',
                     }
                 }
+            case '/galerie' :
+            case '/prestations' :
             default :
                 return {
-                    backgroundColor : '#fff',
+                            backgroundColor : 'var(--color-primary)',
                 }
+
         }
     }
     useEffect(() => {

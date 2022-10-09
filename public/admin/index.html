@@ -174,7 +174,6 @@
     const TemplateHome = createClass({
       render: function() {
         let entry = this.props.entry;
-        let classNameContainer = getContainerClassName(entry.getIn(['data', 'mobile']));
         
         let position = entry.getIn(['data', 'posX']) + '% ' + entry.getIn(['data', 'posY']) + '%';
 
@@ -184,13 +183,14 @@
           justifyContent: 'center',
           alignItems: 'center',
           flexDirection: 'column',
-          height: '100vh', 
-          width: '100vw',
+          height: '100%', 
+          width: '100%',
+          filter : 'blur(2px)',
           backgroundImage: 'url("'+ entry.getIn(['data', 'pic']) +'")',
           backgroundPosition: position,
         }
         console.log(entry.getIn('[data', 'pic'));
-        return h('div', {className : classNameContainer}, 
+        return h('div', {className : data.getIn(['data', 'mobile']) ? "container-mobile" : "container-home-contact"}, 
                   h('div', {style: backgroundStyle},
                     h('div', {}, 
                       h('h1', {style: entry.getIn(['data', 'mobile']) ? {fontSize: '2rem'} : {fontSize: '6rem'}, textAlign:'center'}, entry.getIn(['data', 'title']).toUpperCase()),
