@@ -32,7 +32,7 @@ p {
 .menu {
     height: 15%;
     width: 100%;
-    background: url('https://cdn.pixabay.com/photo/2021/11/14/08/11/striped-background-6793834_960_720.jpg');
+    background-color: hsl(207, 7%, 71%);
     border: solid black 2px; 
     text-align: center;
     font-size: 2rem;
