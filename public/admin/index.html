@@ -195,14 +195,12 @@
           alignItems: 'center',
           flexDirection: 'column',
         }
-        console.log(entry.getIn('[data', 'pic'));
         return h('div', {className : entry.getIn(['data', 'mobile']) ? "container-mobile" : "container-home-contact"}, 
-                  h('div', {style: backgroundStyle},),
-                  h('div', {style: "container-title"}, 
+                  h('div', {style: backgroundStyle}, ),
+                  h('div', {className: "container-title"}, 
                     h('h1', {style: entry.getIn(['data', 'mobile']) ? {fontSize: '2rem'} : {fontSize: '6rem'}, textAlign:'center'}, entry.getIn(['data', 'title']).toUpperCase()),
                     h('h2', {style: entry.getIn(['data', 'mobile']) ? {fontSize: '1.5rem'} : {fontSize: '3rem'}}, entry.getIn(['data','subtitle']))
-                  ) 
-                  
+                  ), 
                 )
       }
     })
