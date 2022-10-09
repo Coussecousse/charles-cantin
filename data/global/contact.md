@@ -1,7 +1,7 @@
 ---
-mobile: true
+mobile: false
 description: Pour contacter Charles Cantin.
 pic: /images/contact.jpg
-posX: "82"
+posX: "84"
 posY: "28"
 ---
