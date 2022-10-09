@@ -8,4 +8,6 @@ description: Présentation de Charles Cantin, le photographe qui saura
 pic: /images/home.jpg
 posX: "69"
 posY: "23"
+facebook: https://www.facebook.com/
+instagram: https://www.instagram.com/?hl=fr
 ---
