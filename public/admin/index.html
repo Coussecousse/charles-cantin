@@ -213,11 +213,11 @@
           backgroundSize: "cover",
           display: 'flex',
           flexDirection: 'column',
-          filter: 'blur(2px)'
         }
         return  h('div', {style : {height: '100vh', width: '100vw'}}, 
                   h('div', {className : (entry.getIn(['data', 'mobile']) ? "container-mobile" : "container-home-contact"), style: backgroundStyle}, 
                     h('div', {className:'menu'}, 'MENU'),
+                    h('div', {style: {flex: '1', backdropFilter: 'blur(2px)'}})
                   )
                 )
       }
