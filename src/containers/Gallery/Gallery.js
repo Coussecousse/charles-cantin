@@ -19,6 +19,8 @@ export default function Gallery(props) {
     const [searchParams, setSearchParams] = useSearchParams();
     const [categories, setCategories]     = useState([]);
     const [filtredCategories, setFiltredCategories] = useState([]);
+    const [photoClicked, setPhotoClicked] = useState([false, '']);
+
 
     function getCurrentSort(container=[]){
         currentURL  = Object.fromEntries([...searchParams]);
@@ -192,7 +194,55 @@ export default function Gallery(props) {
         }
         setSearching(true);
     };
-    
+    const handleClickPhoto = e => {
+        console.log(e.target);
+        if (photoClicked[0] == true) {
+            setPhotoClicked([!photoClicked[0], '']);
+        } else {
+            let previous = e.target.parentElement;
+            previous = previous.previousSibling;
+            previous = previous.children[0];
+
+            let next = e.target.parentElement;
+            next = next.nextSibling;
+            next = next.children[0];
+
+            setPhotoClicked([!photoClicked[0], e.target, previous, next]);
+            console.log(photoClicked)
+        }
+    }
+    const handleNextPhoto = () => {
+        let current = photoClicked[3];
+        console.log(current)
+        let previous = photoClicked[1];
+        let next = current.parentElement;
+        next = next.nextSibling;
+        next = next.children[0]
+
+        setPhotoClicked([true, current, previous, next]);
+    }
+    const handlePreviousPhoto = () => {
+        console.log('coucou')
+        let current = photoClicked[2];
+        let previous = current.parentElement;
+        previous = previous.previousSibling;
+        previous = previous.children[0];
+        let next = photoClicked[1];
+
+        setPhotoClicked([true, current, previous, next]);
+    }
+    const photoSelectioned = (
+        <div className={classes.PhotoClickedContainer}>
+            <div>
+                <div>
+                    <button onClick={handlePreviousPhoto}><i className="fa-regular fa-square-caret-left"></i></button>
+                    <button onClick={handleNextPhoto}><i className="fa-regular fa-square-caret-right"></i></button>
+                </div>
+                <button onClick={handleClickPhoto}><i className="fa-solid fa-xmark"></i></button>
+            </div>
+            <img src={photoClicked[1].src} alt={photoClicked[1].alt}></img>
+        </div>
+    )
     return(
         <main onClick={closeFilter}>
             <h1 className="titleSection firstAnimation">Galerie</h1>
@@ -205,9 +255,10 @@ export default function Gallery(props) {
                         removeCategorie={(e) => handleRemoveCategorie(e)}
                         categories={categories}></Filter>
                 <div className={props.mobile ? classes.PicsContainerMobile : classes.PicsContainer}>
-                    <Photos categories={filtredCategories} mobile={props.mobile}></Photos>
+                    <Photos categories={filtredCategories} mobile={props.mobile} click={(e) => handleClickPhoto(e)}></Photos>
                 </div>
             </div>
+            {photoClicked[0] ? photoSelectioned : null}
         </main>
     );
 }

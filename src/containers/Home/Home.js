@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import data from "../../global.json";
+import data from "../../home.json";
 import classes from "./Home.module.css";
 
 export default function Home(){
@@ -14,7 +14,7 @@ export default function Home(){
         <main className={classes.Home} id="home">
             <div className={classes.TitleContainer}>
                 <h1 className="firstAnimation">{data[0].homeTitle}</h1>
-                <h2 className="secondAnimation">{data[0].sousHomeTitle}</h2>
+                <h2 className="secondAnimation">{data[0].subTitle}</h2>
             </div>
         </main>
     )

@@ -37,7 +37,7 @@ export default function Photo(props) {
     
     return(
         <div style={getSize()}>
-            <img className="photoAnimation" src={props.src} alt={props.alt} style={{objectPosition : props.posImg}}></img>
+            <img className="photoAnimation" src={props.src} alt={props.alt} style={{objectPosition : props.posImg}} onClick={props.click}></img>
         </div>
     )
 }

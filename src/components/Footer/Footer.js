@@ -5,7 +5,6 @@ import classes from './Footer.module.css'
 // import Logo from "../Logo/Logo";
 import Navigation from "../Navigation/Navigation";
 import SocialMedia from '../SocialMedia/SocialMedia';
-import data from '../../global.json'
 import paths from "../../config/paths";
 
 export default function Footer(props){
@@ -24,7 +23,7 @@ export default function Footer(props){
     return(
         <footer className={props.home ? 'animeHome' : null} style={styleFooterHome()} >
             <div className={classes.FooterContainer}>
-                <NavLink to={paths.HOME}><img src={data[0].logoFooter} alt="Logo appareil-photo" style={{height : '50px'}}></img></NavLink>
+                <NavLink to={paths.HOME}><img src="images/logo-footer.png" alt="Logo appareil-photo" style={{height : '50px'}}></img></NavLink>
                 <nav>
                     <Navigation></Navigation>
                 </nav>

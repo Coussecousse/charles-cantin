@@ -26,3 +26,42 @@
     max-height: 400px;
 }
 
+.PhotoClickedContainer {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    z-index: 2;
+    background: rgba(0, 0, 0, .8);
+    width: 100vw;
+    height: 100vh;
+}
+
+.PhotoClickedContainer > div {
+    display: flex;
+    position: relative;
+    width: 50%;
+    margin: 0 auto;
+    top: 5%;
+    justify-content: space-between;
+}
+.PhotoClickedContainer > div > div {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+}
+.PhotoClickedContainer > div button {
+    font-size: 2rem;
+    background: transparent;
+    color: var(--color-secondary);
+    border: none;
+}
+
+.PhotoClickedContainer img {
+    height: 85%;
+    object-fit: contain;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

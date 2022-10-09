@@ -5,11 +5,13 @@ const fs = require('fs');
 // Création des routes vers les fichiers
 const dirPathGallery  = path.join(__dirname, "../data/gallery");
 const dirPathServices = path.join(__dirname, "../data/services");
-const dirPathGlobal   = path.join(__dirname, "../data/global");
+const dirPathHome     = path.join(__dirname, "../data/home")
+const dirPathContact  = path.join(__dirname, "../data/contact");
 
 let galleryList       = [];
 let servicesList      = [];
-let globalList        = [];
+let homeList          = [];
+let contactList       = [];
 
 let allFiles          = [
     {
@@ -23,9 +25,14 @@ let allFiles          = [
         fileName : 'services'
     },
     {
-        path : dirPathGlobal,
-        list : globalList,
-        fileName : 'global'
+        path : dirPathHome,
+        list : homeList,
+        fileName : 'home'
+    },
+    {
+        path : dirPathContact,
+        list : contactList,
+        fileName : 'contact'
     }
 ]
 
@@ -137,7 +144,7 @@ const getGalleryImages = (path, list, fileName) => {
                             list.push(object);
                         } 
                         break;
-                    case 'global' : 
+                    case 'home' : 
                         object = {
                             siteTitle : metadata.headingTitle,
                             homeTitle : metadata.title,
@@ -145,6 +152,15 @@ const getGalleryImages = (path, list, fileName) => {
                             description: metadata.description,
                             fb : metadata.facebook, 
                             insta : metadata.instagram,
+                            pic : metadata.pic,
+                            posX : metadata.posX,
+                            posY : metadata.posY
+                        }
+                        list.push(object);
+                        break;
+                    case 'contact':
+                        object = {
+                            description: metadata.description,
                             pic : metadata.pic,
                             posX : metadata.posX,
                             posY : metadata.posY
