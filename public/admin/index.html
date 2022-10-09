@@ -212,7 +212,8 @@
           backgroundPosition: position,
           backgroundSize: "cover",
           display: 'flex',
-          flexDirection: 'column'
+          flexDirection: 'column',
+          filter: 'blur(2px)'
         }
         return  h('div', {style : {height: '100vh', width: '100vw'}}, 
                   h('div', {className : (entry.getIn(['data', 'mobile']) ? "container-mobile" : "container-home-contact"), style: backgroundStyle}, 

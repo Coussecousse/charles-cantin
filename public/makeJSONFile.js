@@ -42,7 +42,7 @@ const getGalleryImages = (path, list, fileName) => {
                 const getMetadataIndices = (acc, element, i) => {
                     if (fileName === "gallery" || fileName === "services") {
                         if (/^\s*-\s*/.test(element) && !(/^\s\s\s\s*-\s*/.test(element))){
-                                acc.push(i-1)
+                            acc.push(i-1)
                         }
                     } else {
                         if (/^---/.test(element)) {
@@ -63,12 +63,18 @@ const getGalleryImages = (path, list, fileName) => {
                             }
                             metadatas.forEach(metadata => {
                                 let categoriesTab = [];
-                                metadata.forEach(line => {
+                                metadata.map((line, index) => {
                                     line = line.slice(4);
                                     if (line !== 'catégories:\r'){
                                         if (line.includes('  - ')) {
                                             categoriesTab.push(line.slice(4));
                                             container.categories = categoriesTab;
+                                        } else if (line[0] === ' ') {
+                                            // If there is a an extra line 
+                                            let lastKey = Object.keys(container)[index-1];
+                                            line = line.split('  ');
+                                            container[lastKey] = container[lastKey].split('\r');
+                                            container[lastKey] = [container[lastKey][0], line[1]].join(' ');
                                         } else {
                                             container[line.split(': ')[0]] = line.split(': ')[1];
                                         }
@@ -81,8 +87,16 @@ const getGalleryImages = (path, list, fileName) => {
                             obj = {};
                             let metadata = lines.slice(metadataIndices[0] + 1, metadataIndices[1]);
 
-                            metadata.forEach(line => {
-                                obj[line.split(': ')[0]] = line.split(': ')[1];
+                            metadata.map((line, index) => {
+                                if (line[0] === ' ') {
+                                    // If there is a an extra line 
+                                   let lastKey = Object.keys(obj)[index-1];
+                                   line = line.split('  ');
+                                   obj[lastKey] = obj[lastKey].split('\r');
+                                   obj[lastKey] = [obj[lastKey][0], line[1]].join(' ');
+                                } else {
+                                    obj[line.split(': ')[0]] = line.split(': ')[1];
+                                }
                             })
                         }
                         return obj;
@@ -124,20 +138,16 @@ const getGalleryImages = (path, list, fileName) => {
                         } 
                         break;
                     case 'global' : 
-                        let pos = [metadata.posXMobileHome, metadata.posYMobileHome].join(' ')
                         object = {
-                            siteTitle : metadata.siteTitle,
-                            homeTitle : metadata.homeTitle,
-                            sousHomeTitle : metadata.sousHomeTitle,
-                            logoHeader : metadata.logoHeader,
-                            logoFooter : metadata.logoFooter,
-                            fb : metadata.fb, 
-                            insta : metadata.insta,
-                            picHome : metadata.picHome,
-                            posXYMobileHome : pos,
-                            picContact : metadata.picContact,
-                            posXMobileContact : metadata.posXMobileContact,
-                            posYMobileContact : metadata.posYMobileContact,
+                            siteTitle : metadata.headingTitle,
+                            homeTitle : metadata.title,
+                            subTitle : metadata.subtitle,
+                            description: metadata.description,
+                            fb : metadata.facebook, 
+                            insta : metadata.instagram,
+                            pic : metadata.pic,
+                            posX : metadata.posX,
+                            posY : metadata.posY
                         }
                         list.push(object);
                         break;
