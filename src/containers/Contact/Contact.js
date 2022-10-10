@@ -15,16 +15,21 @@ export default function Contact(props) {
             <h1 className="titleSection firstAnimation">contact</h1>
             <div className="container">
                 <div className={[classes.Form, "contactAnimation"].join(' ')}>
-                
-                    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit="submit">
-                        <input type="hidden" name="form-name" value="contact v2"/>
+                 <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+                    <input type="text" name="name" />
+                    <input type="email" name="email" />
+                    <input type="tel" name="tel"/>
+                    <select name="reason[]"></select>
+                    <textarea name="message"></textarea>
+                </form>
+                    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit="submit" data-netlify-recaptcha="true"
+>
+                        <input type="hidden" name="form-name" value="contact"/>
                         <div hidden>
                             <label>
                                 Ne pas remplir si vous êtes humain : <input name="bot-field" />
                             </label>
                         </div>
-                        <input type="hidden" name="subject" 
-                        value="Email correctement envoyé depuis https://charles-cantin-photography.netlify.app" />
 
                         <div className={classes.InputDiv}>
                             <label>NOM :
@@ -45,9 +50,8 @@ export default function Contact(props) {
                             <label>POUR...
                                 <select name="reason[]" id="reason">
                                     {servicesData.map((service, index) => {
-                                        let serviceValue = service.title.split(' ');
                                         return (
-                                            <option key={index} value={serviceValue}>{service.title}</option>
+                                            <option key={index} value={service.title}>{service.title}</option>
                                         )
                                     })}
                                     <option value="Autre">Autre</option>
