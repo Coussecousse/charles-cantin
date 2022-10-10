@@ -15,15 +15,19 @@ export default function Contact(props) {
             <h1 className="titleSection firstAnimation">contact</h1>
             <div className="container">
                 <div className={[classes.Form, "contactAnimation"].join(' ')}>
-                    <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <form name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field">
                         <input type="hidden" name="form-name" value="contact"/>
                         <div hidden>
-                            <input name="bot-field"/>
+                            <label>
+                                Ne pas remplir si vous êtes humain : <input name="bot-field" />
+                            </label>
                         </div>
+                        <input type="hidden" name="subject" 
+                        value="Email correctement envoyé depuis https://charles-cantin-photography.netlify.app" />
 
                         <div className={classes.InputDiv}>
                             <label>NOM :
-                                <input type="text" id="name" name="name" pattern='[A-Za-z]{3,50}' title="3 à 50 caractères requis" required></input>
+                                <input type="text" id="name" name="name" pattern='{2,50}' title="2 à 50 caractères requis" required></input>
                             </label>
                         </div>
                         <div className={classes.InputDiv}>
@@ -56,6 +60,9 @@ export default function Contact(props) {
                             <label>MESSAGE :
                                 <textarea maxLength="500" pattern="{1,500}" title="500 caractères maximum." placeholder="500 caractères maximum."></textarea>
                             </label>
+                        </div>
+                        <div>
+                            <div data-netlify-recaptcha="true"></div>
                         </div>
                         <button className={classes.BtnSend} type="submit">Envoyer<i className="fa-regular fa-paper-plane"></i></button>
                     </form>
