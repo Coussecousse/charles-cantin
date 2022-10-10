@@ -17,7 +17,7 @@ export default function Contact(props) {
                 <div className={[classes.Form, "contactAnimation"].join(' ')}>
                 
                     <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit="submit">
-                        <input type="hidden" name="form-name" value="contact v1"/>
+                        <input type="hidden" name="form-name" value="contact v2"/>
                         <div hidden>
                             <label>
                                 Ne pas remplir si vous êtes humain : <input name="bot-field" />
