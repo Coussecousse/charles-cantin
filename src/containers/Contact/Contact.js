@@ -15,7 +15,7 @@ export default function Contact(props) {
             <h1 className="titleSection firstAnimation">contact</h1>
             <div className="container">
                 <div className={[classes.Form, "contactAnimation"].join(' ')}>
-                    <form name="contact" method="post" data-netlify="true" onSubmit="submit" data-netlify-honeypot="bot-field">
+                    <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
                         <input type="hidden" name="form-name" value="contact"/>
                         <div hidden>
                             <input name="bot-field"/>
@@ -57,7 +57,7 @@ export default function Contact(props) {
                                 <textarea maxLength="500" pattern="{1,500}" title="500 caractères maximum." placeholder="500 caractères maximum."></textarea>
                             </label>
                         </div>
-                        <button className={classes.BtnSend} type="submit">Envoyer</button>
+                        <button className={classes.BtnSend} type="submit">Envoyer<i className="fa-regular fa-paper-plane"></i></button>
                     </form>
                     <p style={{fontSize: '.8rem', marginTop: '1rem'}}>* Facultatif</p>
                 </div>

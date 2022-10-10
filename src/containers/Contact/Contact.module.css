@@ -90,7 +90,9 @@ form input:focus, textarea:focus {
     border: 2px solid #000;
     border-radius: 5px;
 }
-
+form button i {
+    padding-left: .5rem;
+}
 @media screen and (max-width: 540px) {
     .Form {
         padding: 1.5rem;
