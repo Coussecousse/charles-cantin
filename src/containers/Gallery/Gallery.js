@@ -19,6 +19,8 @@ export default function Gallery(props) {
     const [searchParams, setSearchParams] = useSearchParams();
     const [categories, setCategories]     = useState([]);
     const [filtredCategories, setFiltredCategories] = useState([]);
+    const [photoClicked, setPhotoClicked] = useState([false, '']);
+
 
     function getCurrentSort(container=[]){
         currentURL  = Object.fromEntries([...searchParams]);
@@ -192,7 +194,99 @@ export default function Gallery(props) {
         }
         setSearching(true);
     };
-    
+    const handleClickPhoto = e => {       
+        if (photoClicked[0] == true) {
+            setPhotoClicked([!photoClicked[0], '']);
+        } else {
+            let previous = e.target.parentElement;
+            previous = previous.previousSibling;
+            if (previous != null){
+                previous = previous.children[0];
+            } else {
+                previous = undefined;
+            }
+
+            let next = e.target.parentElement;
+            next = next.nextSibling;
+            if (next !== null){
+                next = next.children[0];
+            } else {
+                next = undefined;
+            }
+
+            setPhotoClicked([!photoClicked[0], e.target, previous, next]);
+            console.log(photoClicked)
+        }
+    }
+    const resetButtons = () => {
+        const rButton = document.querySelector('.fa-square-caret-right');            
+        const lButton = document.querySelector('.fa-square-caret-left');
+        rButton.style.display = "block";
+        lButton.style.display = "block";
+    }
+    const handleNextPhoto = () => {
+        resetButtons();
+        let current = photoClicked[3];
+        let previous = photoClicked[1];
+
+        let next = current.parentElement;
+        next = next.nextSibling;
+        if (next !== null) {
+            next = next.children[0]
+        } else {
+            next = undefined;
+        }
+
+        setPhotoClicked([true, current, previous, next]);
+    }
+    const handlePreviousPhoto = () => {
+        resetButtons();
+
+        let current = photoClicked[2];
+        let next = photoClicked[1];
+
+        let previous = current.parentElement;
+        previous = previous.previousSibling;
+        if (previous !== null) {
+            previous = previous.children[0];
+        } else {
+            previous = undefined;
+        }
+
+        setPhotoClicked([true, current, previous, next]);
+    }
+    useEffect(() => {
+        if (photoClicked[0] === true){
+            if (photoClicked[2] === undefined){
+                const leftButton = document.querySelector('.fa-square-caret-left');
+                leftButton.style.display = 'none';
+            } else if (photoClicked[3] === undefined) {
+                const rightButton = document.querySelector('.fa-square-caret-right');
+                rightButton.style.display = 'none';
+            }
+        }
+    }, [photoClicked]);
+    const handleClickBackgroudPhoto = (e) => {
+        const container   = document.querySelector('#photo-container')
+        const closeButton = container.querySelector('#close-button');
+        
+        if (e.target === container || e.target == closeButton || e.target == closeButton.children[0]){
+            handleClickPhoto(e);
+        }
+        
+    }
+    const photoSelectioned = (
+        <div className={classes.PhotoClickedContainer} id="photo-container" onClick={e => handleClickBackgroudPhoto(e)}>
+            <div>
+                <div id="buttons-left-right">
+                    <button id="previous" onClick={handlePreviousPhoto}><i className="fa-regular fa-square-caret-left"></i></button>
+                    <button id="next" onClick={handleNextPhoto}><i className="fa-regular fa-square-caret-right"></i></button>
+                </div>
+                <button id="close-button"><i className="fa-solid fa-xmark"></i></button>
+            </div>
+            <img src={photoClicked[1].src} alt={photoClicked[1].alt}></img>
+        </div>
+    )
     return(
         <main onClick={closeFilter}>
             <h1 className="titleSection firstAnimation">Galerie</h1>
@@ -205,9 +299,10 @@ export default function Gallery(props) {
                         removeCategorie={(e) => handleRemoveCategorie(e)}
                         categories={categories}></Filter>
                 <div className={props.mobile ? classes.PicsContainerMobile : classes.PicsContainer}>
-                    <Photos categories={filtredCategories} mobile={props.mobile}></Photos>
+                    <Photos categories={filtredCategories} mobile={props.mobile} click={(e) => handleClickPhoto(e)}></Photos>
                 </div>
             </div>
+            {photoClicked[0] ? photoSelectioned : null}
         </main>
     );
 }

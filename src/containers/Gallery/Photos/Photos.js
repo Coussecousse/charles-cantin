@@ -84,7 +84,8 @@ export default function Photos(props) {
                         alt={photo.alt} 
                         size={props.mobile ? photo.mobileSize : photo.size} 
                         posColumn={photo.placeColumn}
-                        posImg={transformPosition(photo.posX) + '% ' + transformPosition(photo.posY) + '%'}></Photo>
+                        posImg={transformPosition(photo.posX) + '% ' + transformPosition(photo.posY) + '%'}
+                        click={props.click}></Photo>
                     : null
                 )
             )

@@ -59,7 +59,7 @@ collections:
     files: 
       - label: Accueil
         name: home
-        file: "data/global/home.md"
+        file: "data/home/home.md"
         fields:
         - {label: Mobile, name: mobile, widget: boolean, default: false, required: false}
         - {label: Titre du site, name: title, widget: string}
@@ -73,7 +73,7 @@ collections:
         - {label: Lien vers Instagram, name: instagram, widget: string}
       - label: Contact
         name: contact
-        file: "data/global/contact.md"
+        file: "data/contact/contact.md"
         fields: 
         - {label: Mobile, name: mobile, widget: boolean, default: false, required: false}
         - {label: Description de la page, name: description, widget: string}

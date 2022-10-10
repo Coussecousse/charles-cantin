@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import classes from './Layout.module.css'
 
-import data from "../../global.json";
+import homeData from "../../home.json";
+import contactData from "../../contact.json";
 import Header from '../../components/Header/Header';
 import Footer from "../../components/Footer/Footer";
 
@@ -25,14 +26,14 @@ export default function Layout(props){
             case '/':
                 if (props.mobile){
                     return {
-                        backgroundImage : 'url(images/home.jpg)',
+                        backgroundImage :  'url(' + homeData[0].pic +')',
                         backgroundPosition: "68% 30%",
                         filter : 'blur(2px)',
                     }
                 } else {
                     return {
                         height: '100vh',
-                        backgroundImage :  'url(' + data[0].picHome +')',
+                        backgroundImage :  'url(' + homeData[0].pic +')',
                         backgroundPosition: "center",
                         filter : 'blur(2px)',
                     };
@@ -41,13 +42,13 @@ export default function Layout(props){
             console.log('contact')
                 if (props.mobile) {
                     return {
-                        backgroundImage : 'url(' + data[0].picContact +')',
+                        backgroundImage : 'url(' + contactData[0].pic +')',
                         backgroundPosition : 'center',
                         filter : 'blur(2px)',
                     }
                 } else {
                     return {
-                        backgroundImage : 'url(' + data[0].picContact +')',
+                        backgroundImage : 'url(' + contactData[0].pic +')',
                         backgroundPosition : 'center',
                         filter : 'blur(2px)',
                     }
