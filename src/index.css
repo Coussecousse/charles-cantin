@@ -282,6 +282,20 @@ header {
 	color:var(--color-500);
 }
 
+/* SVG */
+svg {
+	margin: 0 auto;
+	height: auto;
+	max-width: 300px;
+}
+.container-svg {
+	justify-content: center;
+}
+.container-svg p{
+	text-align: center;
+	color: var(--color-secondary);
+	margin: 2rem 0;
+}
 
 
 /* FOOTER */

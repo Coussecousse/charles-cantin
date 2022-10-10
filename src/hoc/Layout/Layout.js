@@ -55,9 +55,10 @@ export default function Layout(props){
                 }
             case '/galerie' :
             case '/prestations' :
+            case '/contact/success' :
             default :
                 return {
-                            backgroundColor : 'var(--color-primary)',
+                    backgroundColor : 'var(--color-primary)',
                 }
 
         }

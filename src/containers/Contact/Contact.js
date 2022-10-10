@@ -22,7 +22,13 @@ export default function Contact(props) {
             <h1 className="titleSection firstAnimation">contact</h1>
             <div className="container">
                 <div className={[classes.Form, "contactAnimation"].join(' ')}>
-                    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit="submit" data-netlify-recaptcha="true">
+                    <form name="contact" 
+                          method="POST" 
+                          data-netlify="true" 
+                          netlify-honeypot="bot-field" 
+                          onSubmit="submit" 
+                          data-netlify-recaptcha="true" 
+                          action="/emailsuccess">
                         <input type="hidden" name="form-name" value="contact"/>
                         <div hidden>
                             <label>

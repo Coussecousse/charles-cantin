@@ -6,7 +6,8 @@ import Layout from './hoc/Layout/Layout';
 import Home from './containers/Home/Home';
 import Gallery from './containers/Gallery/Gallery';
 import Services from './containers/Services/Services';
-import Contact from './containers/Contact/Contact'
+import Contact from './containers/Contact/Contact';
+import EmailSuccess from './components/EmailSuccess/EmailSuccess';
 import paths from './config/paths';
 
 function App() {    
@@ -39,7 +40,9 @@ function App() {
             {/* <Route path="?sort=" element={<Gallery></Gallery>}></Route> */}
           </Route>
           <Route path={paths.SERVICES} element={<Services mobile={mobile}/>}></Route>
-          <Route path={paths.CONTACT} element={<Contact/>}></Route>
+          <Route path={paths.CONTACT} element={<Contact/>}>
+          </Route>
+          <Route path={paths.EMAILSUCCESS} element={<EmailSuccess/>}></Route>
           <Route path="*" element={<h1 style={{color: "black"}}>404</h1>}></Route>
         </Routes>
       </Layout>
