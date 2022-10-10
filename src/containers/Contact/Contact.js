@@ -12,19 +12,12 @@ export default function Contact(props) {
     })
     return(
         <main className={classes.FormMain}>
-            <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-                <input type="text" name="name" />
-                <input type="email" name="email" />
-                <input type="tel" name="tel"/>
-                <select name="reason[]"></select>
-                <textarea name="message"></textarea>
-            </form>
             <h1 className="titleSection firstAnimation">contact</h1>
             <div className="container">
                 <div className={[classes.Form, "contactAnimation"].join(' ')}>
                 
                     <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onSubmit="submit">
-                        <input type="hidden" name="form-name" value="contact"/>
+                        <input type="hidden" name="form-name" value="contact v1"/>
                         <div hidden>
                             <label>
                                 Ne pas remplir si vous êtes humain : <input name="bot-field" />
