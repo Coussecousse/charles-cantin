@@ -16,7 +16,7 @@ export default function Contact(props) {
                 <input type="text" name="name" />
                 <input type="email" name="email" />
                 <input type="tel" name="tel"/>
-                <select name="reason"></select>
+                <select name="reason[]"></select>
                 <textarea name="message"></textarea>
             </form>
             <h1 className="titleSection firstAnimation">contact</h1>
@@ -50,17 +50,14 @@ export default function Contact(props) {
                         </div>
                         <div className={classes.InputDiv}>
                             <label>POUR...
-                                <select name="reason" id="reason">
+                                <select name="reason[]" id="reason">
                                     {servicesData.map((service, index) => {
                                         let serviceValue = service.title.split(' ');
-                                        serviceValue = serviceValue.join('-');
-                                        serviceValue = serviceValue.split("'");
-                                        serviceValue = serviceValue.join('-');
                                         return (
                                             <option key={index} value={serviceValue}>{service.title}</option>
                                         )
                                     })}
-                                    <option value="autre">Autre</option>
+                                    <option value="Autre">Autre</option>
                                 </select>
                             </label>
                         </div>
