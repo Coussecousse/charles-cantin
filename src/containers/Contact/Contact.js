@@ -25,6 +25,7 @@ export default function Contact() {
       let myForm = document.getElementById("contact-form");
 
       let formData = new FormData(myForm);
+      
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
