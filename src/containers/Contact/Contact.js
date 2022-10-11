@@ -28,7 +28,7 @@ export default function Contact(props) {
     
     return(
         <main className={classes.FormMain}>
-            <form name="contact" netlify netlify-honeypot="bot-field" data-netlify-recaptcha="true" id="contact-form" hidden >
+            <form name="contact" netlify netlify-honeypot="bot-field" data-netlify-recaptcha="true"hidden >
                 <input type="text" name="name" />
                 <input type="email" name="email" />
                 <input type="tel" name="tel"/>
@@ -42,6 +42,7 @@ export default function Contact(props) {
                     <form name="contact" 
                           method="POST" 
                           onSubmit={submitHandler}
+                          id="contact-form" 
                           >
                         <input type="hidden" name="form-name" value="contact"/>
                         <div hidden>
