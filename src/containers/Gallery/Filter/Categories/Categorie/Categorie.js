@@ -4,6 +4,6 @@ export default function Categorie(props){
 
     
     return (
-        <li><button onClick={props.filterClick} id="filter-button">{props.children}</button></li>
+        <li onClick={props.filterClick}><button>{props.children}</button></li>
     )
 }

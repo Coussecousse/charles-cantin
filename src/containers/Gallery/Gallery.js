@@ -180,7 +180,13 @@ export default function Gallery(props) {
     }
 
     function handleAddFilter(e) {
-        let chosenCategorie = e.target.innerHTML;
+        const ulFilter = document.querySelector('#ul-categories');
+        let chosenCategorie
+        if (e.target.parentElement === ulFilter){
+            chosenCategorie = e.target.children[0].innerHTML;
+        } else {
+            chosenCategorie = e.target.innerHTML;
+        }
 
         currentURL      = Object.fromEntries([...searchParams]);
 

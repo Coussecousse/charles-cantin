@@ -18,6 +18,7 @@
 }
 
 .UlCategories li {
+    cursor: pointer;
     padding: .250rem 0;
     transition: .1s linear;
 }
@@ -32,13 +33,13 @@
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
-::-webkit-scrollbar {
+ul::-webkit-scrollbar {
     width: 5px;
 }
-::-webkit-scrollbar-thumb {
+ul::-webkit-scrollbar-thumb {
     background: var(--color-600);
     border-radius: 10px;
 }
-::-webkit-scrollbar-button {
+ul::-webkit-scrollbar-button {
     height: 25px;
 }
