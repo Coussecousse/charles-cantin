@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+import data from '../../home.json'
 
 export default function PageNotFound() {
+    useEffect(() => {
+        document.title = data[0].siteTitle + ' | 404'
+        document.querySelector('meta[name="description"]').setAttribute("content", data[0].description);
+    })
     return (
         <div className="container container-svg">
             <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="792.41214" height="763.67855" viewBox="0 0 792.41214 763.67855" xmlnsXlink="http://www.w3.org/1999/xlink">

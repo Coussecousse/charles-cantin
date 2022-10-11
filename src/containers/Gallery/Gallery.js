@@ -119,13 +119,13 @@ export default function Gallery(props) {
 
         setFiltredCategories(newFiltredCategories);
         setCategories(newCategorie);
-        
+
+        // eslint-disable-next-line
     }, [searchParams]);
 
     function closeFilter(e) {
         input       = document.querySelector('#filter');    
         let buttons = document.querySelectorAll('#filter-button');
-
         if (buttons.length > 0 || e.target === input){
             if (e.target === input) {
                 setSearching(true);
@@ -153,7 +153,6 @@ export default function Gallery(props) {
 
     function handleRemoveCategorie(e) {
         let categorieToRemove = (e.target.previousSibling);
-        console.log(e.target)
         const getCategorieToRemove = () => {
             if (categorieToRemove == null){
                 categorieToRemove  = (e.target.parentElement.previousSibling);
@@ -208,7 +207,7 @@ export default function Gallery(props) {
         setSearching(true);
     };
     const handleClickPhoto = e => {       
-        if (photoClicked[0] == true) {
+        if (photoClicked[0] === true) {
             setPhotoClicked([!photoClicked[0], '']);
         } else {
             let previous = e.target.parentElement;
@@ -283,7 +282,7 @@ export default function Gallery(props) {
         const container   = document.querySelector('#photo-container')
         const closeButton = container.querySelector('#close-button');
         
-        if (e.target === container || e.target == closeButton || e.target == closeButton.children[0]){
+        if (e.target === container || e.target === closeButton || e.target === closeButton.children[0]){
             handleClickPhoto(e);
         }
         

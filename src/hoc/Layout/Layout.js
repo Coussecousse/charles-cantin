@@ -68,6 +68,7 @@ export default function Layout(props){
 
         }
     }
+    // eslint-disable-next-line
     useEffect(() => {
         const home = document.querySelector('#home');
         
@@ -83,7 +84,7 @@ export default function Layout(props){
                 })
             }, 800)
         }
-    })
+    });
 
     return (
         <>

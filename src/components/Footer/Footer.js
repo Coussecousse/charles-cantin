@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import classes from './Footer.module.css'
 
@@ -23,6 +23,7 @@ export default function Footer(props){
     return(
         <footer className={props.home ? 'animeHome' : null} style={styleFooterHome()} >
             <div className={classes.FooterContainer}>
+                {/* eslint-disable-next-line */}
                 <NavLink to={paths.HOME}><img src={logo} alt="Logo appareil-photo" style={{height : '50px'}}></img></NavLink>
                 <nav>
                     <Navigation></Navigation>

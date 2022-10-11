@@ -11,11 +11,11 @@ export default function Photos(props) {
         if (typeof position === "string") {
             position = position.split('')
             for (let i = 0; i < position.length; i++){
-                if (position[i] === '\"' || position[i] === '"'){
+                if (position[i] === '"'){
                     position.splice(i, 1);
                 }
             }
-            if (position[position.length-1] == '\r'){
+            if (position[position.length-1] === '\r'){
                 position.splice(position.length - 1, 1);
             }
             position = position.join('');
@@ -47,12 +47,13 @@ export default function Photos(props) {
 
                 setTimeout(() => {
                     img.style.opacity = '1';
-                }, 1000 + index*115) 
+                }, 1000 + index * 115) 
                 setTimeout(() => {
                     setFirstTime(false);
                 }, 1000);
             }
         })
+        // eslint-disable-next-line
     }, [props.categories])
 
     return(     
