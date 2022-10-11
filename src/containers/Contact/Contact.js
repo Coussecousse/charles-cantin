@@ -28,7 +28,7 @@ export default function Contact(props) {
                           netlify-honeypot="bot-field" 
                           onSubmit="submit" 
                           data-netlify-recaptcha="true"
-                          action="/contact/success" 
+                          action="https://charles-cantin-photography.netlify.app/contact/success" 
                           >
                         <input type="hidden" name="form-name" value="contact"/>
                         <div hidden>
