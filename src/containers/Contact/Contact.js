@@ -16,8 +16,8 @@ export default function Contact(props) {
     const submitHandler = (e) =>{
       e.preventDefault();
       let myForm = document.getElementById("contact-form");
-      console.log(myForm)
       let formData = new FormData(myForm);
+      
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
