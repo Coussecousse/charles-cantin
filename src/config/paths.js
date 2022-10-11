@@ -3,7 +3,7 @@ const paths = {
     GALLERY : '/galerie',
     SERVICES : '/prestations',
     CONTACT : '/contact',
-    EMAILSUCCESS : '/successEmail'
+    EMAILSUCCESS : '/contact/success'
 }
 
 export default paths;

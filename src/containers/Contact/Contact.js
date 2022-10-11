@@ -12,7 +12,7 @@ export default function Contact(props) {
     })
     return(
         <main className={classes.FormMain}>
-            <form name="contact" netlify netlify-honeypot="bot-field" action="/successEmail" data-netlify-recaptcha="true" hidden>
+            <form name="contact" netlify netlify-honeypot="bot-field" data-netlify-recaptcha="true" hidden>
                 <input type="text" name="name" />
                 <input type="email" name="email" />
                 <input type="tel" name="tel"/>
@@ -25,7 +25,7 @@ export default function Contact(props) {
                 <div className={[classes.Form, "contactAnimation"].join(' ')}>
                     <form name="contact" 
                           method="POST" 
-                          action="/successEmail"
+                          action="#/contact/success" 
                           >
                         <input type="hidden" name="form-name" value="contact"/>
                         <div hidden>
