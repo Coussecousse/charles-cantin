@@ -43,7 +43,7 @@ function App() {
           <Route path={paths.CONTACT} element={<Contact/>}>
           </Route>
           <Route path={paths.EMAILSUCCESS} element={<EmailSuccess/>}></Route>
-          <Route path="*" element={<h1 style={{color: "black"}}>404</h1>}></Route>
+          <Route path="*" element={<h1 style={{color: "var(--color-secondary"}}>404</h1>}></Route>
         </Routes>
       </Layout>
     </div>
