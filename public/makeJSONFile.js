@@ -87,9 +87,9 @@ const getGalleryImages = (path, list, fileName) => {
                                         }
                                     }
                                 })
-                            obj.push({...container})
+                                obj.push({...container})
                             })
-
+                            obj[lines[2].split(': ')[0]] = lines[2].split(': ')[1];
                         } else {
                             obj = {};
                             let metadata = lines.slice(metadataIndices[0] + 1, metadataIndices[1]);
@@ -114,6 +114,7 @@ const getGalleryImages = (path, list, fileName) => {
                 metadata = parseMetadata({lines, metadataIndices});
                 switch(fileName) {
                     case 'gallery': 
+                    list.push({description : metadata.description})
                     for (let data of metadata) {
                         let object = {
                             id  : uuidv4(),
@@ -129,20 +130,22 @@ const getGalleryImages = (path, list, fileName) => {
                     }
                         break;
                     case 'services' :
+                        list.push({description : metadata.description})
                         for (let data of metadata) {
                             let object = {
-                                id : uuidv4(),
-                                pic : data.pic,
-                                size : data.size,
-                                posX : data.posX,
-                                posY : data.posY,
-                                title: data.title,
-                                price: data.price,
-                                color: data.colorTitle,
+                                id     : uuidv4(),
+                                pic    : data.pic,
+                                size   : data.size,
+                                posX   : data.posX,
+                                posY   : data.posY,
+                                title  : data.title,
+                                price  : data.price,
+                                color  : data.colorTitle,
                                 content: data.content
                             }
                             list.push(object);
                         } 
+                        
                         break;
                     case 'home' : 
                         object = {

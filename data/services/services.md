@@ -1,5 +1,6 @@
 ---
 mobile: false
+description: Prix des prestations de Charles Cantin.
 services:
   - posX: 50
     posY: 50

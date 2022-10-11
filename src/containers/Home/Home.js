@@ -9,7 +9,10 @@ export default function Home(){
         setTimeout(() => {
             h2.classList.add("activeSecondAnimation");
         }, 500);
+        document.title = data[0].siteTitle + ' | Accueil'
+        document.querySelector('meta[name="description"]').setAttribute("content", data[0].description);
     })
+
     return(
         <main className={classes.Home} id="home">
             <div className={classes.TitleContainer}>
