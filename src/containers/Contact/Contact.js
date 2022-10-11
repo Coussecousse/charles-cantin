@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useNavigate } from "react";
 import classes from './Contact.module.css';
 
 import servicesData from '../../services.json';
