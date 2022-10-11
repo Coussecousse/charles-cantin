@@ -25,7 +25,7 @@ export default function Contact(props) {
                 <div className={[classes.Form, "contactAnimation"].join(' ')}>
                     <form name="contact" 
                           method="POST" 
-                          action="/#/success" 
+                          action={() => console.log('coucou')}
                           >
                         <input type="hidden" name="form-name" value="contact"/>
                         <div hidden>
