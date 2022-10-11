@@ -9,10 +9,25 @@ export default function Contact(props) {
         setTimeout(() => {
             container.style.opacity = '1';
         }, 800)
-    })
+    });
+
+    let navigate = useNavigate()
+    const submitHandler = (e) =>{
+      e.preventDefault();
+      let myForm = document.getElementById("contact-form");
+      let formData = new FormData(myForm);
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      })
+        .then(() => navigate('/contact/success'))
+        .catch((error) => alert(error));
+    }
+    
     return(
         <main className={classes.FormMain}>
-            <form name="contact" netlify netlify-honeypot="bot-field" data-netlify-recaptcha="true" hidden>
+            <form name="contact" netlify netlify-honeypot="bot-field" data-netlify-recaptcha="true" hidden id="contact-form">
                 <input type="text" name="name" />
                 <input type="email" name="email" />
                 <input type="tel" name="tel"/>
@@ -25,7 +40,7 @@ export default function Contact(props) {
                 <div className={[classes.Form, "contactAnimation"].join(' ')}>
                     <form name="contact" 
                           method="POST" 
-                          action='/#/contact/success'
+                          onSubmit={submitHandler}
                           >
                         <input type="hidden" name="form-name" value="contact"/>
                         <div hidden>
