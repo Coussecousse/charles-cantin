@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+import data from '../../home.json'
 
 export default function EmailSucess() {
+    useEffect(() => {
+        document.title = data[0].siteTitle + ' | Email envoyé';
+        document.querySelector('meta[name="description"]').setAttribute("content", "Votre email a été envoyé avec succès.");
+    });
     return (
         <div className="container container-svg">
             <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" width="574.90338" height="685.12347" viewBox="0 0 574.90338 685.12347"     xmlnsXlink="http://www.w3.org/1999/xlink">

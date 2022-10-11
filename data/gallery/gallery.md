@@ -1,5 +1,6 @@
 ---
 mobile: false
+description: Portfolio du photographe Charles Cantin. 
 pics:
   - posX: "0"
     posY: "50"

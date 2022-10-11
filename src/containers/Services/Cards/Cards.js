@@ -5,6 +5,8 @@ import CardsInformations from '../../../services.json';
 import Card from './Card/Card'
 
 export default function Cards(props) {
+    const Cards = [...CardsInformations.slice(1, CardsInformations.length)];
+
     const transformPosition = (position) => {
         if (typeof position === "string") {
             position = position.split('')
@@ -21,7 +23,7 @@ export default function Cards(props) {
         }
     }
 
-    const card = CardsInformations.map(card => {
+    const card = Cards.map(card => {
         let titleColor = card.color.split('"');
         titleColor = titleColor[1];
         return (

@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 import classes from './Contact.module.css';
 
 import servicesData from '../../services.json';
+import contactData from '../../contact.json';
+import homeData from '../../home.json';
 
-export default function Contact(props) {
+export default function Contact() {
     useEffect(() => {
         const container = document.querySelector('.contactAnimation');
         setTimeout(() => {
@@ -12,10 +14,16 @@ export default function Contact(props) {
         }, 800)
     });
 
+    useEffect(() => {
+        document.title = homeData[0].siteTitle + ' | Contact';
+        document.querySelector('meta[name="description"]').setAttribute("content", contactData[0].description);
+    }, []);
+
     let navigate = useNavigate()
     const submitHandler = (e) =>{
       e.preventDefault();
       let myForm = document.getElementById("contact-form");
+
       let formData = new FormData(myForm);
       
       fetch("/", {
@@ -29,12 +37,11 @@ export default function Contact(props) {
     
     return(
         <main className={classes.FormMain}>
-            <form name="contact" netlify netlify-honeypot="bot-field" data-netlify-recaptcha="true" hidden >
+            <form name="contact" netlify netlify-honeypot="bot-field"hidden >
                 <input type="text" name="name" />
                 <input type="email" name="email" />
                 <input type="tel" name="tel"/>
                 <select name="reason[]"></select>
-                <div data-netlify-recaptcha="true"></div>
                 <textarea name="message"></textarea>
             </form>
             <h1 className="titleSection firstAnimation">contact</h1>
@@ -83,9 +90,6 @@ export default function Contact(props) {
                             <label>MESSAGE :
                                 <textarea maxLength="500" pattern="{1,500}" title="500 caractères maximum." placeholder="500 caractères maximum." name="message"></textarea>
                             </label>
-                        </div>
-                        <div>
-                            <div data-netlify-recaptcha="true"></div>
                         </div>
                         <button className={classes.BtnSend} type="submit">Envoyer<i className="fa-regular fa-paper-plane"></i></button>
                     </form>
