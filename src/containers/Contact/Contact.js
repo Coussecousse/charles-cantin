@@ -15,7 +15,8 @@ export default function Contact(props) {
     let navigate = useNavigate()
     const submitHandler = (e) =>{
       e.preventDefault();
-      let myForm = document.getElementById("#contact-form");
+      let myForm = document.getElementById("contact-form");
+      console.log(myForm)
       let formData = new FormData(myForm);
       fetch("/", {
         method: "POST",
@@ -28,7 +29,7 @@ export default function Contact(props) {
     
     return(
         <main className={classes.FormMain}>
-            <form name="contact" netlify netlify-honeypot="bot-field" data-netlify-recaptcha="true"hidden >
+            <form name="contact" netlify netlify-honeypot="bot-field" data-netlify-recaptcha="true" hidden >
                 <input type="text" name="name" />
                 <input type="email" name="email" />
                 <input type="tel" name="tel"/>
