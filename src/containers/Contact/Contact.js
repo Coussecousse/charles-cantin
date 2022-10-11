@@ -12,11 +12,12 @@ export default function Contact(props) {
     })
     return(
         <main className={classes.FormMain}>
-            <form name="contact" netlify netlify-honeypot="bot-field" action="https://charles-cantin-photography.netlify.app/contact/successEmail" data-netlify-recaptcha="true" hidden>
+            <form name="contact" netlify netlify-honeypot="bot-field" action="/successEmail" data-netlify-recaptcha="true" hidden>
                 <input type="text" name="name" />
                 <input type="email" name="email" />
                 <input type="tel" name="tel"/>
                 <select name="reason[]"></select>
+                <div data-netlify-recaptcha="true"></div>
                 <textarea name="message"></textarea>
             </form>
             <h1 className="titleSection firstAnimation">contact</h1>
@@ -24,11 +25,6 @@ export default function Contact(props) {
                 <div className={[classes.Form, "contactAnimation"].join(' ')}>
                     <form name="contact" 
                           method="POST" 
-                          data-netlify="true" 
-                          netlify-honeypot="bot-field" 
-                          onSubmit="submit" 
-                          data-netlify-recaptcha="true"
-                          action="https://charles-cantin-photography.netlify.app/contact/successEmail" 
                           >
                         <input type="hidden" name="form-name" value="contact"/>
                         <div hidden>
