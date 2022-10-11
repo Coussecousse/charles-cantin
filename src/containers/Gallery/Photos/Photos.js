@@ -5,6 +5,7 @@ import galleryPics from '../../../gallery.json'
 
 export default function Photos(props) {
     const [firstTime, setFirstTime] = useState(true);
+    const gallery = [...galleryPics.slice(1, galleryPics.length)];
 
     const transformPosition = (position) => {
         if (typeof position === "string") {
@@ -55,7 +56,7 @@ export default function Photos(props) {
     }, [props.categories])
 
     return(     
-        galleryPics.map(photo => {
+        gallery.map(photo => {
             function affichedPic() {
                 let result;
                 if (props.categories.length === 0) {

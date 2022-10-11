@@ -15,6 +15,8 @@ function removeFromIndex(elementToScan, elementToRemove){
 
 export default function Gallery(props) {
     let currentURL, currentSort, input;
+    const gallery = [...galleryData.slice(1, galleryData.length)];
+    
     const [searching, setSearching]       = useState(false);
     const [InputValue, setInputValue]     = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
@@ -41,7 +43,7 @@ export default function Gallery(props) {
         currentSort = currentSort.split('+');
     }
     function restaureCategories(container) {
-        galleryData.forEach((photo) => {
+        gallery.forEach((photo) => {
             let multipleCategories = photo.categories;
 
             for (let categorie of multipleCategories){
@@ -81,7 +83,7 @@ export default function Gallery(props) {
                 categorie    = categorie.join('');
 
                 const checkIfCategorieExist = () => {
-                    for (let photo of galleryData) {
+                    for (let photo of gallery) {
                         if (change === true){
                             break;
                         }

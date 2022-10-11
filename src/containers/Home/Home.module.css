@@ -8,3 +8,12 @@
 .TitleContainer {
     margin: auto;
 }
+
+@media screen and (max-width: 570px) {
+    .TitleContainer {
+        padding: 0 1rem;
+    }
+    .TitleContainer h2 {
+        padding-top: 1rem;
+    }
+}

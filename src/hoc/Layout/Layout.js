@@ -24,32 +24,37 @@ export default function Layout(props){
     const getBackground = () => {
         switch(location.pathname){
             case '/':
+                let posXHome = homeData[0].posX[1] + homeData[0].posX[2];
+                let posYHome = homeData[0].posY[1] + homeData[0].posY[2];
+                let positionHome = posXHome +'% ' + posYHome + '%';
                 if (props.mobile){
                     return {
                         backgroundImage :  'url(' + homeData[0].pic +')',
-                        backgroundPosition: "68% 30%",
+                        backgroundPosition: positionHome,
                         filter : 'blur(2px)',
                     }
                 } else {
                     return {
                         height: '100vh',
                         backgroundImage :  'url(' + homeData[0].pic +')',
-                        backgroundPosition: "center",
+                        backgroundPosition: positionHome,
                         filter : 'blur(2px)',
                     };
                 }
             case '/contact':
-            console.log('contact')
+                let posXContact = contactData[0].posX[1] + contactData[0].posX[2];
+                let posYContact = contactData[0].posY[1] + contactData[0].posY[2];
+                let positionContact = posXContact +'% ' + posYContact + '%';
                 if (props.mobile) {
                     return {
                         backgroundImage : 'url(' + contactData[0].pic +')',
-                        backgroundPosition : 'center',
+                        backgroundPosition : positionContact,
                         filter : 'blur(2px)',
                     }
                 } else {
                     return {
                         backgroundImage : 'url(' + contactData[0].pic +')',
-                        backgroundPosition : 'center',
+                        backgroundPosition : positionContact,
                         filter : 'blur(2px)',
                     }
                 }
