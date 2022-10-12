@@ -18,7 +18,7 @@
     "build": "node makeJSONFile.js && node gulp && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "node public/makeJSONFile.js"
+    "server": "node makeJSONFile.js"
   },
   "eslintConfig": {
     "extends": [
