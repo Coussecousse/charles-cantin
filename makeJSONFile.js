@@ -3,10 +3,10 @@ const path = require('path');
 const fs = require('fs');
 
 // Création des routes vers les fichiers
-const dirPathGallery  = path.join(__dirname, "../data/gallery");
-const dirPathServices = path.join(__dirname, "../data/services");
-const dirPathHome     = path.join(__dirname, "../data/home")
-const dirPathContact  = path.join(__dirname, "../data/contact");
+const dirPathGallery  = path.join(__dirname, "./data/gallery");
+const dirPathServices = path.join(__dirname, "./data/services");
+const dirPathHome     = path.join(__dirname, "./data/home")
+const dirPathContact  = path.join(__dirname, "./data/contact");
 
 let galleryList       = [];
 let servicesList      = [];
