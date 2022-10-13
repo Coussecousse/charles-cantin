@@ -12,28 +12,20 @@ export default function Layout(props){
     let location = useLocation();
     const [home, setHome] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [loadOn, setLoadOn] = useState(false);
     
-    const onPageLoad = () => {
-       console.log('bite')
-       console.log(isLoaded)
-        setIsLoaded(true);
-    }
-    useEffect(() => {
-        console.log('hello')
-        setIsLoaded(false);      
-    }, [location]);
 
     useEffect(() => {
-        console.log('zut')
-        if (document.readyState === "complete") {
-            onPageLoad();
-            console.log('yo');
-        } else {
-            window.addEventListener("load", onPageLoad);
-            return () => window.removeEventListener("load", onPageLoad)
+        console.log(location)
+        if (location.search !== '' || location.search === '?sort='){
+            return;
         }
-    })
+        setIsLoaded(false);  
+
+        setTimeout(() => {
+            setIsLoaded(true);
+        }, 500)
+    }, [location]);
+
 
     const styleContainer = () => {
         if (props.mobile){
@@ -122,7 +114,7 @@ export default function Layout(props){
                     </div>
                     {props.mobile ? null : <Footer home={home}></Footer>}  
                 </>
-            : <div style={{width: "100vw", height: "100vh", background:"black"}}></div>
+            : <div style={{width: "100vw", height: "100vh", background:"var(--color-600"}}><div className={classes.LdsRing}><div></div><div></div><div></div><div></div></div></div>
             }
 
         </>
