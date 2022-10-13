@@ -14,7 +14,7 @@ export default function Home(){
 
 
         function preload(image) {
-            newImage = new Image();
+            let newImage = new Image();
             newImage.src = image;
         }
         const backgroundImage = "https://charles-cantin-photography.netlify.app/images/home.jpg";
