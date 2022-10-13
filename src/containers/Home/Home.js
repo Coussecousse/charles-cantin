@@ -11,6 +11,14 @@ export default function Home(){
         }, 500);
         document.title = data[0].siteTitle + ' | Accueil'
         document.querySelector('meta[name="description"]').setAttribute("content", data[0].description);
+
+
+        function preload(image) {
+            newImage = new Image();
+            newImage.src = image;
+        }
+        const backgroundImage = "https://charles-cantin-photography.netlify.app/images/home.jpg";
+        preload(backgroundImage);
     })
 
     return(
