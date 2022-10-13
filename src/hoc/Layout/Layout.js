@@ -12,21 +12,29 @@ export default function Layout(props){
     let location = useLocation();
     const [home, setHome] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [loadOn, setLoadOn] = useState(false);
+    
+    const onPageLoad = () => {
+       console.log('bite')
+       console.log(isLoaded)
+        setIsLoaded(true);
+    }
+    useEffect(() => {
+        console.log('hello')
+        setIsLoaded(false);      
+    }, [location]);
 
     useEffect(() => {
-        setIsLoaded(false);
-        const onPageLoad = () => {
-          setIsLoaded(true);
-        }
-        console.log('yo')
+        console.log('zut')
         if (document.readyState === "complete") {
-          onPageLoad();
+            onPageLoad();
+            console.log('yo');
         } else {
-          window.addEventListener("load", onPageLoad);
-          return () => window.removeEventListener("load", onPageLoad)
+            window.addEventListener("load", onPageLoad);
+            return () => window.removeEventListener("load", onPageLoad)
         }
-    });
-      
+    })
+
     const styleContainer = () => {
         if (props.mobile){
             return { minHeight : '100vh' }
