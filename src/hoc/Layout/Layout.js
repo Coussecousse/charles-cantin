@@ -23,7 +23,7 @@ export default function Layout(props){
 
         setTimeout(() => {
             setIsLoaded(true);
-        }, 500)
+        }, 400)
     }, [location]);
 
 
