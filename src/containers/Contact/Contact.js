@@ -11,7 +11,14 @@ export default function Contact() {
         const container = document.querySelector('.contactAnimation');
         setTimeout(() => {
             container.style.opacity = '1';
-        }, 800)
+        }, 800);
+
+        function preload(image) {
+            let newImage = new Image();
+            newImage.src = image;
+        }
+        const backgroundImage = "https://charles-cantin-photography.netlify.app/images/contact.jpg";
+        preload(backgroundImage);
     });
 
     useEffect(() => {
