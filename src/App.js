@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect  } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Layout from './hoc/Layout/Layout';
@@ -16,6 +16,7 @@ function App() {
     const [mobile, setMobile] = useState(false);
     let resize;
 
+
     useEffect(() => {
         if (window.innerWidth < 768) {
             setMobile(true);
@@ -23,6 +24,7 @@ function App() {
             setMobile(false);
         }
     }, [windowWidth]);
+
 
     window.addEventListener('resize', () => {
         function resizeFunction() {
@@ -34,18 +36,15 @@ function App() {
     })
   return (
     <div className="App">
-      <Layout mobile={mobile}>
-        <Routes>
-          <Route path={paths.HOME} element={<Home/>}></Route>
-          <Route path={paths.GALLERY} element={<Gallery mobile={mobile}/>}>
-            {/* <Route path="?sort=" element={<Gallery></Gallery>}></Route> */}
-          </Route>
-          <Route path={paths.SERVICES} element={<Services mobile={mobile}/>}></Route>
-          <Route path={paths.CONTACT} element={<Contact/>}>
-          </Route>
-          <Route path={paths.EMAILSUCCESS} element={<EmailSuccess/>}></Route>
-          <Route path="*" element={<PageNotFound/>}></Route>
-        </Routes>
+        <Layout mobile={mobile}>
+          <Routes>
+            <Route path={paths.HOME} element={<Home/>}></Route>
+            <Route path={paths.GALLERY} element={<Gallery mobile={mobile}/>}></Route>
+            <Route path={paths.SERVICES} element={<Services mobile={mobile}/>}></Route>
+            <Route path={paths.CONTACT} element={<Contact/>}></Route>
+            <Route path={paths.EMAILSUCCESS} element={<EmailSuccess/>}></Route>
+            <Route path="*" element={<PageNotFound/>}></Route>
+          </Routes>
       </Layout>
     </div>
   );

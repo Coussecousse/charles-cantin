@@ -11,7 +11,22 @@ import Footer from "../../components/Footer/Footer";
 export default function Layout(props){
     let location = useLocation();
     const [home, setHome] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
 
+    useEffect(() => {
+        setIsLoaded(false);
+        const onPageLoad = () => {
+          setIsLoaded(true);
+        }
+        console.log('yo')
+        if (document.readyState === "complete") {
+          onPageLoad();
+        } else {
+          window.addEventListener("load", onPageLoad);
+          return () => window.removeEventListener("load", onPageLoad)
+        }
+    });
+      
     const styleContainer = () => {
         if (props.mobile){
             return { minHeight : '100vh' }
@@ -88,14 +103,21 @@ export default function Layout(props){
 
     return (
         <>
-            <div className={classes.Container} style={styleContainer()}>
-                <div className={classes.Background} style={getBackground()}></div>
-                <div className={classes.ChildContainer}>
-                    <Header mobile={props.mobile} home={home}></Header>
-                    {props.children}
-                </div>
-            </div>
-            {props.mobile ? null : <Footer home={home}></Footer>}
+            {isLoaded ?  
+                <>
+                    <div className={classes.Container} style={styleContainer()}>
+                        <div className={classes.Background} style={getBackground()}></div>
+                        <div className={classes.ChildContainer}>
+                            <Header mobile={props.mobile} home={home}></Header>
+                            {props.children}
+                        </div>
+                    </div>
+                    {props.mobile ? null : <Footer home={home}></Footer>}  
+                </>
+            : <div style={{width: "100vw", height: "100vh", background:"black"}}></div>
+            }
+
         </>
+
     )
 }
