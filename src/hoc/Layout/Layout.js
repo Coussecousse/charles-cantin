@@ -16,7 +16,7 @@ export default function Layout(props){
 
     useEffect(() => {
         console.log(location)
-        if (location.search !== '' || location.search === '?sort='){
+        if (location.search !== ''){
             return;
         }
         setIsLoaded(false);  
