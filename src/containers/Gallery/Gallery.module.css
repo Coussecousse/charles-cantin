@@ -49,6 +49,7 @@
 .PhotoClickedContainer > div > div {
     width: 25%;
     display: flex;
+    margin: 0 1rem;
     justify-content: space-between;
 }
 .PhotoClickedContainer > div button {

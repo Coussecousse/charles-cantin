@@ -9,5 +9,11 @@ function imgSquash() {
 };
 
 gulp.task("imgSquash", imgSquash);
+function imgSquashIcon() {
+    return gulp.src("src/images/*")
+        .pipe(imagemin())
+        .pipe(gulp.dest("src/images/"));
+};
 
+gulp.task("imgSquashIcon", imgSquashIcon)
 
