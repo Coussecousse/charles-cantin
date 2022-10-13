@@ -15,6 +15,10 @@ export default function Header(props) {
         const ulMenu = document.querySelector('#ul-menu');
         const lisMenu = ulMenu.children;
         
+        if (e.target === button) {
+            setOpenMenu(!menuOpen);
+            return;
+        }
         for (let span of button.children) {
             if (e.target === span) {
                 setOpenMenu(!menuOpen);

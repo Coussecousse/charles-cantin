@@ -5,7 +5,7 @@ import data from '../../home.json'
 export default function PageNotFound() {
     useEffect(() => {
         document.title = data[0].siteTitle + ' | 404'
-        document.querySelector('meta[name="description"]').setAttribute("content", data[0].description);
+        document.querySelector('meta[name="description"]').setAttribute("content", "404 page non trouvée.");
     })
     return (
         <div className="container container-svg">
