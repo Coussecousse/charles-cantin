@@ -75,7 +75,8 @@ export default function Gallery(props) {
         }
 
         let newFiltredCategories = [];
-
+        console.log(currentSort);
+        console.log(filtredCategories);
         // Add categorie filtred from the url search params
         const getFiltredCategories = () => {
             for (let categorie of currentSort){
