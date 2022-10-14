@@ -23,6 +23,7 @@ export default function Gallery(props) {
     const [categories, setCategories]     = useState([]);
     const [filtredCategories, setFiltredCategories] = useState([]);
     const [photoClicked, setPhotoClicked] = useState([false, '']);
+    const [loadNextOrPreviousPhoto, setNextOrPreviousPhoto] = useState(false);
 
     useEffect(() => {
         document.title = homeData[0].siteTitle + ' | Gallery'
@@ -207,6 +208,7 @@ export default function Gallery(props) {
         setSearching(true);
     };
     const handleClickPhoto = e => {       
+        console.log(e.target)
         if (photoClicked[0] === true) {
             setPhotoClicked([!photoClicked[0], '']);
         } else {
@@ -236,21 +238,26 @@ export default function Gallery(props) {
         lButton.style.display = "block";
     }
     const handleNextPhoto = () => {
+        setNextOrPreviousPhoto(false);
         resetButtons();
         let current = photoClicked[3];
         let previous = photoClicked[1];
 
         let next = current.parentElement;
+        console.log(next)
         next = next.nextSibling;
+        console.log(next)
         if (next !== null) {
             next = next.children[0]
         } else {
             next = undefined;
         }
+        
 
         setPhotoClicked([true, current, previous, next]);
     }
     const handlePreviousPhoto = () => {
+        setNextOrPreviousPhoto(false);
         resetButtons();
 
         let current = photoClicked[2];
@@ -265,18 +272,13 @@ export default function Gallery(props) {
         }
 
         setPhotoClicked([true, current, previous, next]);
+
     }
+
     useEffect(() => {
-        if (photoClicked[0] === true){
-            if (photoClicked[2] === undefined){
-                const leftButton = document.querySelector('.fa-square-caret-left');
-                leftButton.style.display = 'none';
-            } else if (photoClicked[3] === undefined) {
-                const rightButton = document.querySelector('.fa-square-caret-right');
-                rightButton.style.display = 'none';
-            }
-        }
+        setNextOrPreviousPhoto(true);
     }, [photoClicked]);
+
     const handleClickBackgroudPhoto = (e) => {
         const container   = document.querySelector('#photo-container')
         const closeButton = container.querySelector('#close-button');
@@ -284,18 +286,42 @@ export default function Gallery(props) {
         if (e.target === container || e.target === closeButton || e.target === closeButton.children[0]){
             handleClickPhoto(e);
         }
-        
+    }
+    //  Styles buttons hidden or not
+    const firstPic = () => {
+        const photosContainer = document.querySelector('#photos-container');
+        let first = photosContainer.children[0].children[0];
+
+        if (photoClicked[1] === first) {
+            return {
+                visibility: 'hidden'
+            }
+        }
+    }
+    const lastPic = () => {
+        const photosContainer = document.querySelector('#photos-container');
+        let last = photosContainer.children[photosContainer.children.length-1].children[0]
+
+        if (photoClicked[1] === last) {
+            return {
+                visibility: 'hidden'
+            }
+        }
     }
     const photoSelectioned = (
         <div className={classes.PhotoClickedContainer} id="photo-container" onClick={e => handleClickBackgroudPhoto(e)}>
-            <div>
-                <div id="buttons-left-right">
-                    <button id="previous" onClick={handlePreviousPhoto}><i className="fa-regular fa-square-caret-left"></i></button>
-                    <button id="next" onClick={handleNextPhoto}><i className="fa-regular fa-square-caret-right"></i></button>
-                </div>
-                <button id="close-button"><i className="fa-solid fa-xmark"></i></button>
-            </div>
-            <img src={photoClicked[1].src} alt={photoClicked[1].alt}></img>
+            {loadNextOrPreviousPhoto ? 
+                <>
+                    <div>
+                        <div id="buttons-left-right">
+                            <button id="previous" onClick={handlePreviousPhoto} style={firstPic()}><i className="fa-regular fa-square-caret-left"></i></button>
+                            <button id="next" onClick={handleNextPhoto} style={lastPic()}><i className="fa-regular fa-square-caret-right"></i></button>
+                        </div>
+                        <button id="close-button"><i className="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <img src={photoClicked[1].src} alt={photoClicked[1].alt}></img>
+                </>
+            : <div className={classes.LdsRingContainer}><div className={classes.LdsRingGallery}><span></span><span></span><span></span><span></span></div></div>}
         </div>
     )
     return(
@@ -309,7 +335,7 @@ export default function Gallery(props) {
                         filterClick={handleAddFilter}
                         removeCategorie={(e) => handleRemoveCategorie(e)}
                         categories={categories}></Filter>
-                <div className={props.mobile ? classes.PicsContainerMobile : classes.PicsContainer}>
+                <div className={props.mobile ? classes.PicsContainerMobile : classes.PicsContainer} id="photos-container">
                     <Photos categories={filtredCategories} mobile={props.mobile} click={(e) => handleClickPhoto(e)}></Photos>
                 </div>
             </div>
