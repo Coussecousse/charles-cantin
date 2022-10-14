@@ -14,7 +14,6 @@ function removeFromIndex(elementToScan, elementToRemove){
 }
 
 export default function Gallery(props) {
-    const [newPath, setNewPath] = useState(true)
     let currentURL, currentSort, input;
     const gallery = [...galleryData.slice(1, galleryData.length)];
     
@@ -32,7 +31,6 @@ export default function Gallery(props) {
 
     function getCurrentSort(container=[]){
         currentURL  = Object.fromEntries([...searchParams]);
-        console.log(currentURL);
         currentSort = currentURL.sort;
 
         if (currentSort === undefined){
@@ -58,36 +56,23 @@ export default function Gallery(props) {
         
     }
     useEffect(() => {
-        console.log('test')
         let newCategorie = [];
 
-        if (newPath === false) {
-            return;
-        }
+
         getCurrentSort();
 
         // Check the url for avoid bugs
         if (currentSort === ''){
-            console.log('ouaiiis')
             setSearchParams({});
             return;
         } else if (currentSort === undefined){
-            console.log(currentSort);
-            console.log('coucou')
             return;
         } else if (currentSort[0] === ''){
-            console.log('hoy')
             setSearchParams({});
             return;
         }
-        setNewPath(false);
-        setTimeout(() => {
-            setNewPath(true);
-        }, 1000);
 
         let newFiltredCategories = [];
-        console.log(currentSort);
-        console.log(filtredCategories);
         // Add categorie filtred from the url search params
         const getFiltredCategories = () => {
             for (let categorie of currentSort){
@@ -103,7 +88,6 @@ export default function Gallery(props) {
                             break;
                         }
                         for (let photoCategorie of photo.categories) {
-                            console.log(photoCategorie)
                             if (categorie + '\r' === photoCategorie || categorie === photoCategorie){
                                 change = true;
                                 break;
@@ -117,11 +101,8 @@ export default function Gallery(props) {
                     newFiltredCategories.push(categorie);
                 
                 } else { 
-                    console.log(categorie);
-                    console.log(currentSort)
                     // New url without the wrong categorie
                     removeFromIndex(currentSort, categorie);
-                    console.log('woop');
                     setSearchParams({ sort: currentSort });
                 }
 
@@ -199,7 +180,6 @@ export default function Gallery(props) {
         getCategorieToRemove();
         setTimeout(() => {
             removeTheCategorieInURL();
-            console.log('heyehy')
             setSearchParams({ sort: currentSort });
         }, 200)
         
@@ -219,11 +199,9 @@ export default function Gallery(props) {
         chosenCategorie = chosenCategorie.toLowerCase();
 
         if (Object.keys(currentURL).length === 0){
-            console.log('test2')
             setSearchParams({ sort: chosenCategorie });
         } else {
             const oldSort = currentURL.sort;
-            console.log('test3')
             setSearchParams({ sort: oldSort + '+' + chosenCategorie});
         }
         setSearching(true);
