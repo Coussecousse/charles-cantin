@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useMemo } from "react";
+import React, {useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import classes from './Gallery.module.css'
 
@@ -32,6 +32,7 @@ export default function Gallery(props) {
 
     function getCurrentSort(container=[]){
         currentURL  = Object.fromEntries([...searchParams]);
+        console.log(currentURL);
         currentSort = currentURL.sort;
 
         if (currentSort === undefined){
@@ -56,7 +57,7 @@ export default function Gallery(props) {
         })
         
     }
-    useMemo(() => {
+    useEffect(() => {
         console.log('test')
         let newCategorie = [];
 
@@ -132,7 +133,7 @@ export default function Gallery(props) {
         setFiltredCategories(newFiltredCategories);
         setCategories(newCategorie);
 
-    }, [searchParams]);
+    }, [searchParams, currentSort]);
 
     function closeFilter(e) {
         input       = document.querySelector('#filter');    
