@@ -43,6 +43,5 @@
 }
 .FiltredCategoriesStyle button i, .FiltredCategoriesStyleMobile button i {
     position: relative;
-    top: 50%;
-    transform: translateY(-55%);
+    top: 1px;
 }
