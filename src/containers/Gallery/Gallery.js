@@ -61,10 +61,11 @@ export default function Gallery(props) {
         getCurrentSort();
 
         // Check the url for avoid bugs
-        if (currentSort === ''){
-            setSearchParams({});
-            return;
-        } else if (currentSort === undefined){
+        // if (currentSort === ''){
+        //     setSearchParams({});
+        //     return;
+        // } else 
+        if (currentSort === undefined){
             return;
         } else if (currentSort[0] === ''){
             setSearchParams({});
@@ -120,7 +121,6 @@ export default function Gallery(props) {
         setFiltredCategories(newFiltredCategories);
         setCategories(newCategorie);
 
-        // eslint-disable-next-line
     }, [searchParams]);
 
     function closeFilter(e) {
