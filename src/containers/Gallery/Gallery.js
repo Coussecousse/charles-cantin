@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import classes from './Gallery.module.css'
 
@@ -56,17 +56,20 @@ export default function Gallery(props) {
         
     }
     useEffect(() => {
+        console.log('test')
         let newCategorie = [];
 
         getCurrentSort();
 
         // Check the url for avoid bugs
         if (currentSort === ''){
+            console.log('ouaiiis')
             setSearchParams({});
             return;
         } else if (currentSort === undefined){
             return;
         } else if (currentSort[0] === ''){
+            console.log('hoy')
             setSearchParams({});
             return;
         }
@@ -102,6 +105,7 @@ export default function Gallery(props) {
                 } else {
                     // New url without the wrong categorie
                     removeFromIndex(currentSort, categorie);
+                    console.log('woop')
                     setSearchParams({ sort: currentSort });
                 }
 
@@ -179,6 +183,7 @@ export default function Gallery(props) {
         getCategorieToRemove();
         setTimeout(() => {
             removeTheCategorieInURL();
+            console.log('heyehy')
             setSearchParams({ sort: currentSort });
         }, 200)
         
@@ -198,9 +203,11 @@ export default function Gallery(props) {
         chosenCategorie = chosenCategorie.toLowerCase();
 
         if (Object.keys(currentURL).length === 0){
+            console.log('test2')
             setSearchParams({ sort: chosenCategorie });
         } else {
             const oldSort = currentURL.sort;
+            console.log('test3')
             setSearchParams({ sort: oldSort + '+' + chosenCategorie});
         }
         setSearching(true);
@@ -226,7 +233,6 @@ export default function Gallery(props) {
             }
 
             setPhotoClicked([!photoClicked[0], e.target, previous, next]);
-            console.log(photoClicked)
         }
     }
     const resetButtons = () => {
