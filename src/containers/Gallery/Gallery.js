@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from "react";
+import React, {useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import classes from './Gallery.module.css'
 
@@ -14,6 +14,7 @@ function removeFromIndex(elementToScan, elementToRemove){
 }
 
 export default function Gallery(props) {
+    let RunUseEffect = true;
     let currentURL, currentSort, input;
     const gallery = [...galleryData.slice(1, galleryData.length)];
     
@@ -55,11 +56,15 @@ export default function Gallery(props) {
         })
         
     }
-    useEffect(() => {
+    useMemo(() => {
         console.log('test')
         let newCategorie = [];
 
         getCurrentSort();
+        // RunUseEffect = false;
+        // setTimeout(() => {
+        //     RunUseEffect = true
+        // }, 200);
 
         // Check the url for avoid bugs
         if (currentSort === ''){
