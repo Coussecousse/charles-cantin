@@ -104,7 +104,7 @@ export default function Gallery(props) {
                         }
                         for (let photoCategorie of photo.categories) {
                             console.log(photoCategorie)
-                            if (categorie.toLowerCase() + '\r' === photoCategorie || categorie === photoCategorie){
+                            if (categorie + '\r' === photoCategorie || categorie === photoCategorie){
                                 change = true;
                                 break;
                             }

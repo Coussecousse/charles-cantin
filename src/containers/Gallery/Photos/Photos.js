@@ -68,7 +68,7 @@ export default function Photos(props) {
                         break;
                     }
                     for (let categoriesFiltred of props.categories) {
-                        if (categoriesFiltred + '\r'=== categoriesPhoto) {
+                        if (categoriesFiltred + '\r'=== categoriesPhoto || categoriesFiltred === categoriesPhoto) {
                             result = true;
                             break;
                         } else {
