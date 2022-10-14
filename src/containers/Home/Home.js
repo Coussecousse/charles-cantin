@@ -8,7 +8,7 @@ export default function Home(){
         const h2 = document.querySelector('h2');
         setTimeout(() => {
             h2.classList.add("activeSecondAnimation");
-        }, 500);
+        }, 700);
         document.title = data[0].siteTitle + ' | Accueil'
         document.querySelector('meta[name="description"]').setAttribute("content", data[0].description);
 
