@@ -39,7 +39,7 @@
     ]
   },
   "devDependencies": {
-    "gulp-imagemin": "^7.1.0",
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-imagemin": "^7.1.0"
   }
 }
