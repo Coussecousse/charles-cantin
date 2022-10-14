@@ -35,7 +35,7 @@ export default function Header(props) {
     
     window.addEventListener('scroll', () => {
         const header = document.querySelector('header');
-        if (window.pageYOffset > 0) {
+        if (window.pageYOffset > 150) {
             header.style.position = 'fixed';
             header.style.background = 'var(--color-600)';
         } else {
