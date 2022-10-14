@@ -61,12 +61,11 @@ export default function Gallery(props) {
         console.log('test')
         let newCategorie = [];
 
-        getCurrentSort();
-
-
         if (runUseEffect === false) {
             return;
         }
+        getCurrentSort();
+
         // Check the url for avoid bugs
         if (currentSort === ''){
             console.log('ouaiiis')
@@ -84,7 +83,7 @@ export default function Gallery(props) {
         runUseEffect = false;
         setTimeout(() => {
             runUseEffect = true;
-        }, 200);
+        }, 1000);
 
         let newFiltredCategories = [];
         console.log(currentSort);
@@ -137,7 +136,7 @@ export default function Gallery(props) {
         setFiltredCategories(newFiltredCategories);
         setCategories(newCategorie);
 
-    }, [searchParams, currentSort]);
+    }, [searchParams]);
 
     function closeFilter(e) {
         input       = document.querySelector('#filter');    
