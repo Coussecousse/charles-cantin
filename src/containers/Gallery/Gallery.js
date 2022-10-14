@@ -67,6 +67,8 @@ export default function Gallery(props) {
             setSearchParams({});
             return;
         } else if (currentSort === undefined){
+            console.log(currentSort);
+            console.log('coucou')
             return;
         } else if (currentSort[0] === ''){
             console.log('hoy')
