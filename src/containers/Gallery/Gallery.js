@@ -14,7 +14,7 @@ function removeFromIndex(elementToScan, elementToRemove){
 }
 
 export default function Gallery(props) {
-    let RunUseEffect = true;
+    let runUseEffect = true;
     let currentURL, currentSort, input;
     const gallery = [...galleryData.slice(1, galleryData.length)];
     
@@ -62,11 +62,11 @@ export default function Gallery(props) {
         let newCategorie = [];
 
         getCurrentSort();
-        // RunUseEffect = false;
-        // setTimeout(() => {
-        //     RunUseEffect = true
-        // }, 200);
 
+
+        if (runUseEffect === false) {
+            return;
+        }
         // Check the url for avoid bugs
         if (currentSort === ''){
             console.log('ouaiiis')
@@ -81,6 +81,10 @@ export default function Gallery(props) {
             setSearchParams({});
             return;
         }
+        runUseEffect = false;
+        setTimeout(() => {
+            runUseEffect = true;
+        }, 200);
 
         let newFiltredCategories = [];
         console.log(currentSort);
