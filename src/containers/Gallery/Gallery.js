@@ -114,12 +114,13 @@ export default function Gallery(props) {
 
                 if (change) {
                     newFiltredCategories.push(categorie);
-                } else {
-                    // New url without the wrong categorie
-                    removeFromIndex(currentSort, categorie);
-                    console.log('woop');
-                    setSearchParams({ sort: currentSort });
                 }
+                // } else {
+                //     // New url without the wrong categorie
+                //     removeFromIndex(currentSort, categorie);
+                //     console.log('woop');
+                //     setSearchParams({ sort: currentSort });
+                // }
 
             }
         }
