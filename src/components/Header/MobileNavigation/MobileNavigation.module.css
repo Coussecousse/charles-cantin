@@ -34,8 +34,8 @@
 }
 .Menu span:before {
 	margin-top: -15px;
-    -webkit-transition-property: margin, -webkit-transform; 
-    transition-property: margin, transform;
+    -webkit-transition-property: margin, -webkit-transform, right; 
+    transition-property: margin, transform, right;
 	-webkit-transition-duration: 0.2s; 
     transition-duration: 0.2s;
 	-webkit-transition-delay: 0.2s, 0s; 
