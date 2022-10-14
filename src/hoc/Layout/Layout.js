@@ -17,6 +17,7 @@ export default function Layout(props){
     useEffect(() => {
         console.log(location)
         if (location.search !== ''){
+            setIsLoaded(true);
             return;
         }
         setIsLoaded(false);  

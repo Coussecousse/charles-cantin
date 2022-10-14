@@ -117,7 +117,7 @@ export default function Gallery(props) {
                 } else {
                     // New url without the wrong categorie
                     removeFromIndex(currentSort, categorie);
-                    console.log('woop')
+                    console.log('woop');
                     setSearchParams({ sort: currentSort });
                 }
 
