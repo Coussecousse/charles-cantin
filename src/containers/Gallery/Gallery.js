@@ -208,7 +208,6 @@ export default function Gallery(props) {
         setSearching(true);
     };
     const handleClickPhoto = e => {       
-        console.log(e.target)
         if (photoClicked[0] === true) {
             setPhotoClicked([!photoClicked[0], '']);
         } else {
@@ -244,9 +243,8 @@ export default function Gallery(props) {
         let previous = photoClicked[1];
 
         let next = current.parentElement;
-        console.log(next)
         next = next.nextSibling;
-        console.log(next)
+        
         if (next !== null) {
             next = next.children[0]
         } else {
