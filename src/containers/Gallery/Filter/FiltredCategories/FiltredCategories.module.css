@@ -41,3 +41,8 @@
     width: 1.6rem;
     height: 1.6rem;
 }
+.FiltredCategoriesStyle button i, .FiltredCategoriesStyleMobile button i {
+    position: relative;
+    top: 50%;
+    transform: translateY(-55%);
+}
