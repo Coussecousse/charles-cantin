@@ -14,7 +14,7 @@ function removeFromIndex(elementToScan, elementToRemove){
 }
 
 export default function Gallery(props) {
-    let runUseEffect = true;
+    const [newPath, setNewPath] = useState(true)
     let currentURL, currentSort, input;
     const gallery = [...galleryData.slice(1, galleryData.length)];
     
@@ -61,7 +61,7 @@ export default function Gallery(props) {
         console.log('test')
         let newCategorie = [];
 
-        if (runUseEffect === false) {
+        if (newPath === false) {
             return;
         }
         getCurrentSort();
@@ -80,9 +80,9 @@ export default function Gallery(props) {
             setSearchParams({});
             return;
         }
-        runUseEffect = false;
+        setNewPath(false);
         setTimeout(() => {
-            runUseEffect = true;
+            setNewPath(true);
         }, 1000);
 
         let newFiltredCategories = [];
@@ -114,13 +114,15 @@ export default function Gallery(props) {
 
                 if (change) {
                     newFiltredCategories.push(categorie);
+                
+                } else { 
+                    console.log(categorie);
+                    console.log(currentSort)
+                    // New url without the wrong categorie
+                    removeFromIndex(currentSort, categorie);
+                    console.log('woop');
+                    setSearchParams({ sort: currentSort });
                 }
-                // } else {
-                //     // New url without the wrong categorie
-                //     removeFromIndex(currentSort, categorie);
-                //     console.log('woop');
-                //     setSearchParams({ sort: currentSort });
-                // }
 
             }
         }
