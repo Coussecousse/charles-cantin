@@ -84,6 +84,15 @@ p {
 	background-color: var(--color-secondary);
 	display: block;
 }
+.button-menu span:before{
+    margin-top: -15px;
+}
+.button-menu span:after {
+    margin-top: 15px;
+}
+.logo {
+    background-image: url(../../src/images/logo-header.png);
+}
 .button-menu span {
     width: 20px;
 }
