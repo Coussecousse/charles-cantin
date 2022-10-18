@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Projet: Charles Cantin photographe
+## ECF d’entraînement Front
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+__Objectifs :__
 
-## Available Scripts
+Créer un site internet pour Charles Cantin le photographe. 
+Ce site devra contenir son logo, 4 pages dont __accueil__, __galerie__ , __tarifs et prestations__, et __contact__. 
 
-In the project directory, you can run:
+Le formulaire de contact devra être __fonctionnel__ et le site devra posséder un __CMS__ permettant à Charles Cantin de se connecter et de pouvoir modifier son contenu facilement. 
+
+Fournir également un PDF contenant la __charte graphique__. 
+
+## Outils 
+
+Ce projet a été produit avec [Create React App](https://create-react-app.dev/), avec un [CMS Netlify](https://www.netlifycms.org/), avec [uuid](https://www.uuidgenerator.net/), [React Router](https://reactrouter.com/en/main) ainsi que [gulp](https://gulpjs.com/) et [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin). 
+
+## Installation des packages :
+
+### Pour [uuid](https://www.uuidgenerator.net/) :
+
+`npm install uuid`
+
+### Pour [React Router](https://reactrouter.com/en/main) :
+
+`npm install react-router-dom`
+
+### Pour [gulp](https://gulpjs.com/) et [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin) :
+
+`npm install gulp`
+
+`npm install gulp-imagemin`
+
+## Deploiement
+
+Dans le repertoire du projet vous pouvez utiliser :
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Permet de deployer le site internet en __local__ à l'adresse : [http://localhost:3000](http://localhost:3000). 
+La page se rechargera automatiquement si vous modifiez des fichiers.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Permet de deployer le site __en ligne__. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+J'ai personnellement déployer mon site internet directement sur le site de [Netlify](https://www.netlify.com/) par gaint de temps.
+Cependant vous pouvez décider de déployer le site directement depuis le terminal. 
+Si vous souhaitez quand même utiliser Netlify, je vous dirige vers ce [lien](https://www.netlify.com/blog/2016/07/22/deploy-react-apps-in-less-than-30-seconds/) qui pourra vous aider.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Note: C'est une opération en une fois. Une fois que vous avez éjecter le projet, vous ne pouvez pas revenir en arrière !**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Si vous n'êtes pas satisfait avec le déploiement du site et les configurations choisies, vous pouvez éjecter le projet à tout moment. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Plus d'informations
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Plus d'informations dans la [documentation de Create React App](https://create-react-app.dev/docs/getting-started/).
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
