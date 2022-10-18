@@ -191,16 +191,16 @@
         return  h('div', {style: {height: '100vh', width: '100vw'}}, 
                   h('div', {className : homeClassName, style: backgroundStyle}, 
                     h('div', {className:'menu'}, 
-                      h('div', {}, 
-                        h('img', {src:"src/images/logo-header.png"}, ),
+                      h('div', {className:'container-header'}, 
+                        h('img', {src:"public/images/logo-header.png", style:{maxHeight: '100px'}}, ),
                         ( mobile ? 
                         h('div', {}, 
                           h('button', {}, 
                             h('span', {})
                           )
                         ) 
-                        : h('div', {}, 
-                            h('ul', {}, 
+                        : h('div', {style:{display:'flex', alignItems: 'center'}}, 
+                            h('ul', {style:{display: 'inline-flex',gap: '3rem'}}, 
                               h('li', {}, h('p', {}, 'Accueil')), 
                               h('li', {}, h('p', {}, 'Gallerie')),  
                               h('li', {}, h('p', {}, 'Prestations')),  
@@ -212,7 +212,7 @@
                     ),
                     h('div', {className: "container-title"}, 
                       h('div', {style:{width: 'auto', margin: '0 auto'}}, 
-                        h('h1', {style: entry.getIn(['data', 'mobile']) ? {fontSize: '2rem'} : {fontSize: '6rem'}}, entry.getIn(['data', 'title']).toUpperCase()),
+                        h('h1', {style: entry.getIn(['data', 'mobile']) ? {fontSize: '2rem'} : {fontSize: '5rem'}}, entry.getIn(['data', 'title']).toUpperCase()),
                         h('h2', {style: entry.getIn(['data', 'mobile']) ? {fontSize: '1.5rem'} : {fontSize: '3rem'}}, entry.getIn(['data','subtitle']))
                       ),
                     ), 
