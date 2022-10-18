@@ -223,6 +223,7 @@
     const TemplateContact = createClass({
       render: function() {
         let entry = this.props.entry;
+        let mobile = entry.getIn(['data', 'mobile']);
 
         let position = entry.getIn(['data', 'posX']) + '% ' + entry.getIn(['data', 'posY']) + '%';
         
@@ -236,7 +237,7 @@
           flexDirection: 'column',
         }
         return  h('div', {style : {height: '100vh', width: '100vw'}}, 
-                  h('div', {className : (entry.getIn(['data', 'mobile']) ? "container-mobile" : "container-home-contact"), style: backgroundStyle}, 
+                  h('div', {className : (mobile ? "container-mobile" : "container-home-contact"), style: backgroundStyle}, 
                   h('div', {className:'menu'}, 
                       h('div', {className:'container-header'}, 
                         h('img', {src:'/images/logo-header.png', style:{height: '20vh', maxHeight: '90px'}}, ),
