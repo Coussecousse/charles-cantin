@@ -1,3 +1,7 @@
+@font-face {
+	font-family: Playfair Display;
+	src: url(/public/fonts/PlayfairDisplay-VariableFont_wght.ttf);
+}
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +11,7 @@ html, body {
     background-color: hsl(205, 13%, 33%);
     width : 100vw;
     box-sizing: border-box;
+    font-family: Playfaire Display, serif;
 }
 p {
     margin: 0;
@@ -36,9 +41,11 @@ p {
     background-color: transparent;
     color: hsl(196, 100%, 97%);
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    display: flex;
 }
 .container-header {
+    flex: 1;
     width: 90%;
     max-width: 1000px;
     display: flex;
@@ -46,6 +53,9 @@ p {
     align-items: center;
     margin: 0 auto;
 }
+/* .logo {
+    background-image: url("../../src/images/logo-header.png");
+} */
 .container-desktop {
     width: 100%;
     max-width : 800px;
