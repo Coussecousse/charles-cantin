@@ -192,7 +192,7 @@
                   h('div', {className : homeClassName, style: backgroundStyle}, 
                     h('div', {className:'menu'}, 
                       h('div', {className:'container-header'}, 
-                        h('img', {src:' /images/logo-header.png', style:{height: '20vh', maxHeight: '90px'}}, ),
+                        h('img', {src:'/images/logo-header.png', style:{height: '20vh', maxHeight: '90px'}}, ),
                         ( mobile ? 
                         h('div', {}, 
                           h('button', {className:'button-menu'}, 
@@ -237,7 +237,26 @@
         }
         return  h('div', {style : {height: '100vh', width: '100vw'}}, 
                   h('div', {className : (entry.getIn(['data', 'mobile']) ? "container-mobile" : "container-home-contact"), style: backgroundStyle}, 
-                    h('div', {className:'menu'}, 'MENU'),
+                  h('div', {className:'menu'}, 
+                      h('div', {className:'container-header'}, 
+                        h('img', {src:'/images/logo-header.png', style:{height: '20vh', maxHeight: '90px'}}, ),
+                        ( mobile ? 
+                        h('div', {}, 
+                          h('button', {className:'button-menu'}, 
+                            h('span', {})
+                          )
+                        ) 
+                        : h('div', {style:{display:'flex', alignItems: 'center'}}, 
+                            h('ul', {style:{display: 'inline-flex',gap: '3rem'}}, 
+                              h('li', {}, h('p', {}, 'Accueil')), 
+                              h('li', {}, h('p', {}, 'Galerie')),  
+                              h('li', {}, h('p', {}, 'Prestations')),  
+                              h('li', {}, h('p', {}, 'Contact'))  
+                            )
+                          )
+                        )
+                      )
+                    ),
                     h('div', {style: {flex: '1', backdropFilter: 'blur(2px)'}})
                   )
                 )
