@@ -43,7 +43,7 @@ La page se rechargera automatiquement si vous modifiez des fichiers.
 
 Permet de deployer le site __en ligne__. 
 
-J'ai personnellement déployer mon site internet directement sur le site de [Netlify](https://www.netlify.com/) par gaint de temps.
+J'ai personnellement déployé mon site internet directement sur le site de [Netlify](https://www.netlify.com/) par gaint de temps.
 Cependant vous pouvez décider de déployer le site directement depuis le terminal. 
 Si vous souhaitez quand même utiliser Netlify, je vous dirige vers ce [lien](https://www.netlify.com/blog/2016/07/22/deploy-react-apps-in-less-than-30-seconds/) qui pourra vous aider.
 
