@@ -174,9 +174,11 @@
     const TemplateHome = createClass({
       render: function() {
         let entry = this.props.entry;
+        let mobile = entry.getIn(['data', 'mobile']);
         
         let position = entry.getIn(['data', 'posX']) + '% ' + entry.getIn(['data', 'posY']) + '%';
-        let homeClassName = entry.getIn(['data', 'mobile']) ? "container-mobile" : "container-home-contact"
+        let homeClassName = mobile ? "container-mobile" : "container-home-contact";
+
         let backgroundStyle = {
           height: '100%', 
           width: '100%',
@@ -188,7 +190,26 @@
         }
         return  h('div', {style: {height: '100vh', width: '100vw'}}, 
                   h('div', {className : homeClassName, style: backgroundStyle}, 
-                    h('div', {className:'menu'}, 'MENU'),
+                    h('div', {className:'menu'}, 
+                      h('div', {}, 
+                        h('img', {src:"src/images/logo-header.png"}, ),
+                        ( mobile ? 
+                        h('div', {}, 
+                          h('button', {}, 
+                            h('span', {})
+                          )
+                        ) 
+                        : h('div', {}, 
+                            h('ul', {}, 
+                              h('li', {}, h('p', {}, 'Accueil')), 
+                              h('li', {}, h('p', {}, 'Gallerie')),  
+                              h('li', {}, h('p', {}, 'Prestations')),  
+                              h('li', {}, h('p', {}, 'Contact'))  
+                            )
+                          )
+                        )
+                      )
+                    ),
                     h('div', {className: "container-title"}, 
                       h('div', {style:{width: 'auto', margin: '0 auto'}}, 
                         h('h1', {style: entry.getIn(['data', 'mobile']) ? {fontSize: '2rem'} : {fontSize: '6rem'}}, entry.getIn(['data', 'title']).toUpperCase()),
