@@ -192,10 +192,10 @@
                   h('div', {className : homeClassName, style: backgroundStyle}, 
                     h('div', {className:'menu'}, 
                       h('div', {className:'container-header'}, 
-                        h('div', {src:"../../src/images/logo-header.png", style:{height: '20vh', maxHeight: '90px'}}, ),
+                        h('img', {src:"../../src/images/logo-header.png", style:{height: '20vh', maxHeight: '90px'}}, ),
                         ( mobile ? 
                         h('div', {}, 
-                          h('button', {}, 
+                          h('button', {className:'button-menu'}, 
                             h('span', {})
                           )
                         ) 
