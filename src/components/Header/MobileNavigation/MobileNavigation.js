@@ -8,7 +8,7 @@ export default function MobileNavigation(props) {
     
     return (
         <div onClick={props.clic}>
-            <button className={props.openMenu ? [classes.Menu, classes.ActiveCross].join(' ') : classes.Menu} id="button-menu">
+            <button className={props.openMenu ? [classes.Menu, classes.ActiveCross].join(' ') : classes.Menu} id="button-menu" aria-labelledby="Open and close menu">
                 <span></span>
             </button>
             <div className={props.openMenu ? [classes.DivNav, classes.DivNavOpen].join(' ') : [classes.DivNav, classes.DivNavClose].join(' ')} id="menu-mobile">

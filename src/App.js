@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect, useLayoutEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Layout from './hoc/Layout/Layout';

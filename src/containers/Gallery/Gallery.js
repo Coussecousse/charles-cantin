@@ -122,6 +122,7 @@ export default function Gallery(props) {
         setFiltredCategories(newFiltredCategories);
         setCategories(newCategorie);
 
+        // eslint-disable-next-line
     }, [searchParams]);
 
     function closeFilter(e) {
@@ -312,10 +313,10 @@ export default function Gallery(props) {
                 <>
                     <div>
                         <div id="buttons-left-right">
-                            <button id="previous" onClick={handlePreviousPhoto} style={firstPic()}><i className="fa-regular fa-square-caret-left"></i></button>
-                            <button id="next" onClick={handleNextPhoto} style={lastPic()}><i className="fa-regular fa-square-caret-right"></i></button>
+                            <button id="previous" onClick={handlePreviousPhoto} style={firstPic()} aria-labelledby="Previous photo"><i className="fa-regular fa-square-caret-left"></i></button>
+                            <button id="next" onClick={handleNextPhoto} style={lastPic()} aria-labelledby="Next photo"><i className="fa-regular fa-square-caret-right"></i></button>
                         </div>
-                        <button id="close-button"><i className="fa-solid fa-xmark"></i></button>
+                        <button id="close-button" aria-labelledby="Close photo"><i className="fa-solid fa-xmark"></i></button>
                     </div>
                     <img src={photoClicked[1].src} alt={photoClicked[1].alt}></img>
                 </>

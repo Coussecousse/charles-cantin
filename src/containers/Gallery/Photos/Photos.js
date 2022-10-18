@@ -81,7 +81,9 @@ export default function Photos(props) {
             
             return (
                 (affichedPic() ? 
-                    <Photo src={photo.pic} 
+                    <Photo
+                        aria-labelledby="Click for a bigger photo" 
+                        src={photo.pic} 
                         key={photo.id} 
                         alt={photo.alt} 
                         size={props.mobile ? photo.mobileSize : photo.size} 

@@ -4,6 +4,6 @@ export default function Categorie(props){
 
     
     return (
-        <li onClick={props.filterClick}><button>{props.children}</button></li>
+        <li onClick={props.filterClick} aria-labelledby="Click to add categorie"><button>{props.children}</button></li>
     )
 }

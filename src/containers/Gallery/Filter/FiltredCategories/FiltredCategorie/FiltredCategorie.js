@@ -11,7 +11,7 @@ export default function FiltredCategorie(props) {
     return(
         <li className="filterActive">
             <p>{props.children}</p>
-            <button onClick={props.removeCategorie}><i className="fa-solid fa-xmark"></i></button>
+            <button onClick={props.removeCategorie}><i className="fa-solid fa-xmark" aria-labelledby="Remove filter"></i></button>
         </li>
     )
 }

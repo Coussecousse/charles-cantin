@@ -68,17 +68,17 @@ export default function Contact() {
 
                         <div className={classes.InputDiv}>
                             <label>NOM :
-                                <input type="text" id="name" name="name" pattern='{2,50}' title="2 à 50 caractères requis" required></input>
+                                <input type="text" id="name" name="name" maxLength="50" minLength="2" title="2 à 50 caractères requis" required></input>
                             </label>
                         </div>
                         <div className={classes.InputDiv}>
                             <label>EMAIL :
-                                <input type="email" id="email" name="email" title="Veuillez rentrer une adresse mail valide." required></input>
+                                <input type="email" id="email" name="email" minLength="5" maxLength="50" title="Veuillez rentrer une adresse mail valide."G required></input>
                             </label>
                         </div>
                         <div className={classes.InputDiv}>
                             <label>TEL* :
-                                <input type="tel" id="tel" name="tel" pattern='[0-9]{4, 20}' title="Ne doit contenir que des chiffres et jusqu'à 20 caractères."></input>
+                                <input type="tel" id="tel" name="tel" minLength="4" maxLength="20" title="Ne doit contenir que des chiffres et jusqu'à 20 caractères."></input>
                             </label>
                         </div>
                         <div className={classes.InputDiv}>
@@ -95,7 +95,7 @@ export default function Contact() {
                         </div>
                         <div className={classes.Textarea}>
                             <label>MESSAGE :
-                                <textarea maxLength="500" pattern="{1,500}" title="500 caractères maximum." placeholder="500 caractères maximum." name="message"></textarea>
+                                <textarea maxLength="500" minLength="20" title="20 à 500 caractères maximum." placeholder="500 caractères maximum." name="message" required></textarea>
                             </label>
                         </div>
                         <button className={classes.BtnSend} type="submit">Envoyer<i className="fa-regular fa-paper-plane"></i></button>

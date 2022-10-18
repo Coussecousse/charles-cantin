@@ -35,12 +35,22 @@ export default function Header(props) {
     
     window.addEventListener('scroll', () => {
         const header = document.querySelector('header');
+        const main = document.querySelector('main');
+        if (header === null) {
+            return;
+        }
         if (window.pageYOffset > 150) {
             header.style.position = 'fixed';
             header.style.background = 'var(--color-600)';
+
+            const size = header.clientHeight;
+
+            main.style.paddingTop = size + 'px';
         } else {
             header.style.position = 'static';
             header.style.background = 'transparent';
+            
+            main.style.paddingTop = '0px';
         }
     })
     
