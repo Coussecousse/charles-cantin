@@ -59,7 +59,6 @@ export default function Gallery(props) {
     useEffect(() => {
         let newCategorie = [];
 
-
         getCurrentSort();
 
         // Check the url for avoid bugs

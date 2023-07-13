@@ -7,7 +7,7 @@ export default function Photo(props) {
             case '3/3' : 
             case '3/3\r':
                 return {
-                    gridColumn: 'span 3'
+                    gridColumn: 'span 2'
                 }
             case '2/3' : 
             case '2/3\r':
@@ -31,7 +31,7 @@ export default function Photo(props) {
                 }
             default:
                 return {
-                    gridColumn: 'span 3' 
+                    gridColumn: 'span 2' 
                 }
         }
     }
