@@ -49,6 +49,14 @@ pics:
     mobileSize: 2/2
   - posX: 50
     posY: 50
+    mobileSize: 1/2
+    pic: /images/the-k-production-wzoe5jzrd6o-unsplash.jpg
+    alt: Lorem Ipsum
+    catégories:
+      - Pour moi
+    size: 3/3
+  - posX: 50
+    posY: 50
     pic: /images/portrait1.jpg
     alt: Portrait d'une femme noire
     catégories:
