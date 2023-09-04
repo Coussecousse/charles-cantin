@@ -4,11 +4,11 @@ description: Prix des prestations de Charles Cantin.
 services:
   - posX: "77"
     posY: 50
-    colorTitle: "#ffffff"
+    colorTitle: "#323f43"
     title: Juste moi
     price: 130€
     content: Séance pour une personne, en extérieur ou en studio
-    pic: /images/portrait-homme.jpg
+    pic: /images/portrait1.jpg
     size: 1/2
   - posX: 50
     posY: 50
