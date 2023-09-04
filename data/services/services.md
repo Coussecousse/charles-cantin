@@ -2,13 +2,13 @@
 mobile: false
 description: Prix des prestations de Charles Cantin.
 services:
-  - posX: 50
+  - posX: "77"
     posY: 50
-    colorTitle: "#323E42"
+    colorTitle: "#ffffff"
     title: Juste moi
     price: 130€
     content: Séance pour une personne, en extérieur ou en studio
-    pic: /images/portrait1.jpg
+    pic: /images/portrait-homme.jpg
     size: 1/2
   - posX: 50
     posY: 50
@@ -23,7 +23,9 @@ services:
     colorTitle: "#323E42"
     title: Famille
     price: 220€
-    content: Pour la famille ou les amis jusqu’à 4 personnes, en extérieur ou en studio 30 euros en supplément par personne au-delà de 4 (hormis enfant jusqu’à 2 ans)
+    content: Pour la famille ou les amis jusqu’à 4 personnes, en extérieur ou en
+      studio 30 euros en supplément par personne au-delà de 4 (hormis enfant
+      jusqu’à 2 ans)
     pic: /images/famille3.jpg
     size: 2/2
   - posX: 50
