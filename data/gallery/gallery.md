@@ -1,5 +1,5 @@
 ---
-mobile: false
+mobile: true
 description: Portfolio du photographe Charles Cantin.
 pics:
   - posX: "0"
@@ -136,14 +136,22 @@ pics:
       - Couple
     size: 3/3
     mobileSize: 2/2
-  - posX: "72"
+  - posX: "50"
+    posY: 50
+    mobileSize: 1/2
+    pic: /images/the-k-production-wzoe5jzrd6o-unsplash.jpg
+    alt: Lorem Ipsum
+    catégories:
+      - Pour moi
+    size: 1/3
+  - posX: "68"
     posY: 50
     pic: /images/portrait-homme.jpg
     alt: Portrait d'un homme moustachu
     catégories:
       - Portrait
     size: 1/3
-    mobileSize: 2/2
+    mobileSize: 1/2
   - posX: "40"
     posY: 50
     pic: /images/bapteme2.jpg
