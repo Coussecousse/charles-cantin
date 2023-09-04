@@ -39,7 +39,8 @@ export default function Header(props) {
         if (header === null) {
             return;
         }
-        if (window.pageYOffset > 150) {
+        console.log(window.innerHeight);
+        if (window.pageYOffset > 150 && window.innerHeight > 900) {
             header.style.position = 'fixed';
             header.style.background = 'var(--color-600)';
 

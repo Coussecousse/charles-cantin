@@ -28,16 +28,16 @@ export default function Contact() {
 
     let navigate = useNavigate()
     const submitHandler = (e) =>{
-      e.preventDefault();
-      let myForm = document.getElementById("contact-form");
+        e.preventDefault();
+        let myForm = document.getElementById("contact-form");
 
-      let formData = new FormData(myForm);
-      
-      fetch("/", {
+        let formData = new FormData(myForm);
+        
+        fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString(),
-      })
+        })
         .then(() => navigate('/contact/success'))
         .catch((error) => alert(error));
     }
