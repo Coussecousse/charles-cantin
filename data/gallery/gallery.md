@@ -166,7 +166,7 @@ pics:
     catégories:
       - Bébé
       - Baptême
-    size: 2/3
+    size: 1/3
     mobileSize: 2/2
   - posX: "61"
     posY: 50
