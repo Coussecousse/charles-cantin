@@ -3,7 +3,7 @@ mobile: true
 description: Portfolio du photographe Charles Cantin.
 pics:
   - posX: "0"
-    posY: "50"
+    posY: "44"
     pic: /images/evenement-mariage2.jpg
     alt: Deux personnes mariées souriant à la caméra
     catégories:
@@ -47,14 +47,6 @@ pics:
       - Bébé
     size: 1/3
     mobileSize: 2/2
-  - posX: 50
-    posY: 50
-    mobileSize: 1/2
-    pic: /images/the-k-production-wzoe5jzrd6o-unsplash.jpg
-    alt: Lorem Ipsum
-    catégories:
-      - Pour moi
-    size: 3/3
   - posX: 50
     posY: 50
     pic: /images/portrait1.jpg
